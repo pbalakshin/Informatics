@@ -1,0 +1,151 @@
+\section{Вопросы для самоконтроля усвоенных знаний}
+
+Следующие вопросы позволят оценить степень усвоения знаний с учетом применения лекционного материала и рекомендованной литературы.
+
+\begin{enumerate}
+    %%% Лекция 1
+    %\item What is the main difference between SMP and MPP systems?
+    \item В чем заключается основное различие между SMP- и MPP-системами?
+    %\item 4.	During the existence of computer technology, the speed of triggering of elements has increased 10^6 times, and the speed of calculations has increased 10^9 times. How this can happen (means why speed increase in 10^9, not 10^6)?
+    \item За время существования вычислительной техники скорость срабатывания элементов увеличилась в $10^6$ раз, а скорость вычислений -- в $10^9$ раз. Как это могло произойти (имеется в виду, почему скорость увеличилась в $10^9$, а не в $10^6$)?
+    %\item Assume that you have a program with parallel fraction k = 0.8 and number of processors p = 4. Based on Amdahl’s law calculate parallel speed up S(p) and parallel efficiency EA(p).
+    \item Предположим, что имеется программа с параллельной долей $k = 0,8$ и числом процессоров $p = 4$. На основе закона Амдала рассчитайте параллельное ускорение $S(p)$ и параллельную эффективность $E_A(p)$.
+
+    %%% Лекция 2
+    %\item You have machine with 4 cores. Thread "A" is running on the 1st core. This thread creates child threads and fibers. Which cores can be used to run such child threads and fibers?
+    \item Имеется вычислительная машина с четырьмя ядрами. На первом ядре запущен поток "A". Этот поток создает дочерние потоки и волокна. Какие ядра могут быть использованы для запуска таких дочерних потоков и волокон?
+    %\item There is a code that you executed on 4 cores machine.
+    % Program was interrupted during execution on thread #3. Which thread will be used to handle additional swap from interrupt_handler?
+    \item Имеется код, который выполнялся на вычислительной машине с четырьмя ядрами.
+    \begin{minted}{c++}
+    __thread int t;
+    void swap(int *x, int *y) {
+        t = *x;
+        *x = *y;
+        // hardware interrupt
+        *y = t;
+    }
+    void interrupt_handler() {
+        int x = 1, y = 2;
+        swap(&x, &y);
+    }
+    \end{minted}
+
+    Программа была прервана во время выполнения на потоке №3. Какой поток будет использоваться для обработки дополнительного вызова функции swap() от обработчика прерываний?
+
+    %\item How is a thread-safe function different from a reenterable function?
+    \item Чем отличается потокобезопасная функция от реентерабельной?
+
+    %\item Specify the main disadvantages of Hyper-Threading.
+    \item Укажите основные недостатки использования Hyper-Threading.
+    
+    %%% Лекция 3
+    %\item What is the main difference between instruction and data parallelism?
+    \item В чем заключается основное различие между распараллеливанием по данным и распараллеливанием по задачам?
+
+    %\itemFrom the False sharing point of view is it good or bad to have bigger cache memory size? Why?
+    \item С точки зрения проблемы False sharing хорошо или плохо иметь больший размер кэш-памяти? Почему?
+    
+    %\item There is an information about some program:
+    %1). Populate an array A (size = 10 elements) with the first 10 elements of Fibonacci sequence. 
+    %2). Populate an array B (same size) with elements from array A, but multiply even elements of array A by 2. Array A will not be changed.
+    %3). Summarize elements of array A -> variable C.
+    %4). Summarize elements of array B -> variable D.
+    %5). Compare variables C and D. 
+
+    %Which parallelization can be used (data, instructions, information flows) and why?
+    \item Имеется информация о некоторой программе:
+    \begin{enumerate}
+        \item Заполнить массив A (размер = 10 элементов) первыми 10 элементами последовательности Фибоначчи. 
+        \item Заполнить массив B (того же размера) элементами из массива A, но четные элементы массива A умножить на 2. Массив A не изменяется.
+        \item Просуммировать элементы массива A и записать в переменную C.
+        \item Просуммировать элементы массива B и записать в переменную D.
+        \item Сравнить переменные C и D. 
+    \end{enumerate}
+    
+    Какое распараллеливание можно использовать (по данным, по задачам, по информационным потокам) и почему?
+
+
+    %%% Лекция 4
+    %\item Modify the following sequential program by adding openmp constructions in order to be parallelized on proper amount of threads:
+
+    \item Используя информацию о программе из предыдущего вопроса, модифицируйте следующую последовательную программу, добавив конструкции OpenMP, чтобы распараллелить ее на соответствующее число потоков:
+    \begin{minted}{c++}
+    populate_array(A);
+    populate_array(B);
+    sum_elements_array(A, C);
+    sum_elements_array(B, D);
+    compare(C, D)
+    \end{minted}
+   
+    
+    %\item What is the main difference between forward and backward compatibility?
+    \item В чем заключается основное различие между прямой и обратной совместимостью?
+
+    
+    %%% Лекция 5
+    %\item The following program is used to calculate number s as the sum of integers from 0 to 49. The program is compiled using OpenMP technology and runs on a dual-core processor. Why is the program giving the wrong result?
+    \item Следующая программа используется для вычисления числа $s$ как суммы целых чисел от 0 до 50. Программа скомпилирована с использованием технологии OpenMP и выполняется на двухъядерном процессоре.
+
+    \begin{minted}{c++}
+    #include <stdio.h>
+    #include <omp.h>
+    void main(int argc, char* argv[]) {
+        int s = 0, i = 0;
+        #pragma omp parallel for
+        for (int i = 0; i < 49; i++) s += i;
+        printf("s = %d\n", s);
+    }
+    \end{minted}
+    
+    
+    Почему программа выдает неверный результат?
+
+    %\item How can you change the program from the previous question to give the correct result and use OpenMP's paralleling capabilities to find the sum? Provide all possible solutions.
+    \item Как можно изменить программу из предыдущего вопроса, чтобы получить правильный результат и использовать возможности распараллеливания OpenMP для нахождения суммы? Приведите все возможные решения.
+    
+    %%% Лекция 6
+    % \item Name the main differences between the master directive and the single directive
+    %\item Перечислите основые отличие между директивой <<omp master>> и <<omp single>> в OpenMP.
+
+    % \item Why nested style is faster than cascade one?
+    \item Почему при использовании большого числа циклов в OpenMP время выполнения программы быстрее при использовании вложенного стиля?
+
+    % \item What value n will be printed on the console?
+    % \item What happens if firstprivate will be used instead of lastprivate?
+    % \item What happens if private will be used instead of lastprivate?
+    \item На основе следующего кода ответьте на несколько вопросов:
+    \begin{minted}{c++}
+    int n = 0;
+    printf("Значение n в начале: %d\n", n);
+    #pragma omp parallel for lastprivate(n)
+    for (int i = 0; i < 6; ++i) {
+        n = i * 10;
+    }
+    printf("Значение n в конце: %d\n", n);
+    \end{minted}
+
+    \begin{enumerate}[label*=\arabic*.]
+        \item Какое значение $n$ будет выведено в конце?
+        \item Как изменится значение $n$ в конце, если <<lastprivate>> заменить на <<firstprivate>>?
+        \item Как изменится значение $n$ в конце, если <<lastprivate>> заменить на <<private>>?
+    \end{enumerate}
+    
+    %%% Лекция 7
+    % \item How many threads can be involved in deadlock? Explain your answer
+     \item Какое число потоков необходимо для возможного появления взаимной блокировки? Объясните ответ.
+
+     % \item What does transactional memory mean? Give examples of usage.
+     \item Что такое программная транзакционная память? Приведите пример использования.
+
+     % \item With the help of what function in POSIX THREAD the thread pool is merged (when one thread is waiting for another thread to finish).
+     \item С помощью какой функции в POSIX Threads происходит слияние пула потоков (когда один поток ожидает завершения другого потока).
+     
+    
+    %%% Лекция 8
+    % \item You have an array of 317 element. Local work size = 12. Specify work_group_id and local_id for element 134
+    \item Имеется массив из 317 элементов, который обрабатывается с помощью OpenCL, значение local\_work\_size = 12. Укажите work\_group\_id and local\_id для элемента с индексом 134.
+    
+    % \item Specify OpenCL memory types. How do they relate to each other?
+    \item Перечислите типы памяти, существующие в OpenCL. Есть ли особенности взаимодействия разных типов памяти?
+\end{enumerate}
