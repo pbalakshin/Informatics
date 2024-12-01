@@ -1,4 +1,4 @@
-\documentclass[14pt]{extarticle}
+\documentclass[14pt, fleqn]{extarticle}
 
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -7,6 +7,11 @@
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{indentfirst} %indent first par
+
+% Шрифт Times в тексте как основной
+\usepackage{tempora}
+% Шрифт Times в формулах как основной
+\usepackage[varg, cmbraces, cmintegrals]{newtxmath}
 
 \usepackage[breaklinks]{hyperref}
 \usepackage{xurl}
@@ -22,28 +27,49 @@
 \usepackage{lastpage}
 \usepackage{ulem} %зачёркнутый текст
 \usepackage{svg}
+\usepackage{wrapfig}
+\usepackage{iflang}
 
-% Шрифт Times в тексте как основной
-\usepackage{tempora}
-% Шрифт Times в формулах как основной
-\usepackage[varg, cmbraces, cmintegrals]{newtxmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
 
+% \usepackage{siunitx} % for B/kB/MB etc.
 
 \usepackage{tikz}
+\usetikzlibrary{graphs}
 
-
-% \usepackage{todonotes}
-% \presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
 
 \usepackage{enumitem} %for list customization
 % \setlist[itemize]{leftmargin=2cm,labelsep=0.5cm}
 % \setlist[enumerate]{leftmargin=1.5cm}
 
+\usepackage{longtable}
 \usepackage{tabularx}
+
 \usepackage{makecell}
 \renewcommand\theadfont{\normalsize\bfseries}
+
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+\usepackage{multirow}
+
+%% Многостраничные таблицы в гостовском формате. Аргументы:
+%% 1 - имя, по которому ссылаемся
+%% 2 - подпись
+%% 3 - строка форматирования столбцов (как в tabular)
+%% 4 - заголовки столбцов (первая строчка, которая будет везде повторяться)
+%% 5 - число столбцов (не осилил вычислить его из значения 3)
+
+\newenvironment{nirtable}[5]{
+    \begin{longtable}{#3}
+        \caption{#2}\label{#1}
+        \\\hline #5 \\\hline \endfirsthead
+        \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline #5 \\\hline \endhead
+}{\end{longtable}}
+
+% \newcommand{\innesr}[2][]{\renewcommand*{\arraystretch}{1}\begin{tabular}{>{#1}c}#2\end{tabular}}
 
 % footnotes will start from 1 on each page
 \usepackage[perpage]{footmisc}
@@ -55,15 +81,6 @@
 % Использовать полужирное начертание для векторов
 \let\vec=\mathbf
 
-
-\graphicspath{ {./images/} }
-
-\pagestyle{plain} %for counting pages
-\setcounter{page}{2}
-
-%% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
-\setlength{\parindent}{1.25cm}
-
 %% Не используем буллеты.
 % \renewcommand\labelitemi{---}
 
@@ -74,7 +91,13 @@
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
-\titleformat*{\paragraph}{\normalsize\bfseries}
+% \titleformat*{\paragraph}{\normalsize\bfseries}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 \titleformat*{\subparagraph}{\normalsize\bfseries}
 
 \usepackage{listings} %listings
@@ -166,6 +189,24 @@
     }
 }
 
+\newcommand{\hiddensection}[1]{
+\phantomsection
+\section*{#1}
+\addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\hiddensubsection}[1]{
+\phantomsection
+\subsection*{#1}
+\addcontentsline{toc}{subsection}{#1}
+}
+
+\newcommand{\hiddensubsubsection}[1]{
+\phantomsection
+\subsubsection*{#1}
+\addcontentsline{toc}{subsubsection}{#1}
+}
+
 % Сделаем ссылки URL нормальным шрифтомs
 \renewcommand\UrlFont{\rmfamily}
 
@@ -230,7 +271,6 @@
 }
 
 
-
 \setminted{
     fontsize=\small,
     frame=single,
@@ -258,18 +298,31 @@
 
 % \setlength{\marginparwidth}{2cm}
 
-%% раскомментите при дебаге и закомментите при релизе
+%% Закомментить при дебаге и раскомменить при релизе
 %% наличие данной команды убирает все блоки туду с документа
 % \presetkeys{todonotes}{disable}{}
 
 \providecommand\phantomsection{}
 
+\graphicspath{ {./images/} }
+
+\pagestyle{plain} %for counting pages
+\setcounter{page}{2}
+
+%% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
+\setlength{\parindent}{1.25cm}
+
+\newcommand{\example}[1]{\bigskip\noindent\emph{\textbf{Пример #1:}} }
+\newcommand{\task}{\noindent\emph{\textit{Задание:}} }
+\newcommand{\solution}{\noindent\emph{\textit{Решение:}} }
+\newcommand{\answer}{\noindent\emph{\textit{Ответ:}} }
+\newcommand{\explain}{\noindent\emph{\textit{Пояснение:}} }
 
 \begin{document}
     \nocite{*}
 
     % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
-    \include{titlePage} %обложка, не идеёт в счёт страниц
+    \include{titlePage} %обложка, не идёт в счёт страниц
     \include{firstPage}
     \include{description}
 
@@ -277,17 +330,32 @@
     \addtocontents{toc}{\protect\sloppy}
     \tableofcontents
 
-    \include{introduction}
+    \include{src/00_about_the_course}
     \include{src/01_theory}
-    \include{section02_0}
-    \include{section03_0}
-    \include{section04_theor_q}
-    \include{section05_0_lab1}
-    \include{section06_0_lab2}
-    \include{section07_0_lab3}
-    \include{section08_0_lab4}
-    \include{section09_0_lab5}
-    \include{section10_0_lab6}
+    \include{src/02}
+    \include{src/03_notation_systems}
+    \include{src/04_limited_arithmetics}
+    % \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
+    \include{src/05_data_compression}
+    % \include{_OLD_Informatics/chapter6_old}
+    % \include{_OLD_Informatics/chapter7_old}
+    % \include{_OLD_Informatics/chapter8_old}
+    % \include{_OLD_Informatics/chapter9_old}
+    % \include{_OLD_Informatics/chapter10_old}
+    % \include{_OLD_Informatics/chapter11_old}
+    
+    % \include{src/01_theory}
+    % \include{section02_0}
+    % \include{section03_0}
+    % \include{section04_theor_q}
+    
+    % Labs from old book
+    % \include{section05_0_lab1}
+    % \include{section06_0_lab2}
+    % \include{section07_0_lab3}
+    % \include{section08_0_lab4}
+    % \include{section09_0_lab5}
+    % \include{section10_0_lab6}
     \include{conclusion}
     \addbibliography{Список использованных и рекомендованных источников}
     \include{lastPage}

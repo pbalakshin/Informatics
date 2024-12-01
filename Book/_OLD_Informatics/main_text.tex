@@ -1,0 +1,94 @@
+\documentclass[a5paper,14pt]{report}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[english, russian]{babel}
+%\usepackage[cp1251]{inputenc}
+\usepackage[T1,T2A]{fontenc} %added
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\graphicspath{{images/}}
+\usepackage{indentfirst}
+\usepackage{multicol}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage{color,colortbl}
+\definecolor{Gray1}{gray}{0.7}
+\definecolor{Gray2}{gray}{0.6}
+\definecolor{Gray3}{gray}{0.5}
+\definecolor{Gray4}{gray}{0.4}
+\usepackage{geometry}
+\geometry{left=1.5cm}
+\geometry{right=1.5cm}
+\geometry{top=1cm}
+\geometry{bottom=2cm}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
+
+
+\begin{document}
+
+\begin{titlepage}
+Балакшин П.В., Соснин В.В.  Информатика. – СПб: Университет ИТМО, 2018. – 122 с.
+\\\\\textbf{TO REVIEW AND REWRITE!!!!} В пособии излагаются основные понятия, необходимые для более глубокого изучения компьютерной техники и систем в будущем. Рассматриваются основные принципы построения, функционирования и организации памяти ЭВМ. Предлагается изучить несколько пакетов, в том числе систему компьютерной верстки TeX, и некоторые варианты распознавания того, что данные были переданы с ошибкой.
+\\\\\\\\Рекомендовано к печати Ученым советом факультета программной инженерии и компьютерной техники. 
+\vspace{5 cm}
+\begin{flushright}
+\includegraphics[width=5cm]{ITMO_log}
+\end{flushright}
+Университет ИТМО – ведущий вуз России в области информационных и фотонных технологий, один из немногих российских вузов, получивших в 2009 году статус национального исследовательского университета. С 2013 года Университет ИТМО – участник программы повышения конкурентоспособности российских университетов среди ведущих мировых научно-образовательных центров, известной как проект «5 в 100». Цель Университета ИТМО – становление исследовательского университета мирового уровня, предпринимательского по типу, ориентированного на интернационализацию всех направлений деятельности. 
+\begin{flushright}
+\copyright Университет ИТМО, 2018
+\\\copyright Балакшин П.В., Соснин В.В., 2018
+\end{flushright}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+%\textbf{О курсе\\}
+\input{0_about_the_course}
+
+\newpage
+%\textbf{Введение в информатику\\}
+\input{1_introduction_to_informatics}
+
+\newpage
+%\textbf{Основы теории информации\\}
+\input{2_information_theory}
+
+
+%\chapter{Единицы измерения объема данных}
+%\input {chapter1}
+%
+%\chapter{Системы счисления}
+%\input {chapter2}
+%
+%\chapter{Арифметика в ограниченной разрядной сетке}
+%\input {chapter3}
+%
+%\chapter{Теория информации}
+%\input {chapter4}
+%
+%\chapter{Сжатие данных}
+%\input {chapter5}
+%
+%\chapter{Помехоустойчивое кодирование}
+%\input {chapter6}
+%
+%\chapter{Алгебра логики}
+%\input {chapter7}
+%
+%\chapter{Программное обеспечение}
+%\input {chapter8}
+%
+%\chapter{Структура и принципы функционирования компьютера}
+%\input {chapter9}
+%
+%\chapter{Организация хранения данных в ЭВМ}
+%\input {chapter10}
+%
+%\chapter{Передача данных в компьютерных сетях}
+%\input {chapter11}
+
+\end{document} 
