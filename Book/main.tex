@@ -1,275 +1,68 @@
 \documentclass[14pt, fleqn]{extarticle}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+% \usepackage[left=3cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
 
+% === ШРИФТЫ И ЯЗЫК ===
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
-% \usepackage[left=3cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
-\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
-\usepackage{graphicx}
-\usepackage{indentfirst} %indent first par
 
 % Шрифт Times в тексте как основной
 \usepackage{tempora}
 % Шрифт Times в формулах как основной
 \usepackage[varg, cmbraces, cmintegrals]{newtxmath}
 
-\usepackage[breaklinks]{hyperref}
-\usepackage{xurl}
-
-\usepackage{xr} % cross-file references
-\usepackage{minted} % code listings
-
-\usepackage{csquotes}
-\usepackage[font=normalsize,labelfont=it,textfont=it,justification=centering]{caption}
-\usepackage{subcaption}
-\usepackage{float} %for figure position
-\usepackage{amsmath} %for math equations
-\usepackage{lastpage}
+% === ТИПОГРАФИКА ===
+\usepackage{indentfirst}
+%% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
+% \setlength{\parindent}{1.25cm}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{microtype}
 \usepackage{ulem} %зачёркнутый текст
-\usepackage{svg}
-\usepackage{wrapfig}
-\usepackage{iflang}
-
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.9}
-
-% \usepackage{siunitx} % for B/kB/MB etc.
-
-\usepackage{tikz}
-\usetikzlibrary{graphs}
-
-\usepackage{todonotes}
-\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
-
-\usepackage{enumitem} %for list customization
-% \setlist[itemize]{leftmargin=2cm,labelsep=0.5cm}
-% \setlist[enumerate]{leftmargin=1.5cm}
-
-\usepackage{longtable}
-\usepackage{tabularx}
-
-\usepackage{makecell}
-\renewcommand\theadfont{\normalsize\bfseries}
-
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
-\usepackage{multirow}
-
-%% Многостраничные таблицы в гостовском формате. Аргументы:
-%% 1 - имя, по которому ссылаемся
-%% 2 - подпись
-%% 3 - строка форматирования столбцов (как в tabular)
-%% 4 - заголовки столбцов (первая строчка, которая будет везде повторяться)
-%% 5 - число столбцов (не осилил вычислить его из значения 3)
-
-\newenvironment{nirtable}[5]{
-    \begin{longtable}{#3}
-        \caption{#2}\label{#1}
-        \\\hline #5 \\\hline \endfirsthead
-        \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline #5 \\\hline \endhead
-}{\end{longtable}}
-
-% \newcommand{\innesr}[2][]{\renewcommand*{\arraystretch}{1}\begin{tabular}{>{#1}c}#2\end{tabular}}
-
-% footnotes will start from 1 on each page
-\usepackage[perpage]{footmisc}
-
-%% Перечисления по умолчанию слишком разрежены.
-% \usepackage{enumitem}
-% \setlist{nosep}
-
-% Использовать полужирное начертание для векторов
-\let\vec=\mathbf
 
 %% Не используем буллеты.
 % \renewcommand\labelitemi{---}
 
-% \newcommand{\specialcell}[2][c]{%command \specialcell for auto-carry in cells of table
-% \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-
-\usepackage{titlesec}
-\titleformat*{\section}{\large\bfseries}
-\titleformat*{\subsection}{\normalsize\bfseries}
-\titleformat*{\subsubsection}{\normalsize\bfseries}
-% \titleformat*{\paragraph}{\normalsize\bfseries}
-
-\titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-
-\titleformat*{\subparagraph}{\normalsize\bfseries}
-
-\usepackage{listings} %listings
-\usepackage{color} %colors for listings
-
-
-%% "Тонкая" настройка теховских штрафов при формировании абзацев.
-\sloppy
-\binoppenalty=10000
-\relpenalty=10000
-\clubpenalty=10000
-\widowpenalty=10000
-
-%% Подписи к рисункам, таблицам, листингам.
-\floatstyle{plaintop}
-
-\captionsetup[figure]{
-    labelsep=endash,
-    singlelinecheck=false,
-    labelfont={normalsize,md},
-    justification=centering,
-    position=bottom
-}
-
-\captionsetup[table]{
-    labelsep=endash,
-    singlelinecheck=false,
-    labelfont={normalsize,md},
-    justification=justified,
-    position=top
-}
-
-% \floatsetup[algorithm]{style=plain, capposition=top}
-% \captionsetup[algorithm]{
-%     labelsep=endash,
-%     singlelinecheck=false,
-%     labelfont={normalsize,md},
-%     justification=justified,
-%     position=top
-% }
-
-% \floatsetup[lstlisting]{style=plain, capposition=top}
-% \captionsetup[lstlisting]{
-%     labelsep=endash,
-%     singlelinecheck=false,
-%     labelfont={normalsize,md},
-%     justification=justified,
-%     position=top
-% }
-
-
-
+% === ПОДПИСИ ===
+% \usepackage[font=normalsize,labelfont=it,textfont=it,justification=centering]{caption}
 
 \usepackage[
-    backend=biber,
-    bibencoding=utf8,
-    language=auto,
-    autolang=other,
-    movenames=false,
-    sorting=ntvy,
-    isbn=false,
-    style=gost-numeric,
-]{biblatex}
+    font=normalsize,
+    labelfont=normalsize,
+    textfont=it,
+    singlelinecheck=false,
+    labelsep=endash,
+    position=top,
+    justification=justified
+]{caption}
+\captionsetup[figure]{position=bottom,justification=centering}
+\usepackage{subcaption}
 
-\renewcommand*{\mkgostheading}[1]{#1}
-\providecommand{\datecircaprint}{}
-\providecommand{\dateeraprintpre}[1]{}
-\providecommand{\mkyearzeros}{}
-\providecommand{\dateeraprint}[1]{}
-\providecommand{\dateuncertainprint}{}
+\usepackage[capposition=top]{float}
+% \floatsetup[figure]{capposition=bottom}
 
-\renewbibmacro*{//}{\nopunct\printtext{\addspace\mbox{//}\addnbspace}}
-\renewcommand*{\newblockpunct}{\textemdash\addnbspace\bibsentence}
-\DeclareFieldFormat*{pages}{\mkpageprefix[bookpagination][\mbox]{#1}}
-\DeclareFieldFormat*{labelnumberwidth}{#1}
-\DefineBibliographyStrings{english}{pages={p\adddot}}
-\DefineBibliographyExtras{russian}{\protected\def\bibrangedash{\textendash\penalty\hyphenpenalty}}
+% === ГРАФИКА ===
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{svg}
 
-\DeclareSourcemap{
-    \maps[datatype=bibtex]{
-        \map{
-            \step[fieldsource=language, match=russian, final]
-            \step[fieldset=presort, fieldvalue={a}]
-        }
-        \map{
-            \step[fieldsource=language, notmatch=russian, final]
-            \step[fieldset=presort, fieldvalue={z}]
-        }
-    }
-}
+% === TikZ и PGFPlots ===
+\usepackage{tikz}
+\usetikzlibrary{graphs}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
 
-\newcommand{\hiddensection}[1]{
-\phantomsection
-\section*{#1}
-\addcontentsline{toc}{section}{#1}
-}
+% === МАТЕМАТИКА ===
+\usepackage{amsmath}
 
-\newcommand{\hiddensubsection}[1]{
-\phantomsection
-\subsection*{#1}
-\addcontentsline{toc}{subsection}{#1}
-}
-
-\newcommand{\hiddensubsubsection}[1]{
-\phantomsection
-\subsubsection*{#1}
-\addcontentsline{toc}{subsubsection}{#1}
-}
-
-% Сделаем ссылки URL нормальным шрифтомs
-\renewcommand\UrlFont{\rmfamily}
-
-% Уберём пробел перед разделяющим двоеточием
-\renewcommand*{\addcolondelim}{\addcolon\space}
-
-\DeclareBibliographyDriver{online}{%
-    \usebibmacro{bibindex}%
-    \usebibmacro{begentry}%
-    \usebibmacro{heading}%
-    \newunit
-    \usebibmacro{author/editor}%
-    \setunit*{\labelnamepunct}%
-    \usebibmacro{title}%
-    \addspace\foreignlanguage{russian}{[Электронный ресурс]}
-    \setunit{\addcolondelim}%
-    \usebibmacro{translation}%
-    \def\bbx@gost@respdelim{\setunit{\respdelim}}% ----- Resp starts -----
-    \usebibmacro{byauthor}%
-    \setunit*{\resppunct}%
-    \iflistundef{organization}
-    {}
-    {%
-        \setrespdelim%
-        \printlist{organization}%
-        \setunit*{\resppunct}%
-    }%
-    \usebibmacro{credits}%
-    \setunit*{\resppunct}%
-    \usebibmacro{byeditor}%
-    \setunit*{\resppunct}%
-    \usebibmacro{bytranslator+others}%
-    \newunit\newblock
-    \printfield{version}%
-    \newunit\newblock
-    \printlist[semicolondelim]{specdata}%
-    \newunit\newblock
-    \usebibmacro{date}%
-    \newunit\newblock
-    \printupdate%
-    \newunit\newblock
-    \printfield{systemreq}%
-    \newunit\newblock
-    \usebibmacro{doi+eprint+url+note}%
-    \newunit\newblock
-    \usebibmacro{addendum+pubstate}%
-    \setunit{\bibpagerefpunct}\newblock
-    \usebibmacro{pageref}%
-    \newunit\newblock
-    \usebibmacro{related:init}%
-    \usebibmacro{related}%
-    \usebibmacro{finentry}
-}
+% Использовать полужирное начертание для векторов
+\let\vec=\mathbf
 
 
-\addbibresource{bibliography.bib}
-
-\newcommand{\addbibliography}[1]{
-    \phantomsection
-    \addcontentsline{toc}{section}{#1}
-    \printbibliography[title={#1}]
-}
-
+% === ЛИСТИНГИ КОДА ===
+\usepackage{listings} % Deprecated. Use minted instead
+\usepackage{minted}
 
 \setminted{
     fontsize=\small,
@@ -287,7 +80,7 @@
     breakafter=-/
 }
 
-% Disabling italic font in minted
+% Отключение курсива в minted
 \usepackage{xpatch}
 \xpatchcmd{\mint}{\begingroup}{\begingroup\let\itshape\relax}{}{}
 \xpatchcmd{\inputminted}{\begingroup}{\begingroup\let\itshape\relax}{}{}
@@ -296,69 +89,140 @@
 
 \newcommand{\code}[2][text]{\mintinline{#1}{#2}}
 
-% \setlength{\marginparwidth}{2cm}
+% === ССЫЛКИ ===
+\usepackage[breaklinks]{hyperref}
+\usepackage{xurl}
+\usepackage{xr} % cross-file references
+\usepackage{csquotes}
+\usepackage{lastpage}
 
+%% Сноски начинаются с 1 на каждой странице
+\usepackage[perpage]{footmisc}
+
+% === СПИСОК И ПЕРЕЧНИ ===
+\usepackage{enumitem}
+% \setlist{nosep}
+% \setlist[itemize]{leftmargin=2cm,labelsep=0.5cm}
+% \setlist[enumerate]{leftmargin=1.5cm}
+
+% === Дополнительные пакеты ===
+\usepackage{siunitx} % for B/kB/MB etc.
+
+% === ТАБЛИЦЫ ===
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+
+\renewcommand\theadfont{\normalsize\bfseries}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+%% Многостраничные таблицы в гостовском формате. Аргументы:
+%% 1 - имя, по которому ссылаемся
+%% 2 - подпись
+%% 3 - строка форматирования столбцов (как в tabular)
+%% 4 - заголовки столбцов (первая строчка, которая будет везде повторяться)
+%% 5 - число столбцов (не осилил вычислить его из значения 3)
+
+\newenvironment{nirtable}[5]{
+    \begin{longtable}{#3}
+        \caption{#2}\label{#1}
+        \\\hline #5 \\\hline \endfirsthead
+        \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline #5 \\\hline \endhead
+}{\end{longtable}}
+
+% \newcommand{\innesr}[2][]{\renewcommand*{\arraystretch}{1}\begin{tabular}{>{#1}c}#2\end{tabular}}
+
+% === ЦВЕТА ===
+% draw.io cell colors
+\definecolor{iogreen}{RGB}{213 232 212}
+\definecolor{ioyellow}{RGB}{255, 242, 204}
+\definecolor{ioorange}{RGB}{255, 230, 204}
+\definecolor{iored}{RGB}{248, 206, 204}
+
+% === TODO заметки ===
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
 %% Закомментить при дебаге и раскомменить при релизе
 %% наличие данной команды убирает все блоки туду с документа
 % \presetkeys{todonotes}{disable}{}
 
+% === Форматирование секций ===
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+% \titleformat*{\paragraph}{\normalsize\bfseries}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat*{\subparagraph}{\normalsize\bfseries}
+
+%% === "Тонкая" настройка теховских штрафов при формировании абзацев. ===
+\sloppy             % «Будь менее строгим к выравниванию строк»
+\binoppenalty=10000 % Запрещает разрыв строки после бинарного оператора (+ - = \times и т.п.).
+\relpenalty=10000   % Запрещает разрыв строки после знаков отношений
+\clubpenalty=10000  % Запрещает висячие строки в начале абзаца
+\widowpenalty=10000 % Запрещает висячие строки в конце абзаца
+
+% === Библиография (biblatex + biber) ===
+\input{preambule/bibliography}
+\addbibresource{bibliography.bib}
+
 \providecommand\phantomsection{}
 
+% === Команды для примеров и заданий ===
+\newcommand{\example}[1]{\par\bigskip\noindent\emph{\textbf{Пример #1:}} }
+\newcommand{\task}{\par\smallskip\noindent\emph{\textit{Задание:}} }
+\newcommand{\solution}{\par\smallskip\noindent\emph{\textit{Решение:}} }
+\newcommand{\answer}{\par\smallskip\noindent\emph{\textit{Ответ:}} }
+\newcommand{\explain}{\par\smallskip\noindent\emph{\textit{Пояснение:}} }
+
+% === Путь для картинок ===
 \graphicspath{ {./images/} }
 
-\pagestyle{plain} %for counting pages
+% === Нумерация страниц ===
+\pagestyle{plain}
 \setcounter{page}{2}
-
-%% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
-\setlength{\parindent}{1.25cm}
-
-\newcommand{\example}[1]{\bigskip\noindent\emph{\textbf{Пример #1:}} }
-\newcommand{\task}{\noindent\emph{\textit{Задание:}} }
-\newcommand{\solution}{\noindent\emph{\textit{Решение:}} }
-\newcommand{\answer}{\noindent\emph{\textit{Ответ:}} }
-\newcommand{\explain}{\noindent\emph{\textit{Пояснение:}} }
-
 \begin{document}
-    \nocite{*}
+\nocite{*}
 
-    % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
-    \include{titlePage} %обложка, не идёт в счёт страниц
-    \include{firstPage}
-    \include{description}
+% \todo{Если видно это сообщение - раскомментировать строку в main.tex}
+\include{0_title_page} % обложка, не идёт в счёт страниц
+\include{1_first_page.tex}
+\include{2_description}
 
-    \setcounter{page}{3}
-    \addtocontents{toc}{\protect\sloppy}
-    \tableofcontents
+% Вставка оглавления, начиная с 3 страницы
+\setcounter{page}{3}
+\addtocontents{toc}{\protect\sloppy}
+\tableofcontents
 
-    \include{src/00_about_the_course}
-    \include{src/01_theory}
-    \include{src/02}
-    \include{src/03_notation_systems}
-    \include{src/04_limited_arithmetics}
-    % \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
-    \include{src/05_data_compression}
-    % \include{_OLD_Informatics/chapter6_old}
-    % \include{_OLD_Informatics/chapter7_old}
-    % \include{_OLD_Informatics/chapter8_old}
-    % \include{_OLD_Informatics/chapter9_old}
-    % \include{_OLD_Informatics/chapter10_old}
-    % \include{_OLD_Informatics/chapter11_old}
-    
-    % \include{src/01_theory}
-    % \include{section02_0}
-    % \include{section03_0}
-    % \include{section04_theor_q}
-    
-    % Labs from old book
-    % \include{section05_0_lab1}
-    % \include{section06_0_lab2}
-    % \include{section07_0_lab3}
-    % \include{section08_0_lab4}
-    % \include{section09_0_lab5}
-    % \include{section10_0_lab6}
-    \include{conclusion}
-    \addbibliography{Список использованных и рекомендованных источников}
-    \include{lastPage}
-    \include{backPage} %задняя страница обложки, не идёт в счёт страниц
+\include{src/00_about_the_course}
+\include{src/01_theory}
+\include{src/02_data_measurement_units}
+\include{src/03_notation_systems}
+\include{src/04_limited_arithmetics}
+% \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
+\include{src/05_data_compression}
+\include{src/06_error_correcting_coding}    
+\include{src/07_boolean_algebra} 
+\include{src/08_software} 
+\include{src/09_machine} 
+\include{src/10_memory}
+\include{src/11_osi} 
+
+\include{4_conclusion}
+
+\addbibliography{Список использованных и рекомендованных источников}
+
+\include{5_last_page}
+\include{6_back_page} %задняя страница обложки, не идёт в счёт страниц
 
 \end{document}

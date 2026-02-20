@@ -1,0 +1,150 @@
+\subsection{Основные тождества}
+\label{subsec:basic-identities}
+
+% TODO: Выбрать
+\begin{enumerate}
+    \item Аксиома двойного отрицания 
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{c}
+        $\overline{\overline{x}} = x$ \\
+    \end{tabular}
+    \end{center}
+
+    \item Аксиома существования 1 и 0
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $0 = \overline{1}$ & $x \vee \overline{x} = 1$ \\
+        $1 = \overline{0}$ & $x \wedge \overline{x} = 0$ \\
+    \end{tabular}
+    \end{center}
+
+    \item Закон идемпотенции
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $x \vee x = x$ & $x \wedge x = x$ \\
+    \end{tabular}
+    \end{center}
+
+    \item Закон коммутативности
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $x \vee y = y \vee x$ & $x \wedge y = y \wedge x$ \\
+    \end{tabular}
+    \end{center}
+    
+    \item Закон поглощения
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $x \vee (x \wedge y) = x$ & $x \wedge (x \vee y) = x$ \\
+    \end{tabular}
+    \end{center}
+
+    \item Закон ассоциативности
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $x \vee (y \vee z) = (x \vee y) \vee z$ & $x \wedge (y \wedge z) = (x \wedge y) \wedge z$ \\
+    \end{tabular}
+    \end{center}
+
+    \item Закон дистрибутивности
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$ & $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$ \\
+    \end{tabular}
+    \end{center}
+    
+    \item Законы де Моргана
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $\overline{x \vee y} = \overline{x} \wedge \overline{y}$ & $\overline{x \wedge y} = \overline{x} \vee \overline{y}$ \\
+    \end{tabular}
+    \end{center}
+
+    \item Закон нейтральности
+    \begin{center}
+    \vspace*{-\baselineskip}
+    \begin{tabular}{cc}
+        $x \vee (y \wedge \overline{y}) = x$ & $x \wedge (y \vee \overline{y}) = x$ \\
+    \end{tabular}
+    \end{center}
+\end{enumerate}
+
+% TODO: remove
+% \subsection*{Основные тождества}
+% \begin{enumerate}
+%     \item Аксиома двойного отрицания \\
+%     $$\bar{\bar{x}} = x$$
+%     \item Аксиома существования 1 и 0 \\
+%     \begin{minipage}{5cm}
+%      $$0 = \bar{1}$$
+%      $$1 = \bar{0}$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \vee \bar{x} = 1$$
+%      $$x \wedge \bar{x} = 0$$
+%     \end{minipage}
+%     \item Закон идемпотенции
+%     \begin{center}
+%         \begin{tabular}{c c}
+%         $x \vee x = x$ & $x \wedge x = x$ \\
+%         \end{tabular}
+%     \end{center}
+%     \begin{minipage}{5cm}
+%      $$x \vee x = x$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \wedge x = x$$
+%     \end{minipage}
+%     \item Закон коммутативности \\
+%     \begin{minipage}{5cm}
+%      $$x \vee y = y \vee x$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \wedge y = y \wedge x$$
+%     \end{minipage}
+%     \item Закон поглощения \\
+%     \begin{minipage}{5cm}
+%      $$x \vee (x \wedge y) = x$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \wedge (x \vee y) = x$$
+%     \end{minipage}
+%     \item Закон ассоциативности \\
+%     \begin{minipage}{5cm}
+%      $$x \vee (y \vee z) = (x \vee y) \vee z$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \wedge (y \wedge z) = (x \wedge y) \wedge z$$
+%     \end{minipage}
+%     \item Закон дистрибутивности \\
+%     \begin{minipage}{5cm}
+%      $$x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$$
+%     \end{minipage}
+%     \item Законы де Моргана \\
+%     \begin{minipage}{5cm}
+%      $$\bar{x \vee y} = \bar{x} \wedge \bar{y}$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$\bar{x \wedge y} = \bar{x} \vee \bar{y}$$
+%     \end{minipage}
+%     \item Закон нейтральности \\
+%     \begin{minipage}{5cm}
+%      $$x \vee (y \wedge \bar{y}) = x$$
+%     \end{minipage}
+%     \begin{minipage}{5cm}
+%      $$x \wedge (y \vee \bar{y}) = x$$
+%     \end{minipage}
+% \end{enumerate}
+
+

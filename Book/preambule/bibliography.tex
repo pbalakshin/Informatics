@@ -1,0 +1,117 @@
+% Конфигурация пакетов для библиографии
+
+\usepackage[
+    backend=biber,
+    bibencoding=utf8,
+    language=auto,
+    autolang=other,
+    movenames=false,
+    sorting=ntvy,
+    isbn=false,
+    style=gost-numeric,
+]{biblatex}
+
+\renewcommand*{\mkgostheading}[1]{#1}
+\providecommand{\datecircaprint}{}
+\providecommand{\dateeraprintpre}[1]{}
+\providecommand{\mkyearzeros}{}
+\providecommand{\dateeraprint}[1]{}
+\providecommand{\dateuncertainprint}{}
+
+\renewbibmacro*{//}{\nopunct\printtext{\addspace\mbox{//}\addnbspace}}
+\renewcommand*{\newblockpunct}{\textemdash\addnbspace\bibsentence}
+\DeclareFieldFormat*{pages}{\mkpageprefix[bookpagination][\mbox]{#1}}
+\DeclareFieldFormat*{labelnumberwidth}{#1}
+\DefineBibliographyStrings{english}{pages={p\adddot}}
+\DefineBibliographyExtras{russian}{\protected\def\bibrangedash{\textendash\penalty\hyphenpenalty}}
+
+\DeclareSourcemap{
+    \maps[datatype=bibtex]{
+        \map{
+            \step[fieldsource=language, match=russian, final]
+            \step[fieldset=presort, fieldvalue={a}]
+        }
+        \map{
+            \step[fieldsource=language, notmatch=russian, final]
+            \step[fieldset=presort, fieldvalue={z}]
+        }
+    }
+}
+
+\newcommand{\hiddensection}[1]{
+\phantomsection
+\section*{#1}
+\addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\hiddensubsection}[1]{
+\phantomsection
+\subsection*{#1}
+\addcontentsline{toc}{subsection}{#1}
+}
+
+\newcommand{\hiddensubsubsection}[1]{
+\phantomsection
+\subsubsection*{#1}
+\addcontentsline{toc}{subsubsection}{#1}
+}
+
+% Сделаем ссылки URL нормальным шрифтомs
+\renewcommand\UrlFont{\rmfamily}
+
+% Уберём пробел перед разделяющим двоеточием
+\renewcommand*{\addcolondelim}{\addcolon\space}
+
+\DeclareBibliographyDriver{online}{%
+    \usebibmacro{bibindex}%
+    \usebibmacro{begentry}%
+    \usebibmacro{heading}%
+    \newunit
+    \usebibmacro{author/editor}%
+    \setunit*{\labelnamepunct}%
+    \usebibmacro{title}%
+    \addspace\foreignlanguage{russian}{[Электронный ресурс]}
+    \setunit{\addcolondelim}%
+    \usebibmacro{translation}%
+    \def\bbx@gost@respdelim{\setunit{\respdelim}}% ----- Resp starts -----
+    \usebibmacro{byauthor}%
+    \setunit*{\resppunct}%
+    \iflistundef{organization}
+    {}
+    {%
+        \setrespdelim%
+        \printlist{organization}%
+        \setunit*{\resppunct}%
+    }%
+    \usebibmacro{credits}%
+    \setunit*{\resppunct}%
+    \usebibmacro{byeditor}%
+    \setunit*{\resppunct}%
+    \usebibmacro{bytranslator+others}%
+    \newunit\newblock
+    \printfield{version}%
+    \newunit\newblock
+    \printlist[semicolondelim]{specdata}%
+    \newunit\newblock
+    \usebibmacro{date}%
+    \newunit\newblock
+    \printupdate%
+    \newunit\newblock
+    \printfield{systemreq}%
+    \newunit\newblock
+    \usebibmacro{doi+eprint+url+note}%
+    \newunit\newblock
+    \usebibmacro{addendum+pubstate}%
+    \setunit{\bibpagerefpunct}\newblock
+    \usebibmacro{pageref}%
+    \newunit\newblock
+    \usebibmacro{related:init}%
+    \usebibmacro{related}%
+    \usebibmacro{finentry}
+}
+
+\newcommand{\addbibliography}[1]{
+    \phantomsection
+    \addcontentsline{toc}{section}{#1}
+    \printbibliography[title={#1}]
+}
