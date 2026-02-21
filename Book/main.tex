@@ -97,6 +97,8 @@
 \usepackage{csquotes}
 \usepackage{lastpage}
 
+% \usepackage{import} % Должно помочь не писать постоянно src/02.../...tex
+
 %% Сноски начинаются с 1 на каждой странице
 \usepackage[perpage]{footmisc}
 
@@ -182,7 +184,7 @@
 \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titleformat*{\subparagraph}{\normalsize\bfseries}
 
-%% === "Тонкая" настройка теховских штрафов при формировании абзацев. ===
+%% === <Тонкая> настройка теховских штрафов при формировании абзацев. ===
 \sloppy             % «Будь менее строгим к выравниванию строк»
 \binoppenalty=10000 % Запрещает разрыв строки после бинарного оператора (+ - = \times и т.п.).
 \relpenalty=10000   % Запрещает разрыв строки после знаков отношений
@@ -208,38 +210,38 @@
 % === Нумерация страниц ===
 \pagestyle{plain}
 \setcounter{page}{2}
+
 \begin{document}
-\nocite{*}
+    \nocite{*}
 
-% \todo{Если видно это сообщение - раскомментировать строку в main.tex}
-\include{0_title_page} % обложка, не идёт в счёт страниц
-\include{1_first_page.tex}
-\include{2_description}
+    % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
+    \include{0_title_page} % обложка, не идёт в счёт страниц
+    \include{1_first_page.tex}
+    \include{2_description}
 
-% Вставка оглавления, начиная с 3 страницы
-\setcounter{page}{3}
-\addtocontents{toc}{\protect\sloppy}
-\tableofcontents
+    % Вставка оглавления, начиная с 3 страницы
+    \setcounter{page}{3}
+    \addtocontents{toc}{\protect\sloppy}
+    \tableofcontents
 
-\include{src/00_about_the_course}
-\include{src/01_theory}
-\include{src/02_data_measurement_units}
-\include{src/03_notation_systems}
-\include{src/04_limited_arithmetics}
-% \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
-\include{src/05_data_compression}
-\include{src/06_error_correcting_coding}
-\include{src/07_boolean_algebra}
-\include{src/08_software}
-\include{src/09_machine}
-\include{src/10_memory}
-\include{src/11_osi}
+    \include{src/00_about_the_course}
+    \include{src/01_theory}
+    \include{src/02_data_measurement_units}
+    \include{src/03_notation_systems}
+    \include{src/04_limited_arithmetics}
+    % \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
+    \include{src/05_data_compression}
+    \include{src/06_error_correcting_coding}
+    \include{src/07_boolean_algebra}
+    \include{src/08_software}
+    \include{src/09_machine}
+    \include{src/10_memory}
+    \include{src/11_osi}
 
-\include{4_conclusion}
+    \include{4_conclusion}
 
-\addbibliography{Список использованных и рекомендованных источников}
+    \addbibliography{Список использованных и рекомендованных источников}
 
-\include{5_last_page}
-\include{6_back_page} %задняя страница обложки, не идёт в счёт страниц
-
+    \include{5_last_page}
+    \include{6_back_page} %задняя страница обложки, не идёт в счёт страниц
 \end{document}

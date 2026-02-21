@@ -60,8 +60,11 @@
 
 Рассмотрим таблицу:
 \begin{table}[H]
+    % TODO: Надо ли?
+    % \caption{Caption}
+    % \label{tab:my_label}
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \begin{tabularx}{\linewidth}{|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|}
         \hline
         & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & \\ \hline
         $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $r_{4}$ & $i_{5}$ & $i_{6}$ & $i_{7}$ & $i_{8}$ & $i_{9}$ & $i_{10}$ & S \\ \hline
@@ -69,10 +72,8 @@
         2 & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & $s_{2}$ \\ \hline
         4 & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & $s_{3}$ \\  \hline
         8 & & & & & & & & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & $s_{4}$ \\ \hline
-    \end{tabular}
-    % TODO: Надо ли?
-    % \caption{Caption}
-    % \label{tab:my_label}
+    \end{tabularx}
+
 \end{table}
 
 Данная таблица представлена для кода из 14 бит, но ее можно расширить для нужного размера самостоятельно. \\
@@ -114,7 +115,7 @@
 \noindent
 Классические коды Хэмминга с маркировкой (n, i): (7, 4); (15, 11); (31, 26).
 
-\paragraph{Код Хэмминга для $r = 3$}
+\paragraph{Код Хэмминга для r = 3}
 
 Разбрем код Хэмминга для $r = 3$.
 В данном случае, у нас 7 бит, из них 4 информационных и 3 проверочных.
@@ -247,7 +248,7 @@
      \label{fig:hamming-decoding}
 \end{figure}
 
-\paragraph{Код Хэмминга для $r = 4$}
+\paragraph{Код Хэмминга для r = 4}
 
 Разбрем код Хэмминга для $r = 4$ аналогично тому, как мы сделали это выше.
 В данном случае, у нас 15 бит, из них 11 информационных и 4 проверочных. То есть, код имеет маркировку (15, 11). \\
@@ -255,7 +256,7 @@
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \begin{tabularx}{\linewidth}{|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|}
     \hline
     & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & \\ \hline
     $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $r_{4}$ & $i_{5}$ & $i_{6}$ & $i_{7}$ & $i_{8}$ & $i_{9}$ & $i_{10}$& $i_{11}$ & S \\ \hline
@@ -263,7 +264,7 @@
     2 & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & $s_{2}$ \\ \hline
     4 & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & $s_{3}$ \\ \hline
     8 & & & & & & & & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & $s_{4}$\\ \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \noindent
