@@ -10,14 +10,14 @@
   \item ANSI (англ. \emph{American national standards institute} --- американский национальный институт стандартов).
   \item MIL/IEC (англ. \emph{MILitary} --- военный, {International Electrotechnical Commission} - международная электротехническая комиссия).
   \item DIN (нем. \emph{Deutsches Institut f{\"u}r Normung e. V.} --- немецкий институт по стандартизации).
-  \item ГОСТ 2.743-91, Единая система конструкторской документации. Обозначения условные графические в схемах. Элементы цифровой техники. 
+  \item ГОСТ 2.743-91, Единая система конструкторской документации. Обозначения условные графические в схемах. Элементы цифровой техники.
 \end{itemize}
 
 {
 \newcommand{\gate}[2]{
     \begin{minipage}{.2\textwidth}
         \includegraphics[width=\linewidth]{logic_gates/#1-#2}
-    \end{minipage} 
+    \end{minipage}
 }
 
 \begin{table}[H]
@@ -27,7 +27,7 @@
     \begin{tabular}{|c|c|c|}
         \hline
         \thead{Название}                & \thead{IEC}       & \thead{ANSI}      \\ \hline
-        НЕ, $\bar{A}$ (Инвертор)        & \gate{iec}{not}   & \gate{ansi}{not}  \\ \hline 
+        НЕ, $\bar{A}$ (Инвертор)        & \gate{iec}{not}   & \gate{ansi}{not}  \\ \hline
         И, $A \wedge B$                 & \gate{iec}{and}   & \gate{ansi}{and}  \\ \hline
         ИЛИ, $A \vee B$                 & \gate{iec}{or}    & \gate{ansi}{or}   \\ \hline
         Сумма по модулю 2, $A \oplus B$ & \gate{iec}{xor}   & \gate{ansi}{xor}  \\ \hline

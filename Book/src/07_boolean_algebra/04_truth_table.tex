@@ -1,7 +1,7 @@
 \subsection{Таблица истинности}
 \label{subsec:truth-table}
 
-Существует только 4 различные логические функции одной переменной $F(x)$. 
+Существует только 4 различные логические функции одной переменной $F(x)$.
 Любая другая функция (даже самая сложная вида $F(x) = \overline{x} \vee x \wedge \overline{x}$) будет иметь одну из следующих таблиц истинности:
 \begin{table}[H]
     \centering
@@ -50,7 +50,7 @@ $\left\{
 \begin{minipage}[l]{9cm}
 \begin{tabular}{c|c|c|c|c|c|c|c|c|}
 %\hhline{~--------}
-& \multicolumn{4}{c|}{\makecell[c]{Значения $k$ штук \\ булевых операндов}} 
+& \multicolumn{4}{c|}{\makecell[c]{Значения $k$ штук \\ булевых операндов}}
 & \multicolumn{4}{c|}{Значение булевых функций $F$} \\
 %\hhline{~--------}
 & $x_1$ & $x_2$ & \dots & $x_k$ & $FK,0$ & $FK,1$ & \dots & $FK,N$ \\
@@ -89,16 +89,16 @@ $\left\{
 {\small
 \begin{xltabular}{\textwidth}{|c|c|c|c|c|X|X|}
     \caption{Таблица значений и названий булевых функций от двух переменных\label{tab:2-variable-func-names}}\\\hline
-    
+
     \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
     \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
     \endfirsthead
-    
+
     \multicolumn{7}{r}{\small Продолжение таблицы~\thetable}\\\hline
     \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
     \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
     \endhead
-    
+
     $F$ & 0 & 0 & 0 & 0 & $F_{2,0} = FALSE$ & Противоречие, логический нуль \\ \hline
     $F$ & 0 & 0 & 0 & 1 & $F_{2,1} = x \downarrow y = \allowbreak x \text{ NOR } y = \allowbreak \text{NOR}(x,y) = \allowbreak x \text{ НЕ-ИЛИ } y = \allowbreak \text{НЕ-ИЛИ}(x,y)$ & Cтрелка Пирса, НЕ-ИЛИ, антидизъюнкция \\ \hline
     $F$ & 0 & 0 & 1 & 0 & $F_{2,2} = x\leftarrow /y$ & Отрицание обратной импликации \\ \hline
@@ -123,7 +123,7 @@ $\left\{
 \begin{table}[H]
 \centering
 \footnotesize
-\begin{tabular}{|c|c|c|c|c|p{5cm}|p{5cm}|} 
+\begin{tabular}{|c|c|c|c|c|p{5cm}|p{5cm}|}
 \hline
 $x$ & 1 & 1 & 0 & 0 & \multirow{2}{*}{Обозначение} & \multirow{2}{*}{Название} \\
 $y$ & 1 & 0 & 1 & 0 & & \\
@@ -136,7 +136,7 @@ $y$ & 1 & 0 & 1 & 0 & & \\
 & & & & & $y = $НЕ-ИЛИ$(x,y)$ & \\
 \hline
 \multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & F2,2 = $x\leftarrow /y$ & Отрицание \\
-& & & & & & обратной импликации \\ 
+& & & & & & обратной импликации \\
 \hline
 F & 0 & 0 & 1 & 1 & F2,3 = $\neg x $ & Отрицание \\
 \hline
@@ -190,4 +190,3 @@ F & 1 & 1 & 1 & 1 & F2,15 = $TRUE $ & Тавтология \\
 \end{tabular}
 \caption{Таблица значений и названий булевых функций от двух переменных}
 \end{table}
-
