@@ -27,7 +27,7 @@
 \bigskip
 Для $k$ переменных будет существовать $N = 2^{2^{k}}$ функций. Рассмотрим таблицу истинности:
 
-
+% Эту магию я не трогал
 \begin{minipage}{2cm}
 \begin{center}
 $L$ штук\\
@@ -88,7 +88,7 @@ $\left\{
 % Как nirtable только с возможностью расширить на всю страницу (сделать environment как nirtable не вышло)
 {\small
 \begin{xltabular}{\textwidth}{|c|c|c|c|c|X|X|}
-    \caption{Таблица значений и названий булевых функций от двух переменных}\label{tab:2-variable-func-names}\\\hline
+    \caption{Таблица значений и названий булевых функций от двух переменных\label{tab:2-variable-func-names}}\\\hline
     
     \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
     \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
@@ -155,7 +155,7 @@ F & 0 & 0 & 1 & 1 & F2,3 = $\neg x $ & Отрицание \\
 F & 0 & 1 & 0 & 1 & F2,5 = $ \neg y$ & Отрицание \\
 \hline
 \multirow{4}{*}{F} & \multirow{4}{*}{0} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & F2,6 = $x \oplus y = $ & Сложение по модулю 2, \\
-& & & & & $= x \text{ XOR } y = \text{XOR}(x,y) = $ & исключающее "или" \\
+& & & & & $= x \text{ XOR } y = \text{XOR}(x,y) = $ & исключающее ``или'' \\
 & & & & & $= x >< y = x <> y = $ & сумма Жегалкина, \\
 & & & & & $= x \text{ NE } y = \text{NE}(x,y)$ & не равно \\
 \hline
