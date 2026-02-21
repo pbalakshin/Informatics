@@ -25,9 +25,12 @@
 
 \subsubsection{Мера Хартли}
 
-\begin{wrapfigure}{l}{0.21\textwidth}
+% \noindent
+\begin{minipage}[t]{\textwidth}
+\begin{wrapfigure}{l}{0.25\textwidth}
     \centering
-    \includegraphics[width=0.2\textwidth]{hartley}
+    \vspace{-\intextsep}
+    \includegraphics[width=0.25\textwidth]{person/hartley-ralph}
     \caption*{Ральф Хартли\\1888 -- 1970}
 \end{wrapfigure}
 
@@ -41,7 +44,9 @@ $$
 $$
 H_{s} = \log_{k}N
 $$
+\end{minipage}
 
+\bigskip
 Единицы измерения количества информации:
 \begin{itemize}[noitemsep]
   \item Бит ($k = 2$)
@@ -84,9 +89,10 @@ $$
 
 \subsubsection{Мера Шеннона}
 
-\begin{wrapfigure}{l}{0.21\textwidth}
+\begin{minipage}{\textwidth}
+\begin{wrapfigure}{l}{0.25\textwidth}
     \centering
-    \includegraphics[width=0.2\textwidth]{shannon}
+    \includegraphics[width=0.25\textwidth]{person/shannon-claude}
     \caption*{Клод Шеннон\\1916 -- 2001}
 \end{wrapfigure}
 
@@ -97,7 +103,9 @@ $$I = - \sum^{N}_{i=1}p_{i}\times \log_{2}{p_{i}}$$ где:
     \item [$N$] --- число состояний системы;
     \item [$p_{i}$] --- вероятность (относительная частота) перехода системы в $i$-е состояние (вероятность того, что система находится в состоянии $i$)
 \end{description}
+\end{minipage}
 
+\bigskip
 Сумма всех $p_{i}$ должна быть равна единице.
 
 Если все состояния рассматриваемой системы равновозможны, равновероятны, то есть $p_i = 1/n$, то из \emph{формулы Шеннона} можно получить (как частный случай) \emph{формулу Хартли}:

@@ -32,6 +32,11 @@
 \example{1}
 \task Перевести число $45_{10}$ в троичную систему счисления.
 \solution Последовательно разделим $45_{10}$ на $3$, записывая остатки:
+
+\begin{figure}[H]
+\includegraphics{3.2.1-example1}
+\end{figure}
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=4cm]{1_2_1(1)}
@@ -56,36 +61,17 @@
 Стоит заметить, что в данном способе очень удобно применять умножение столбиком.
 
 \bigskip
-
 \example{2}
-
 \task перевести число $0,625_{10}$ в четверичную систему счисления.
-
 \solution умножим дробную часть $0,625_{10}$ на $4$, записывая целые части, пока не получим в дробной части 0:
+\begin{figure}[H]
+\includegraphics{3.2.1-example2}
+\end{figure}
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.7cm]{1_2_1(2)}
 \end{figure}
-
-\[
-\begin{array}{r}
-\times 
-    \begin{array}{r}
-        \fbox{0}.625   \\
-        4       \\
-    \end{array} \\ 
-\hline
-\times 
-    \begin{array}{r}
-        \fbox{2}.500   \\
-        4       \\
-    \end{array} \\
-\hline
-    \begin{array}{r}
-        \fbox{2}.000
-    \end{array}
-\end{array}
-\]
 
 \explain сначала умножаем 0,625 на 4, получаем 2,5. 2 записываем в целые части, а далее используем дробную часть - 0,5. Умножаем 0,5 на 4, получаем 2, записываем в целые части. Так как дробная часть равна 0, то перевод окончен.
 Полученные целые части: 0, 2, 2. Первая полученная целая часть (0) идет в целую часть нового числа. Остальные (2, 2) в дробную часть.
@@ -95,42 +81,15 @@
 \bigskip
 
 \example{3}
-
 \task перевести число $43,52_{10}$ в пятеричную систему счисления.
-
- \solution разделим $43,52_{10}$ на две части: целую ($43_{10}$) и дробную ($0,52_{10}$). Переведем целую и дробную части по отдельности:
- 
+\solution разделим $43,52_{10}$ на две части: целую ($43_{10}$) и дробную ($0,52_{10}$). Переведем целую и дробную части по отдельности:
 \begin{figure}[H]
-\centering
-\includegraphics[width=6cm]{1_2_1(3)}
+\includegraphics{3.2.1-example3}
 \end{figure}
 
 \begin{figure}[H]
-  \begin{minipage}[b]{.45\linewidth}
-    \centering
-    \includegraphics[width=0.9\linewidth]{1_2_1(3)}
-  \end{minipage}
-  \begin{minipage}[b]{.45\linewidth}
-    \[
-    \begin{array}{r}
-    \times 
-        \begin{array}{r}
-            \fbox{0}.52 \\
-            45 \\
-        \end{array} \\ 
-    \hline
-    \times 
-        \begin{array}{r}
-            \fbox{2}.60 \\
-            5 \\
-        \end{array} \\
-    \hline
-        \begin{array}{r}
-            \fbox{3}.00
-        \end{array}
-    \end{array}
-    \]
-  \end{minipage}
+\centering
+\includegraphics[width=6cm]{1_2_1(3)}
 \end{figure}
 
 Полученные остатки (3, 1, 1) запишем в обратном порядке: $43_{10} = 113_{5}$.
@@ -158,9 +117,7 @@ X_{(10)} = \sum_{i=-m}^{n-1} x_{i} \times q^{i}
 \end{description}
 
 \example{1}
-
 \task Перевести число $1101,111_{2}$ в десятичную систему счисления.
-
 \solution
 % $1101,111_{2} = 1 \times 2^{3} + 1\times 2^{2} + 0\times 2^{1} + 1\times 2^{0} + 1\times 2^{-1} + 1\hm\times 2^{-2}\hm + 1\hm\times 2^{-3}\hm = 1\times 8 + 1\times 4 + 0\times 2 + 1\times 1 + 1\times 0,5 + 1\times 0,25 + 1\times 0,125\hm = 8 + 4 + 1 + 0,5 + 0,25 + 0,125 = 13,875_{10} $
 \begin{flalign*}

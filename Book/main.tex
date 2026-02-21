@@ -39,8 +39,9 @@
 \captionsetup[figure]{position=bottom,justification=centering}
 \usepackage{subcaption}
 
-\usepackage[capposition=top]{float}
+\usepackage{float}
 % \floatsetup[figure]{capposition=bottom}
+% \floatsetup[table]{capposition=top}
 
 % === ГРАФИКА ===
 \usepackage{graphicx}
@@ -111,6 +112,7 @@
 % === ТАБЛИЦЫ ===
 \usepackage{longtable}
 \usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{hhline}
 \usepackage{booktabs}
 \usepackage{array}
@@ -127,8 +129,9 @@
 %% 1 - имя, по которому ссылаемся
 %% 2 - подпись
 %% 3 - строка форматирования столбцов (как в tabular)
-%% 4 - заголовки столбцов (первая строчка, которая будет везде повторяться)
-%% 5 - число столбцов (не осилил вычислить его из значения 3)
+%% 4 - число столбцов (не осилил вычислить его из значения 3)
+%% 5 - заголовки столбцов (первая строчка, которая будет везде повторяться)
+
 
 \newenvironment{nirtable}[5]{
     \begin{longtable}{#3}
@@ -136,6 +139,20 @@
         \\\hline #5 \\\hline \endfirsthead
         \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline #5 \\\hline \endhead
 }{\end{longtable}}
+
+%% Многостраничные таблицы в гостовском формате (v2). Аргументы:
+%% 1 - Ширина таблицы
+%% 2 - строка форматирования столбцов (как в tabularx/xltabular)
+%% 3 - число столбцов (не осилил вычислить его из значения 2)
+%% 4 - подпись
+%% 5 - имя, по которому ссылаемся
+%% 6 - заголовки столбцов (первая строчка, которая будет везде повторяться)
+\newenvironment{nirtabxl}[6]{
+    \begin{xltabular}{#1}{#2}
+        \caption{#4\label{#5}}
+        \\ \hline #6 \\ \hline \endfirsthead
+        \multicolumn{#3}{r}{\normalsize{Продолжение таблицы~\thetable}} \\ \hline #6 \\ \hline \endhead
+}{\end{xltabular}}
 
 % \newcommand{\innesr}[2][]{\renewcommand*{\arraystretch}{1}\begin{tabular}{>{#1}c}#2\end{tabular}}
 

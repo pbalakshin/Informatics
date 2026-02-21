@@ -1,3 +1,4 @@
+\newpage
 \subsection{Код Хэмминга}
 \label{subsec:hamming}
 
@@ -5,7 +6,7 @@
 \begin{wrapfigure}{l}{0.25\textwidth}
     \centering
     \vspace{-\intextsep}
-    \includegraphics[width=0.25\textwidth]{hamming_richard}
+    \includegraphics[width=0.25\textwidth]{person/hamming_richard}
     \caption*{Р.У. Хэмминг \\ 1915 -- 1998}
 \end{wrapfigure}
 
@@ -22,7 +23,7 @@
 
     \begin{table}[H]
         \centering
-        \begin{tabularx}{\textwidth}{|r|C|C|C|C|C|}
+        \begin{tabularx}{0.8\textwidth}{|r|C|C|C|C|C|}
             \hline
             \thead{Диапазон m} & 1 & 2 -- 4 & 5 -- 11 & 12 -- 26 & 27 -- 57 \\ \hline
             \thead{$k_{min}$}  & 2 & 3 & 4 & 5 & 6 \\ \hline
@@ -59,6 +60,7 @@
 
 Рассмотрим таблицу:
 \begin{table}[H]
+    \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
         \hline
         & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & \\ \hline
@@ -124,6 +126,7 @@
 
 
 \begin{table}[H]
+    \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
     \hline
     & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\ \hline
@@ -189,6 +192,7 @@
 \task получена последовательность 1100100. Вычислить ошибочный бит, записать правильную последовательность.
 \solution составим таблицу кода (7,4) с конкретной последовательностью.
 \begin{table}[H]
+    \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
         \hline
         & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\ \hline
@@ -225,7 +229,6 @@
     \end{aligned}
 \end{equation*}
 
-% \bigskip
 \noindent
 Полученный синдром: $S(0,1,1)$. \\
 Смотрим по таблице, какой бит содержится в $s_2$ и $s_3$ одновременно. 6, то есть $i_3$. 
@@ -234,13 +237,13 @@
 \answer 6 бит ($i_3$), правильная последовательность: 1100110.
 
 \begin{figure}[H]
-     \includegraphics[width=\linewidth]{hamming-4-7/encoding}
+     \includegraphics[width=\linewidth]{6.2-hamming-encoder}
      \caption{Схема создания кода Хэмминга (7,4)}
      \label{fig:hamming-encoding}
 \end{figure}
 
 \begin{figure}[H]
-     \includegraphics[width=\linewidth]{hamming-4-7/decoding}
+     \includegraphics[width=\linewidth]{6.2-hamming-decoder}
      \caption{Схема декодирования кода Хэмминга (7,4)}
      \label{fig:hamming-decoding}
 \end{figure}
@@ -252,6 +255,7 @@
 Составим таблицу кода (15, 11):
 
 \begin{table}[H]
+    \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
     \hline
     & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & \\ \hline

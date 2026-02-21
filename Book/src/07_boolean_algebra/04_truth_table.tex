@@ -21,7 +21,8 @@
 Например, $F(x) = \overline{x}$ будет иметь таблицу истинности $F_1(x)$, а $F(x) = 1$ - $F_3(x)$
 
 
-Обычно логическую функцию $F(x)$ обозначают как $FK,N$, где $K$ - количество операндов, а $N$ - число в десятичной системе счисления, которое при переводе в двоичную является таблицей истинности функции. Например, $F(x) = \overline{x}$ обозначается как $F1,2$, так как одна переменная и $2_{10} = 01_{2}$, что является таблицей истинности функции (смотреть снизу вверх).
+Обычно логическую функцию $F(x)$ обозначают как $FK,N$, где $K$ --- количество операндов, а $N$ --- число в десятичной системе счисления, которое при переводе в двоичную является таблицей истинности функции.
+Например, $F(x) = \overline{x}$ обозначается как $F1,2$, так как одна переменная и $2_{10} = 01_{2}$, что является таблицей истинности функции (смотреть снизу вверх).
 
 \bigskip
 Для $k$ переменных будет существовать $N = 2^{2^{k}}$ функций. Рассмотрим таблицу истинности:
@@ -83,31 +84,41 @@ $\left\{
 
 Так, для 1 переменной будет 4 булевых функции, для 2 переменных - 16 и так далее.
 
-\begin{nirtable}{tab:2-variable-func-names}{Таблица значений и названий булевых функций от двух переменных}{|c|c|c|c|c|l|l|}{7}{
-    \thead{$x$} & \thead{1} & \thead{1} & \thead{0} & \thead{0} & \multirow{2}{*}{\thead{Обозначение}} & \multirow{2}{*}{\thead{Название}}\\
-    \thead{$y$} & \thead{1} & \thead{0} & \thead{1} & \thead{0} & &
+
+% Как nirtable только с возможностью расширить на всю страницу (сделать environment как nirtable не вышло)
+{\small
+\begin{xltabular}{\textwidth}{|c|c|c|c|c|X|X|}
+    \caption{Таблица значений и названий булевых функций от двух переменных}\label{tab:2-variable-func-names}\\\hline
+    
+    \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
+    \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
+    \endfirsthead
+    
+    \multicolumn{7}{r}{\small Продолжение таблицы~\thetable}\\\hline
+    \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
+    \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
+    \endhead
+    
+    $F$ & 0 & 0 & 0 & 0 & $F_{2,0} = FALSE$ & Противоречие, логический нуль \\ \hline
+    $F$ & 0 & 0 & 0 & 1 & $F_{2,1} = x \downarrow y = \allowbreak x \text{ NOR } y = \allowbreak \text{NOR}(x,y) = \allowbreak x \text{ НЕ-ИЛИ } y = \allowbreak \text{НЕ-ИЛИ}(x,y)$ & Cтрелка Пирса, НЕ-ИЛИ, антидизъюнкция \\ \hline
+    $F$ & 0 & 0 & 1 & 0 & $F_{2,2} = x\leftarrow /y$ & Отрицание обратной импликации \\ \hline
+    $F$ & 0 & 0 & 1 & 1 & $F_{2,3} = \neg x = \overline{x}$ & Отрицание \\ \hline
+    $F$ & 0 & 1 & 0 & 0 & $F_{2,4} = x\rightarrow /y$ & Материальная обратная импликация \\ \hline
+    $F$ & 0 & 1 & 0 & 1 & $F_{2,5} = \neg y = \overline{y}$ & Отрицание \\ \hline
+    $F$ & 0 & 1 & 1 & 0 & $F_{2,6} = x \oplus y = \allowbreak x \text{ XOR } y = \allowbreak \text{XOR}(x,y) = \allowbreak x >< y = \allowbreak x <> y = \allowbreak x \text{ NE } y = \allowbreak \text{NE}(x,y)$ & Сложение по модулю 2, исключающее ``или'', сумма Жегалкина, не равно \\ \hline
+    $F$ & 0 & 1 & 1 & 1 & $F_{2,7} = x | y = \allowbreak \text{NAND}(x,y) = \allowbreak x \text{ NAND } y = \allowbreak x $ НЕ-И $y = \allowbreak $ НЕ-И$(x,y)$ & Штрих Шеффера, НЕ-И, 2И-НЕ, антиконъюнкция \\ \hline
+    $F$ & 1 & 0 & 0 & 0 & $F_{2,8} = x \wedge y = \allowbreak x \cdot y = \allowbreak xy = \allowbreak x \& y = \allowbreak x \text{ AND } y = \allowbreak \text{AND}(x,y) = \allowbreak x $И$ y = \allowbreak \text{И}(x,y) = \allowbreak \min(x,y)$ & Конъюнкция, 2И, минимум \\ \hline
+    $F$ & 1 & 0 & 0 & 1 & $F_{2,9} = (x \equiv y) = \allowbreak x \sim y = \allowbreak x \leftrightarrow y = \allowbreak x \text{ EQV } y = \allowbreak \text{EQV}(x,y)$ & Эквивалентность, равенство \\ \hline
+    $F$ & 1 & 0 & 1 & 0 & $F_{2,10} = y$ & Проекция, повторение \\ \hline
+    $F$ & 1 & 0 & 1 & 1 & $F_{2,11} = x \to y = \allowbreak x \supset y = \allowbreak x \le y = \allowbreak x \text{ LE } y = \allowbreak \text{LE}(x,y)$ & Импликация, следование \\ \hline
+    $F$ & 1 & 1 & 0 & 0 & $F_{2,12} = x$ & Проекция, повторение \\ \hline
+    $F$ & 1 & 1 & 0 & 1 & $F_{2,13} = x \leftarrow y$ & Обратная импликция \\ \hline
+    $F$ & 1 & 1 & 1 & 0 & $F_{2,14} = x \vee y = \allowbreak x + y = \allowbreak x \text{ OR } y = \allowbreak \text{OR}(x,y) = \allowbreak \max(x,y)$ & Дизъюнкция, 2ИЛИ, максимум \\ \hline
+    $F$ & 1 & 1 & 1 & 1 & $F_{2,15} = TRUE$ & Тавтология \\ \hline
+\end{xltabular}
 }
-    $F$ & 0 & 0 & 0 & 0 & \makecell[l]{$F_{2,0} = FALSE$} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 0 & 0 & 0 & 1 & \makecell[l]{$F_{2,1} = x \downarrow y =$ \\ $x \text{ NOR } y = \text{NOR}(x,y) =$ \\ $x \text{ НЕ-ИЛИ } y = \text{НЕ-ИЛИ}(x,y)$} & \makecell[l]{Cтрелка Пирса, \\ НЕ-ИЛИ, \\ антидизъюнкция} \\ \hline
 
-    $F$ & 0 & 0 & 1 & 0 & \makecell[l]{$F_{2,2} = x\leftarrow /y $} & \makecell[l]{Отрицание \\ обратной импликации} \\ \hline
-    $F$ & 0 & 0 & 1 & 1 & \makecell[l]{$F_{2,3} = \neg x = \overline{x} $} & \makecell[l]{Отрицание} \\ \hline
-    $F$ & 0 & 1 & 0 & 0 & \makecell[l]{$F_{2,4} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 0 & 1 & 0 & 1 & \makecell[l]{$F_{2,5} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 0 & 1 & 1 & 0 & \makecell[l]{$F_{2,6} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 0 & 1 & 1 & 1 & \makecell[l]{$F_{2,7} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 0 & 0 & 0 & \makecell[l]{$F_{2,8} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 0 & 0 & 1 & \makecell[l]{$F_{2,9} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 0 & 1 & 0 & \makecell[l]{$F_{2,10} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 0 & 1 & 1 & \makecell[l]{$F_{2,11} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 1 & 0 & 0 & \makecell[l]{$F_{2,12} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 1 & 0 & 1 & \makecell[l]{$F_{2,13} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 1 & 1 & 0 & \makecell[l]{$F_{2,14} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-    $F$ & 1 & 1 & 1 & 1 & \makecell[l]{$F_{2,15} = $} & \makecell[l]{Противоречие, \\ логический нуль} \\ \hline
-
-\end{nirtable}
-
-
+\todo{Выбрать}
 
 \begin{table}[H]
 \centering

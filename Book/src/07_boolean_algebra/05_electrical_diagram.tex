@@ -1,3 +1,5 @@
+\subsection{Обозначение на электрической схеме булевых функций}
+
 Для аппаратной реализации булевых функций и их корректного обозначения на электрической схеме принято использовать логические элементы.
 
 \bigskip
@@ -14,7 +16,7 @@
 {
 \newcommand{\gate}[2]{
     \begin{minipage}{.2\textwidth}
-        \includegraphics[width=\linewidth]{logic_gates/#1/#2}
+        \includegraphics[width=\linewidth]{logic_gates/#1-#2}
     \end{minipage} 
 }
 
@@ -31,12 +33,12 @@
         Сумма по модулю 2, $A \oplus B$ & \gate{iec}{xor}   & \gate{ansi}{xor}  \\ \hline
     \end{tabular}
 \end{table}
+}
 
 \noindent
-Это основные обозначения. Они могут совмещаться. Например, так будет выглядеть И-НЕ:
+Это основные обозначения. Они могут совмещаться. Например, так будет выглядеть И-НЕ: \\
+\includegraphics{logic_gates/iec-nand}
 
-\gate{iec}{nand}
-}
 
 \textbf{Цена функции по Квайну} – суммарное число входов логических элементов в составе схемы.
 

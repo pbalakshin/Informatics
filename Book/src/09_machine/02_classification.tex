@@ -21,16 +21,16 @@
 \bigskip
 По перечисленным признакам и их сочетаниям среди архитектур выделяют:
 \begin{enumerate}
-  \item \textbf{По разрядности интерфейсов и машинных слов}: 8-, 16-, 32-, 64-, 128-разрядные.
-  \item \textbf{По особенностям набора команд и регистров}:
-  \begin{itemize}
-    \item CISC --- Complete Instruction Set Computer
-    \item RISC --- Restricted (Reduced) Instruction Set Computer
-    \item CRISP --- Complex-Reduced-Instruction-Set Processor
-    \item VLIW --- Very Long Instruction Word
-  \end{itemize}
-  \item \textbf{По количеству вычислителей}: однопроцессорные, многопроцессорные, одноядерные, многоядерные.
-  \item \textbf{Многопроцессорные по принципу взаимодействия с памятью}: симметричные многопроцессорные (SMP), масcивно-параллельные (MPP), распределенные.
+    \item \textbf{По разрядности интерфейсов и машинных слов}: 8-, 16-, 32-, 64-, 128-разрядные.
+    \item \textbf{По особенностям набора команд и регистров}:
+    \begin{itemize}
+        \item CISC --- Complete Instruction Set Computer
+        \item RISC --- Restricted (Reduced) Instruction Set Computer
+        \item CRISP --- Complex-Reduced-Instruction-Set Processor
+        \item VLIW --- Very Long Instruction Word
+    \end{itemize}
+    \item \textbf{По количеству вычислителей}: однопроцессорные, многопроцессорные, одноядерные, многоядерные.
+    \item \textbf{Многопроцессорные по принципу взаимодействия с памятью}: симметричные многопроцессорные (SMP), масcивно-параллельные (MPP), распределенные.
 \end{enumerate}
 
 Существуют следующие архитектуры систем команд (рисунок \ref{commands}):
@@ -100,9 +100,10 @@
 \end{enumerate}
 
 \textbf{Результат}: большинство современных процессоров являются либо чистыми RISC, либо ``CISC-поверх-RISC''.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=10cm]{src/09_machine/9_3.png}
+    \includegraphics[width=10cm]{9.6-classification}
     \caption{Классификация систем команд}
     \label{commands}
 \end{figure}
@@ -122,11 +123,13 @@
 \end{itemize}
 
 \subsection{Команды процессора}
-\begin{figure}[h]
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{src/09_machine/9_4.png}
+    \includegraphics[width=\textwidth]{commands}
     \caption{Форматы команд процессора: а) многоадресная, б) адресная, в) безадресная}
 \end{figure}
+
 
 \subsection{Этапы выполнения команд процессором}
 Полный цикл выполнения команды может включать в себя следующие этапы:
@@ -143,9 +146,10 @@
 \paragraph{Конвейерная обработка команд}
 
 При выполнении почти каждой команды, необходимо осуществить 4--7 действий. При выполнении команд последовательно (как это делали старые процессоры) следующая команда будет ждать, пока полностью осуществится первая. Понятно, что можно выполнять команды по принципу конвейера, что существенно увеличит скорость работы.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{src/09_machine/9_5.png}
+    \includegraphics{5-stage-pipeline}
     \caption{Пример 5-уровневого конвейера в реальном RISC-процессоре}
     \label{fig:5-stage-pipeline}
 \end{figure}

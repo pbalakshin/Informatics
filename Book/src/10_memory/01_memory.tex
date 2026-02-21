@@ -44,13 +44,13 @@
 \begin{figure}[!htbp]
     \begin{subfigure}{0.49\textwidth}
        \centering
-        \includegraphics[width=.75\linewidth]{src/10_memory/10_2.png}
+        \includegraphics[height=5cm]{rs-trigger-async-nand}
         \caption{На элементах 2И-НЕ}
         \label{fig:rs-trigger-nand}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \includegraphics[width=.75\linewidth]{src/10_memory/10_3.png}
+        \includegraphics[height=5cm]{rs-trigger-async-nor}
         \caption{На элементах 2ИЛИ-НЕ}
         \label{fig:rs-trigger-nor}
     \end{subfigure}
@@ -103,17 +103,17 @@
 \textbf{Демультиплексоры} --- это узлы, преобразующие информацию из последовательной формы в параллельную.
 Информационный вход D подключается к одному из выходов Qi определяемый адресными сигналами A0 и A1.
 
-\begin{figure}[!htbp]
-    \begin{minipage}[b]{0.48\textwidth}
+\begin{figure}[H]
+    \begin{minipage}[b]{0.49\textwidth}
         \centering
-        \includegraphics[width=.75\linewidth]{src/10_memory/10_4.png}
+        \includegraphics[scale=1.2]{10-multiplexer}
         \caption{Мультиплексор}
         \label{fig:multiplexer}
     \end{minipage}
     \hfill	
-    \begin{minipage}[b]{0.48\textwidth}
+    \begin{minipage}[b]{0.49\textwidth}
         \centering
-        \includegraphics[width=.75\textwidth]{src/10_memory/10_5.jpg}
+        \includegraphics[scale=1.2]{10-demultiplexer}
         \caption{Демультиплексор}
         \label{fig:demultiplexer}
     \end{minipage}
@@ -193,12 +193,9 @@ $V_{CC}$ - линия питания устройства (например 5В)
 \\
 \\Получается, что данная схема реализует логическую функцию ИЛИ-НЕ (ANSI) (также известную как стрелка Пирса) (где $A$ и $B$ соответственно $V_1$ и $V_2$):
 
-\begin{minipage}{14.5cm}
-\centering
-\includegraphics[width=5.5cm]{src/10_memory/10_9.jpg}
-\end{minipage}
-\\
-\\Таблица истинности для ИЛИ-НЕ:
+\includegraphics{logic_gates/ansi-nor}
+
+Таблица истинности для ИЛИ-НЕ:
 \begin{table}[!h]
 \centering
 \begin{tabular}{|c|c|c|}
