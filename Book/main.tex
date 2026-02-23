@@ -52,7 +52,9 @@
 \usepackage{tikz}
 \usetikzlibrary{graphs}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.9}
+% \pgfplotsset{compat=1.9} % old version ~2013
+% \pgfplotsset{compat=1.18} % new optimized (due to gpt)
+\pgfplotsset{compat=newest} % alternative
 
 % === МАТЕМАТИКА ===
 \usepackage{amsmath}
@@ -63,7 +65,8 @@
 
 % === ЛИСТИНГИ КОДА ===
 \usepackage{listings} % Deprecated. Use minted instead
-\usepackage{minted}
+% Необходимо добавить "-shell-escape"
+\usepackage[cache=true]{minted}
 
 \setminted{
     fontsize=\small,
