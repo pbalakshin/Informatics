@@ -1,3 +1,6 @@
+build/*
+!images
+
 ### TeX template
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -23,11 +26,13 @@
 # *.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
-*.pdf
+# .pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
+*.bbl-SAVE-ERROR
 *.bcf
+*.bcf-SAVE-ERROR
 *.blg
 *-blx.aux
 *-blx.bib
@@ -40,12 +45,12 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
-*.minted
+*.rubbercache
+rubber.cache
 
 ## Build tool directories for auxiliary files
 # latexrun
 latex.out/
-build/
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
@@ -58,6 +63,9 @@ acs-*.bib
 # amsthm
 *.thm
 
+# attachfile2
+*.atfi
+
 # beamer
 *.nav
 *.pre
@@ -66,6 +74,7 @@ acs-*.bib
 
 # changes
 *.soc
+*.loc
 
 # comment
 *.cut
@@ -109,8 +118,11 @@ acs-*.bib
 *.acn
 *.acr
 *.glg
+*.glg-abr
 *.glo
+*.glo-abr
 *.gls
+*.gls-abr
 *.glsdefs
 *.lzo
 *.lzs
@@ -141,6 +153,9 @@ acs-*.bib
 *.trc
 *.xref
 
+# hypdoc
+*.hd
+
 # hyperref
 *.brf
 
@@ -149,6 +164,7 @@ acs-*.bib
 # TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
 # *.tikz
 *-tikzDictionary
+
 
 # listings
 *.lol
@@ -172,6 +188,7 @@ acs-*.bib
 
 # minted
 _minted*
+*.data.minted
 *.pyg
 
 # morewrites
@@ -198,6 +215,10 @@ _minted*
 
 # scrwfile
 *.wrt
+
+# spelling
+*.spell.bad
+*.spell.txt
 
 # svg
 svg-inkscape/
@@ -263,6 +284,9 @@ TSWLatexianTemp*
 # WinEdt
 *.bak
 *.sav
+
+# latexindent.pl
+*.bak[0-9]*
 
 # Texpad
 .texpadtmp
