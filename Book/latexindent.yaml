@@ -1,0 +1,47 @@
+# Общие настройки
+defaultIndent: "    "  # 4 пробела для отступов (стандарт читаемости)
+verbatimEnvironments:
+  verbatim: 1
+  lstlisting: 1
+  minted: 1
+
+# Настройки отступов
+indentRules:
+  global: "    "
+
+# Настройки переноса строк
+modifyLineBreaks:
+  textWrapOptions:
+    columns: 100       # Ширина строки кода (100 символов удобно для широких мониторов)
+    wrap: false         # Включить перенос длинных строк текста
+  environments:
+    Break: 1           # Переносить содержимое окружений
+  oneSentencePerLine:
+    manipulateSentences: 0  # 0 = не разбивать текст на предложения (безопаснее для LaTeX)
+    removeSentenceLineBreaks: 0
+
+# Настройки выравнивания (самая полезная функция)
+alignment:
+  alignEnvironmentRules:
+    # Выравнивать содержимое внутри tabular, align и т.д.
+    tabular: 1
+    align: 1
+    equation: 0        # Уравнения лучше не трогать автоматически
+  maxNumberOfColumns: 10
+
+# Настройки пробелов
+spacesBeforeAfter:
+  delimiters:
+    round:
+      spaceBefore: 0
+      spaceAfter: 0
+    square:
+      spaceBefore: 0
+      spaceAfter: 0
+
+# Исключения (что не трогать)
+noIndentBlock:
+  verbatim: 1
+  lstlisting: 1
+  minted: 1
+  tikzpicture: 1       # TikZ часто ломается при автоформатировании
