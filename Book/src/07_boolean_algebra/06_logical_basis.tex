@@ -16,13 +16,13 @@
 \begin{table}[H]
     \centering
     \resizebox{\textwidth}{!}{
-    \begin{tabular}{|c|c|c|}
-        \hline
-         \thead{Функция} & \thead{Формула} & \thead{Пример} \\ \hline
-         ``НЕ'' & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ &  \makecell*{\includegraphics{7.5-nand-basis-not}} \\ \hline
-         ``ИЛИ'' & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  & \makecell*{\includegraphics{7.5-nand-basis-or}} \\ \hline
-         ``И'' & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \makecell*{\includegraphics{7.5-nand-basis-and}} \\ \hline
-    \end{tabular}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \thead{Функция} & \thead{Формула} & \thead{Пример} \\ \hline
+            ``НЕ'' & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ &  \makecell*{\includegraphics{7.5-nand-basis-not}} \\ \hline
+            ``ИЛИ'' & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  & \makecell*{\includegraphics{7.5-nand-basis-or}} \\ \hline
+            ``И'' & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \makecell*{\includegraphics{7.5-nand-basis-and}} \\ \hline
+        \end{tabular}
     }
     \caption{Пример реализации функций И, ИЛИ, НЕ в базисе ``И-НЕ''}
     \label{tab:not-and-basis-examples}
@@ -63,9 +63,9 @@
 
 \paragraph{Виды нотаций}
 \begin{description}
-  \item[1489 г.] --- инфиксная запись $A + B$
-  \item[1920 г.] --- префиксная (польская) запись $+AB$
-  \item[1957 г.] --- постфиксная (обратная польская) запись $AB+$
+    \item[1489 г.] --- инфиксная запись $A + B$
+    \item[1920 г.] --- префиксная (польская) запись $+AB$
+    \item[1957 г.] --- постфиксная (обратная польская) запись $AB+$
 \end{description}
 
 \textbf{Стек} --- абстрактный тип данных, представляющий собой список элементов, организованных по принципу LIFO\footnote{LIFO --- (от англ. last in --- first out, ``последним пришел --- первым вышел'')}.
@@ -112,11 +112,11 @@
 
 \paragraph{Особенности префиксной нотации}
 \begin{itemize}[noitemsep]
-  \item Не требуется скобок, если арность фиксирована.
-  \item Запись выражения получается короче, чем инфиксная.
-  \item Не требуется знать приоритет операций.
-  \item Легко декодировать выражение с помощью стека.
-  \item Малоприменима на практике (кроме Lisp).
+    \item Не требуется скобок, если арность фиксирована.
+    \item Запись выражения получается короче, чем инфиксная.
+    \item Не требуется знать приоритет операций.
+    \item Легко декодировать выражение с помощью стека.
+    \item Малоприменима на практике (кроме Lisp).
 \end{itemize}
 
 \subsubsection{Постфиксная нотация}
@@ -164,11 +164,10 @@
 \paragraph{Алгоритм вычисления для постфиксной нотации}
 \begin{enumerate}[noitemsep]
     \item Обработка входного символа
-    \begin{itemize}[noitemsep]
-        \item   Если на вход подан операнд, он помещается на вершину стека.
-        \item   Если на вход подан знак операции, то соответствующая операция выполняется над требуемым количеством значений, извлеченных из стека, взятых в порядке добавления.
-                Результат выполненной операции кладется на вершину стека.
-    \end{itemize}
+          \begin{itemize}[noitemsep]
+              \item Если на вход подан операнд, он помещается на вершину стека.
+              \item Если на вход подан знак операции, то соответствующая операция выполняется над требуемым количеством значений, извлеченных из стека, взятых в порядке добавления. Результат выполненной операции кладется на вершину стека.
+          \end{itemize}
     \item Если входной набор символов обработан не полностью, перейти к шагу 1.
     \item После полной обработки входного набора символов результат вычисления выражения лежит на вершине стека.
 \end{enumerate}

@@ -30,40 +30,40 @@
 
 % Эту магию я не трогал
 \begin{minipage}{2cm}
-\begin{center}
-$L$ штук\\
-(от 00..0\\ до 11..1 \\ сверху \\ вниз)
-\end{center}
+    \begin{center}
+        $L$ штук\\
+        (от 00..0\\ до 11..1 \\ сверху \\ вниз)
+    \end{center}
 \end{minipage}
 \begin{minipage}{0.3cm}
-\quad \\
-\quad \\
-$\left\{
-\begin{array}{c}
-\\
-\\
-\\
-\\
-\end{array}
-\right.$
-\quad \\
+    \quad \\
+    \quad \\
+    $\left\{
+        \begin{array}{c}
+            \\
+            \\
+            \\
+            \\
+        \end{array}
+        \right.$
+    \quad \\
 \end{minipage}
 \begin{minipage}[l]{9cm}
-\begin{tabular}{c|c|c|c|c|c|c|c|c|}
-%\hhline{~--------}
-& \multicolumn{4}{c|}{\makecell[c]{Значения $k$ штук \\ булевых операндов}}
-& \multicolumn{4}{c|}{Значение булевых функций $F$} \\
-%\hhline{~--------}
-& $x_1$ & $x_2$ & \dots & $x_k$ & $FK,0$ & $FK,1$ & \dots & $FK,N$ \\
-%\hhline{~--------}
- & 0 & 0 & \dots & 0 & 0 & 1 & \dots & 1\\
-& 0 & 0 & \dots & 1 & 0 & 0 & \dots & 1\\
-& \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots\\
-\multirow{4}{*}{} & 1 & 1 & \dots & 1 & 0 & 0 & \dots & 1\\
-%\hhline{~--------}
-\multicolumn{5}{c}{} & \multicolumn{4}{c}{$\underbrace{\qquad \qquad \qquad \qquad \qquad \qquad \qquad}_{\mbox{от N штук (от 00..0 }}$} \\
-\multicolumn{5}{c}{} & \multicolumn{4}{c}{до 11..1 слева направо)}
-\end{tabular}
+    \begin{tabular}{c|c|c|c|c|c|c|c|c|}
+    %\hhline{~--------}
+    & \multicolumn{4}{c|}{\makecell[c]{Значения $k$ штук \\ булевых операндов}}
+    & \multicolumn{4}{c|}{Значение булевых функций $F$} \\
+    %\hhline{~--------}
+    & $x_1$ & $x_2$ & \dots & $x_k$ & $FK,0$ & $FK,1$ & \dots & $FK,N$ \\
+    %\hhline{~--------}
+    & 0 & 0 & \dots & 0 & 0 & 1 & \dots & 1\\
+    & 0 & 0 & \dots & 1 & 0 & 0 & \dots & 1\\
+    & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots\\
+    \multirow{4}{*}{} & 1 & 1 & \dots & 1 & 0 & 0 & \dots & 1\\
+    %\hhline{~--------}
+    \multicolumn{5}{c}{} & \multicolumn{4}{c}{$\underbrace{\qquad \qquad \qquad \qquad \qquad \qquad \qquad}_{\mbox{от N штук (от 00..0 }}$} \\
+    \multicolumn{5}{c}{} & \multicolumn{4}{c}{до 11..1 слева направо)}
+    \end{tabular}
 \end{minipage}
 
 \bigskip
@@ -122,72 +122,72 @@ $\left\{
 \todo{Выбрать}
 
 \begin{table}[H]
-\centering
-\footnotesize
-\begin{tabular}{|c|c|c|c|c|p{5cm}|p{5cm}|}
-\hline
-$x$ & 1 & 1 & 0 & 0 & \multirow{2}{*}{Обозначение} & \multirow{2}{*}{Название} \\
-$y$ & 1 & 0 & 1 & 0 & & \\
-\hline
-\multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & F2,0 = $FALSE$ & Противоречие, \\
-& & & & & & логический нуль \\
-\hline
-\multirow{3}{*}{F} & \multirow{3}{*}{0} & \multirow{3}{*}{0} & \multirow{3}{*}{0} & \multirow{3}{*}{1} & F2,1 = $x\downarrow y = x \text{ NOR } y = $ & Cтрелка Пирса, НЕ-ИЛИ, \\
-& & & & & $= \text{NOR}(x,y) = x $НЕ-ИЛИ & антидизъюнкция \\
-& & & & & $y = $НЕ-ИЛИ$(x,y)$ & \\
-\hline
-\multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & F2,2 = $x\leftarrow /y$ & Отрицание \\
-& & & & & & обратной импликации \\
-\hline
-F & 0 & 0 & 1 & 1 & F2,3 = $\neg x $ & Отрицание \\
-\hline
-\end{tabular}
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|c|c|c|c|p{5cm}|p{5cm}|}
+    \hline
+    $x$ & 1 & 1 & 0 & 0 & \multirow{2}{*}{Обозначение} & \multirow{2}{*}{Название} \\
+    $y$ & 1 & 0 & 1 & 0 & & \\
+    \hline
+    \multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & F2,0 = $FALSE$ & Противоречие, \\
+    & & & & & & логический нуль \\
+    \hline
+    \multirow{3}{*}{F} & \multirow{3}{*}{0} & \multirow{3}{*}{0} & \multirow{3}{*}{0} & \multirow{3}{*}{1} & F2,1 = $x\downarrow y = x \text{ NOR } y = $ & Cтрелка Пирса, НЕ-ИЛИ, \\
+    & & & & & $= \text{NOR}(x,y) = x $НЕ-ИЛИ & антидизъюнкция \\
+    & & & & & $y = $НЕ-ИЛИ$(x,y)$ & \\
+    \hline
+    \multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & F2,2 = $x\leftarrow /y$ & Отрицание \\
+    & & & & & & обратной импликации \\
+    \hline
+    F & 0 & 0 & 1 & 1 & F2,3 = $\neg x $ & Отрицание \\
+    \hline
+    \end{tabular}
 \end{table}
 
 
 \begin{table}[H]
-\centering
-\footnotesize
-\begin{tabular}{|c|c|c|c|c|p{5cm}|p{5cm}|}
-\hline
-\multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & F2,4 = $x\rightarrow /y $ & Материальная \\
-& & & & & & обратная импликация \\
-\hline
-F & 0 & 1 & 0 & 1 & F2,5 = $ \neg y$ & Отрицание \\
-\hline
-\multirow{4}{*}{F} & \multirow{4}{*}{0} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & F2,6 = $x \oplus y = $ & Сложение по модулю 2, \\
-& & & & & $= x \text{ XOR } y = \text{XOR}(x,y) = $ & исключающее ``или'' \\
-& & & & & $= x >< y = x <> y = $ & сумма Жегалкина, \\
-& & & & & $= x \text{ NE } y = \text{NE}(x,y)$ & не равно \\
-\hline
-\multirow{3}{*}{F} & \multirow{3}{*}{0} & \multirow{3}{*}{1} & \multirow{3}{*}{1} & \multirow{3}{*}{1} & F2,7 = $x | y = $ & Штрих Шеффера, \\
-& & & & & $= \text{NAND}(x,y) = x \text{ NAND } y = $ & НЕ-И, 2И-НЕ, \\
-& & & & & $= x $ НЕ-И $y = $ НЕ-И$(x,y)$ & антиконъюнкция \\
-\hline
-\multirow{4}{*}{F} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & \multirow{4}{*}{0} & \multirow{4}{*}{0} & F2,8 = $x \wedge y = x \cdot y = $ & Конъюнкция, \\
-& & & & & $= xy = x \& y = x \text{ AND } y = $ & 2И, минимум \\
-& & & & & $= \text{AND}(x,y) = x $И$ y = $ & \\
-& & & & & $= \text{И}(x,y) = \min(x,y)$ & \\
-\hline
-\multirow{2}{*}{F} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & F2,9 = $(x \equiv y) = x \sim y = $ & Эквивалентность \\
-& & & & & $= x \leftrightarrow y = x \text{ EQV } y = \text{EQV}(x,y)$ & равенство \\
-\hline
-F & 1 & 0 & 1 & 0 & F2,10 = $y $ & Проекция, повторение \\
-\hline
-\multirow{2}{*}{F} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{1} & F2,11 = $x \to y = x \supset y = $ & Импликация \\
-& & & & & $= x \le y = x \text{ LE } y = \text{LE}(x,y)$ & следование \\
-\hline
-F & 1 & 1 & 0 & 0 & F2,12 = $x $ & Проекция, повторение \\
-\hline
-F & 1 & 1 & 0 & 1 & F2,13 = $x \leftarrow y $ & Обратная импликация \\
-\hline
-\multirow{4}{*}{F} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & F2,14 = $x \vee y = x + y = $ & Дизъюнкция, \\
-& & & & & $= x \text{ OR } y = \text{OR}(x,y) = $ & 2ИЛИ, максимум \\
-& & & & & $= x$ ИЛИ $y = \text{ИЛИ}(x,y) = $ & \\
-& & & & & $= \max(x,y)$ & \\
-\hline
-F & 1 & 1 & 1 & 1 & F2,15 = $TRUE $ & Тавтология \\
-\hline
-\end{tabular}
-\caption{Таблица значений и названий булевых функций от двух переменных}
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|c|c|c|c|p{5cm}|p{5cm}|}
+    \hline
+    \multirow{2}{*}{F} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & F2,4 = $x\rightarrow /y $ & Материальная \\
+    & & & & & & обратная импликация \\
+    \hline
+    F & 0 & 1 & 0 & 1 & F2,5 = $ \neg y$ & Отрицание \\
+    \hline
+    \multirow{4}{*}{F} & \multirow{4}{*}{0} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & F2,6 = $x \oplus y = $ & Сложение по модулю 2, \\
+    & & & & & $= x \text{ XOR } y = \text{XOR}(x,y) = $ & исключающее ``или'' \\
+    & & & & & $= x >< y = x <> y = $ & сумма Жегалкина, \\
+    & & & & & $= x \text{ NE } y = \text{NE}(x,y)$ & не равно \\
+    \hline
+    \multirow{3}{*}{F} & \multirow{3}{*}{0} & \multirow{3}{*}{1} & \multirow{3}{*}{1} & \multirow{3}{*}{1} & F2,7 = $x | y = $ & Штрих Шеффера, \\
+    & & & & & $= \text{NAND}(x,y) = x \text{ NAND } y = $ & НЕ-И, 2И-НЕ, \\
+    & & & & & $= x $ НЕ-И $y = $ НЕ-И$(x,y)$ & антиконъюнкция \\
+    \hline
+    \multirow{4}{*}{F} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & \multirow{4}{*}{0} & \multirow{4}{*}{0} & F2,8 = $x \wedge y = x \cdot y = $ & Конъюнкция, \\
+    & & & & & $= xy = x \& y = x \text{ AND } y = $ & 2И, минимум \\
+    & & & & & $= \text{AND}(x,y) = x $И$ y = $ & \\
+    & & & & & $= \text{И}(x,y) = \min(x,y)$ & \\
+    \hline
+    \multirow{2}{*}{F} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & F2,9 = $(x \equiv y) = x \sim y = $ & Эквивалентность \\
+    & & & & & $= x \leftrightarrow y = x \text{ EQV } y = \text{EQV}(x,y)$ & равенство \\
+    \hline
+    F & 1 & 0 & 1 & 0 & F2,10 = $y $ & Проекция, повторение \\
+    \hline
+    \multirow{2}{*}{F} & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{1} & F2,11 = $x \to y = x \supset y = $ & Импликация \\
+    & & & & & $= x \le y = x \text{ LE } y = \text{LE}(x,y)$ & следование \\
+    \hline
+    F & 1 & 1 & 0 & 0 & F2,12 = $x $ & Проекция, повторение \\
+    \hline
+    F & 1 & 1 & 0 & 1 & F2,13 = $x \leftarrow y $ & Обратная импликация \\
+    \hline
+    \multirow{4}{*}{F} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{1} & \multirow{4}{*}{0} & F2,14 = $x \vee y = x + y = $ & Дизъюнкция, \\
+    & & & & & $= x \text{ OR } y = \text{OR}(x,y) = $ & 2ИЛИ, максимум \\
+    & & & & & $= x$ ИЛИ $y = \text{ИЛИ}(x,y) = $ & \\
+    & & & & & $= \max(x,y)$ & \\
+    \hline
+    F & 1 & 1 & 1 & 1 & F2,15 = $TRUE $ & Тавтология \\
+    \hline
+    \end{tabular}
+    \caption{Таблица значений и названий булевых функций от двух переменных}
 \end{table}

@@ -141,8 +141,9 @@
 \newenvironment{nirtable}[5]{
     \begin{longtable}{#3}
         \caption{#2}\label{#1}
-        \\\hline #5 \\\hline \endfirsthead
-        \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline #5 \\\hline \endhead
+        \\\hline #5 \\\hline \endfirsthead%
+        \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline
+        #5 \\\hline \endhead%
 }{\end{longtable}}
 
 %% Многостраничные таблицы в гостовском формате (v2). Аргументы:
@@ -155,8 +156,9 @@
 \newenvironment{nirtabxl}[6]{
     \begin{xltabular}{#1}{#2}
         \caption{#4\label{#5}}
-        \\ \hline #6 \\ \hline \endfirsthead
-        \multicolumn{#3}{r}{\normalsize{Продолжение таблицы~\thetable}} \\ \hline #6 \\ \hline \endhead
+        \\ \hline #6 \\ \hline \endfirsthead%
+        \multicolumn{#3}{r}{\normalsize{Продолжение таблицы~\thetable}} \\ \hline
+        #6 \\ \hline \endhead%
 }{\end{xltabular}}
 
 % \newcommand{\innesr}[2][]{\renewcommand*{\arraystretch}{1}\begin{tabular}{>{#1}c}#2\end{tabular}}
@@ -215,36 +217,36 @@
 \setcounter{page}{2}
 
 \begin{document}
-    \nocite{*}
+\nocite{*}
 
-    % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
-    \include{0_title_page} % обложка, не идёт в счёт страниц
-    \include{1_first_page.tex}
-    \include{2_description}
+% \todo{Если видно это сообщение - раскомментировать строку в main.tex}
+\include{0_title_page} % обложка, не идёт в счёт страниц
+\include{1_first_page.tex}
+\include{2_description}
 
-    % Вставка оглавления, начиная с 3 страницы
-    \setcounter{page}{3}
-    \addtocontents{toc}{\protect\sloppy}
-    \tableofcontents
+% Вставка оглавления, начиная с 3 страницы
+\setcounter{page}{3}
+\addtocontents{toc}{\protect\sloppy}
+\tableofcontents
 
-    \include{src/00_about_the_course}
-    \include{src/01_theory}
-    \include{src/02_data_measurement_units}
-    \include{src/03_notation_systems}
-    \include{src/04_limited_arithmetics}
-    % \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
-    \include{src/05_data_compression}
-    \include{src/06_error_correcting_coding}
-    \include{src/07_boolean_algebra}
-    \include{src/08_software}
-    \include{src/09_machine}
-    \include{src/10_memory}
-    \include{src/11_osi}
+\include{src/00_about_the_course}
+\include{src/01_theory}
+\include{src/02_data_measurement_units}
+\include{src/03_notation_systems}
+\include{src/04_limited_arithmetics}
+% \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
+\include{src/05_data_compression}
+\include{src/06_error_correcting_coding}
+\include{src/07_boolean_algebra}
+\include{src/08_software}
+\include{src/09_machine}
+\include{src/10_memory}
+\include{src/11_osi}
 
-    \include{4_conclusion}
+\include{4_conclusion}
 
-    \addbibliography{Список использованных и рекомендованных источников}
+\addbibliography{Список использованных и рекомендованных источников}
 
-    \include{5_last_page}
-    \include{6_back_page} %задняя страница обложки, не идёт в счёт страниц
+\include{5_last_page}
+\include{6_back_page} %задняя страница обложки, не идёт в счёт страниц
 \end{document}
