@@ -9,7 +9,7 @@ $ENV{'TEXMF_OUTPUT_DIRECTORY'} = 'build';
 $pdf_mode = 1;
 
 # LaTeX engine
-$pdflatex = 'pdflatex %O -interaction=nostopmode -file-line-error -synctex=1 -shell-escape %S';
+$pdflatex = 'pdflatex %O -interaction=nonstopmode -file-line-error -synctex=1 -shell-escape %S';
 
 # Biber support (for biblatex)
 $biber = 'biber %O %B';
@@ -17,7 +17,7 @@ $bibtex_use = 2;
 
 # Silent but readable log
 $silent = 0;
-$max_repeat = 3;
+$max_repeat = 5;
 
 # Clean rules
 $clean_ext .= ' %R.run.xml %R.bcf %R.blg %R.fdb_latexmk %R.fls';

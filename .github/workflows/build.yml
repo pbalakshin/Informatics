@@ -1,0 +1,103 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "Book/**"
+      - ".github/workflows/build.yml"
+
+  pull_request:
+    branches: [master, main]
+    paths:
+      - "Book/**"
+      - ".github/workflows/build.yml"
+
+  workflow_dispatch: # Ручной запуск
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      pdf_name: ${{ steps.build.outputs.pdf_name }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: true
+
+      - name: Cache build directory
+        id: cache-build
+        uses: actions/cache@v4
+        with:
+          path: |
+            Book/build
+            Book/_minted-*
+          key: ${{ runner.os }}-build-${{ hashFiles('Book/**/*.tex', 'Book/**/*.bib') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
+      - name: Build PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: Book
+          compiler: latexmk
+          args: "-pdf -jobname=informatics"
+          extra_system_packages: "inkscape"
+          latexmk_shell_escape: true
+
+      - name: Show detailed error log
+        if: failure()
+        run: |
+          grep -iE "error|fatal|undefined|not found|cannot find|missing|can't write" \
+            Book/build/informatics.log || true
+
+      - name: Show full log
+        if: failure()
+        run: |
+          cat Book/build/informatics.log || true
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: informatics-pdf
+          path: Book/build/informatics.pdf
+          retention-days: 30
+          if-no-files-found: error
+
+      # - name: Commit and push PDF
+      #   uses: stefanzweifel/git-auto-commit-action@v5
+      #   with:
+      #     commit_message: "🤖 Auto-build PDF from CI/CD"
+      #     file_pattern: "Book/build/informatics.pdf"
+      #     branch: ${{ github.ref_name }}
+      #     skip_checkout: false
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: false
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/master' || github.event_name == 'workflow_dispatch'
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: informatics-pdf

@@ -228,7 +228,7 @@
 
 % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
 \include{0_title_page} % обложка, не идёт в счёт страниц
-\include{1_first_page.tex}
+\include{1_first_page}
 \include{2_description}
 
 % Вставка оглавления, начиная с 3 страницы
@@ -236,19 +236,30 @@
 \addtocontents{toc}{\protect\sloppy}
 \tableofcontents
 
-\include{src/00_about_the_course}
-\include{src/01_theory}
-\include{src/02_data_measurement_units}
-\include{src/03_notation_systems}
-\include{src/04_limited_arithmetics}
-% \include{_OLD_Informatics/chapter4_old} % Повторение 01_theory
-\include{src/05_data_compression}
-\include{src/06_error_correcting_coding}
-\include{src/07_boolean_algebra}
-\include{src/08_software}
-\include{src/09_machine}
-\include{src/10_memory}
-\include{src/11_osi}
+\clearpage
+\input{src/00_about_the_course}
+\clearpage
+\input{src/01_theory}
+\clearpage
+\input{src/02_data_measurement_units}
+\clearpage
+\input{src/03_notation_systems}
+\clearpage
+\input{src/04_limited_arithmetics}
+\clearpage
+\input{src/05_data_compression}
+\clearpage
+\input{src/06_error_correcting_coding}
+\clearpage
+\input{src/07_boolean_algebra}
+\clearpage
+\input{src/08_software}
+\clearpage
+\input{src/09_machine}
+\clearpage
+\input{src/10_memory}
+\clearpage
+\input{src/11_osi}
 
 \include{4_conclusion}
 
