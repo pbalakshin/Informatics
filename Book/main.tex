@@ -17,7 +17,7 @@
 %% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
 % \setlength{\parindent}{1.25cm}
 \usepackage{setspace}
-\onehalfspacing
+\onehalfspacing%
 \usepackage{microtype}
 \usepackage{ulem} %зачёркнутый текст
 
@@ -60,7 +60,7 @@
 \usepackage{amsmath}
 
 % Использовать полужирное начертание для векторов
-\let\vec=\mathbf
+\let\vec=\mathbf%
 
 
 % === ЛИСТИНГИ КОДА ===
@@ -211,10 +211,9 @@
 
 % === Команды для примеров и заданий ===
 \newcommand{\example}[1]{\par\bigskip\noindent\emph{\textbf{Пример #1:}} }
-\newcommand{\task}{\par\smallskip\noindent\emph{\textit{Задание:}} }
-\newcommand{\solution}{\par\smallskip\noindent\emph{\textit{Решение:}} }
-\newcommand{\answer}{\par\smallskip\noindent\emph{\textit{Ответ:}} }
-\newcommand{\explain}{\par\smallskip\noindent\emph{\textit{Пояснение:}} }
+\newcommand{\task}{\par\smallskip\noindent\emph{\textit{Задание:}}}
+\newcommand{\solution}{\par\smallskip\noindent\emph{\textit{Решение:}}}
+\newcommand{\answer}{\par\smallskip\noindent\emph{\textit{Ответ:}}}
 
 % === Путь для картинок ===
 \graphicspath{ {./images/} }

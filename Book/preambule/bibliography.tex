@@ -67,7 +67,7 @@
     \usebibmacro{bibindex}%
     \usebibmacro{begentry}%
     \usebibmacro{heading}%
-    \newunit
+    \newunit%
     \usebibmacro{author/editor}%
     \setunit*{\labelnamepunct}%
     \usebibmacro{title}%
@@ -89,30 +89,30 @@
     \usebibmacro{byeditor}%
     \setunit*{\resppunct}%
     \usebibmacro{bytranslator+others}%
-    \newunit\newblock
+    \newunit\newblock%
     \printfield{version}%
-    \newunit\newblock
+    \newunit\newblock%
     \printlist[semicolondelim]{specdata}%
-    \newunit\newblock
+    \newunit\newblock%
     \usebibmacro{date}%
-    \newunit\newblock
+    \newunit\newblock%
     \printupdate%
-    \newunit\newblock
+    \newunit\newblock%
     \printfield{systemreq}%
-    \newunit\newblock
+    \newunit\newblock%
     \usebibmacro{doi+eprint+url+note}%
-    \newunit\newblock
+    \newunit\newblock%
     \usebibmacro{addendum+pubstate}%
-    \setunit{\bibpagerefpunct}\newblock
+    \setunit{\bibpagerefpunct}\newblock%
     \usebibmacro{pageref}%
-    \newunit\newblock
+    \newunit\newblock%
     \usebibmacro{related:init}%
     \usebibmacro{related}%
     \usebibmacro{finentry}
 }
 
 \newcommand{\addbibliography}[1]{
-    \phantomsection
+    \phantomsection%
     \addcontentsline{toc}{section}{#1}
     \printbibliography[title={#1}]
 }
