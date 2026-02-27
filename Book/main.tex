@@ -86,10 +86,10 @@
 
 % Отключение курсива в minted
 \usepackage{xpatch}
-\xpatchcmd{\mint}{\begingroup}{\begingroup\let\itshape\relax}{}{}
-\xpatchcmd{\inputminted}{\begingroup}{\begingroup\let\itshape\relax}{}{}
-\xpatchcmd{\mintinline}{\begingroup}{\begingroup\let\itshape\relax}{}{}
-\xpatchcmd{\minted}{\VerbatimEnvironment}{\VerbatimEnvironment\let\itshape\relax}{}{}
+\xpatchcmd{\mint}{\begingroup}{\begingroup\let\itshape\relax}{}{} % chktex 6
+\xpatchcmd{\inputminted}{\begingroup}{\begingroup\let\itshape\relax}{}{} % chktex 6
+\xpatchcmd{\mintinline}{\begingroup}{\begingroup\let\itshape\relax}{}{} % chktex 6
+\xpatchcmd{\minted}{\VerbatimEnvironment}{\VerbatimEnvironment\let\itshape\relax}{}{} % chktex 6
 
 \newcommand{\code}[2][text]{\mintinline{#1}{#2}}
 
@@ -120,6 +120,21 @@
 
 % === Дополнительные пакеты ===
 \usepackage{siunitx} % for B/kB/MB etc.
+% \sisetup{
+%     % Разделители
+%     decimal-marker = {,},      % Запятая для десятичных
+%     group-separator = {\,},    % Тонкий пробел для тысяч
+%     group-minimum-digits = 4,  % Разделять группы от 4 цифр
+
+%     % Единицы измерения
+%     per-mode = symbol,         % м/с вместо м⋅с⁻¹
+%     range-phrase = {--},       % Тире для диапазонов
+%     range-units = repeat,      % Повторять единицы: 1 м -- 5 м
+
+%     % Шрифты
+%     number-math-rm = \rmfamily,
+%     unit-math-rm = \rmfamily,
+% }
 
 % === ТАБЛИЦЫ ===
 \usepackage{longtable}
