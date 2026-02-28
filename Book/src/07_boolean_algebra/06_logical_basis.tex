@@ -10,7 +10,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{src/07_boolean_algebra/7_7.png}
-    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе ``И-НЕ''}
+    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}
 \end{figure}
 
 \begin{table}[H]
@@ -19,15 +19,15 @@
         \begin{tabular}{|c|c|c|}
             \hline
             \thead{Функция} & \thead{Формула} & \thead{Пример} \\ \hline
-            ``НЕ'' & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ &  \makecell*{\includegraphics{7.5-nand-basis-not}} \\ \hline
-            ``ИЛИ'' & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  & \makecell*{\includegraphics{7.5-nand-basis-or}} \\ \hline
-            ``И'' & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \makecell*{\includegraphics{7.5-nand-basis-and}} \\ \hline
+            \enquote{НЕ} & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ &  \makecell*{\includegraphics{7.5-nand-basis-not}} \\ \hline
+            \enquote{ИЛИ} & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  & \makecell*{\includegraphics{7.5-nand-basis-or}} \\ \hline
+            \enquote{И} & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \makecell*{\includegraphics{7.5-nand-basis-and}} \\ \hline
         \end{tabular}
     }
-    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе ``И-НЕ''}\label{tab:not-and-basis-examples}
+    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}\label{tab:not-and-basis-examples}
 \end{table}
 
-\paragraph{Пример реализации функции ``НЕ'' в базисе ``И-НЕ''}\label{par:not-and-basis-not}
+\paragraph{Пример реализации функции \enquote{НЕ} в базисе \enquote{И-НЕ}}\label{par:not-and-basis-not}
 
 Формула: $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $
 
@@ -36,7 +36,7 @@
     \includegraphics[width=.9\textwidth]{7.5-nand-basis-not}
 \end{figure}
 
-\paragraph{Пример реализации функции ``ИЛИ'' в базисе ``И-НЕ''}\label{par:not-and-basis-or}
+\paragraph{Пример реализации функции \enquote{ИЛИ} в базисе \enquote{И-НЕ}}\label{par:not-and-basis-or}
 
 Формула: $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $
 
@@ -45,7 +45,7 @@
     \includegraphics[width=.5\textwidth]{7.5-nand-basis-or}
 \end{figure}
 
-\paragraph{Пример реализации функции ``И'' в базисе ``И-НЕ''}\label{par:not-and-basis-and}
+\paragraph{Пример реализации функции \enquote{И} в базисе \enquote{И-НЕ}}\label{par:not-and-basis-and}
 
 Формула: $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $
 
@@ -56,7 +56,7 @@
 
 \subsubsection{Формы записи математических выражений}\label{subsubsec:math-notations}
 
-Форма записи по-другому называется нотацией. ``Арность операции'' означает количество операндов, участвующих в операции. \\
+Форма записи по-другому называется нотацией. \enquote{Арность операции} означает количество операндов, участвующих в операции. \\
 Например: $\sqrt{A}$ (унарная), $A\times B$ (бинарная).
 
 \paragraph{Виды нотаций}\label{par:math-notations-types}
@@ -66,7 +66,7 @@
     \item[1957 г.] --- постфиксная (обратная польская) запись $AB+$
 \end{description}
 
-\textbf{Стек} --- абстрактный тип данных, представляющий собой список элементов, организованных по принципу LIFO\footnote{LIFO --- (от англ. last in --- first out, ``последним пришел --- первым вышел'')}.
+\textbf{Стек} --- абстрактный тип данных, представляющий собой список элементов, организованных по принципу LIFO\footnote{LIFO --- (от англ. last in --- first out, \enquote{последним пришел --- первым вышел})}.
 Чаще всего принцип работы стека сравнивают со стопкой тарелок: чтобы взять вторую сверху, нужно снять верхнюю.
 
 \subsubsection{Префиксная нотация}\label{subsubec:prefix-notation}
@@ -154,7 +154,7 @@
     \item Запись выражения получается короче, чем инфиксная.
     \item Не требуется знать приоритет операций.
     \item Легко декодировать выражение с помощью стека.
-    \item Успешно применяется в компиляторах, в небольшом количестве языков программирования и некоторых ЭВМ (калькуляторы ``Электроника'' и HP).
+    \item Успешно применяется в компиляторах, в небольшом количестве языков программирования и некоторых ЭВМ (калькуляторы \enquote{Электроника} и HP).
 \end{itemize}
 
 \paragraph{Алгоритм вычисления для постфиксной нотации}\label{par:postfix-notation-evaluation-algorithm}
