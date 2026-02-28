@@ -1,6 +1,5 @@
 % !TeX root = ../../main.tex
-\subsection{Кодирование с помощью бита четности}
-\label{subsec:bit-parity}
+\subsection{Кодирование с помощью бита четности}\label{subsec:bit-parity}
 
 \textbf{Контрольная сумма (check sum)} --- некоторое число, рассчитанное путем применения определенного алгоритма к набору данных и используемое для проверки целостности этого набора данных при их передаче или хранении.
 
@@ -29,7 +28,7 @@
     \end{tabular}
 \end{table}
 
-\paragraph{Таблица истинности для \texorpdfstring{$A \oplus B$}{A xor B}}
+\paragraph{Таблица истинности для \texorpdfstring{$A \oplus B$}{A xor B}}\label{par:parity-xor-truth-table}
 
 \noindent
 \begin{minipage}[t]{.45\linewidth}
@@ -67,7 +66,7 @@
 
 \noindent Для функции трех и более переменных результат выполнения операции будет истинным только тогда, когда количество аргументов, равных 1, --- нечетное.
 
-\paragraph{Пример обнаружения ошибок}
+\paragraph{Пример обнаружения ошибок}\label{par:parity-error-detection-example}
 
 Допустим, у нас есть один информационный бит $i = 1$. К нему идет один $r_1$ - бит четности, проверочный разряд №1.
 

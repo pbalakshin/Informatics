@@ -1,6 +1,5 @@
 % !TeX root = ../../main.tex
-\subsection{Таблица истинности}
-\label{subsec:truth-table}
+\subsection{Таблица истинности}\label{subsec:truth-table}
 
 Существует только 4 различные логические функции одной переменной $F(x)$.
 Любая другая функция (даже самая сложная вида $F(x) = \overline{x} \vee x \wedge \overline{x}$) будет иметь одну из следующих таблиц истинности:
@@ -93,12 +92,12 @@
 
     \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
     \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
-    \endfirsthead
+    \endfirsthead%
 
     \multicolumn{7}{r}{\small Продолжение таблицы~\thetable}\\\hline
     \textbf{$x$} & \textbf{1} & \textbf{1} & \textbf{0} & \textbf{0} & & \\
     \textbf{$y$} & \textbf{1} & \textbf{0} & \textbf{1} & \textbf{0} & \multicolumn{1}{c|}{\textbf{Обозначение}} & \multicolumn{1}{c|}{\textbf{Название}} \\\hline
-    \endhead
+    \endhead%
 
     $F$ & 0 & 0 & 0 & 0 & $F_{2,0} = FALSE$ & Противоречие, логический нуль \\ \hline
     $F$ & 0 & 0 & 0 & 1 & $F_{2,1} = x \downarrow y = \allowbreak x \text{ NOR } y = \allowbreak \text{NOR}(x,y) = \allowbreak x \text{ НЕ-ИЛИ } y = \allowbreak \text{НЕ-ИЛИ}(x,y)$ & Cтрелка Пирса, НЕ-ИЛИ, антидизъюнкция \\ \hline

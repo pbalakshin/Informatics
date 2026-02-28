@@ -1,6 +1,6 @@
 % !TeX root = ../../main.tex
-\subsection{Логический базис}
-\label{subsec:logic-basis}
+\subsection{Логический базис}\label{subsec:logical-basis}
+
 
 \textbf{Логический базис} --- набор булевых функций, позволяющий реализовать любую другую булеву функцию. \\
 Три наиболее востребованных логических базиса: И, ИЛИ, НЕ; ИЛИ-НЕ; И-НЕ.
@@ -24,11 +24,10 @@
             ``И'' & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \makecell*{\includegraphics{7.5-nand-basis-and}} \\ \hline
         \end{tabular}
     }
-    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе ``И-НЕ''}
-    \label{tab:not-and-basis-examples}
+    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе ``И-НЕ''}\label{tab:not-and-basis-examples}
 \end{table}
 
-\paragraph{Пример реализации функции ``НЕ'' в базисе ``И-НЕ''}
+\paragraph{Пример реализации функции ``НЕ'' в базисе ``И-НЕ''}\label{par:not-and-basis-not}
 
 Формула: $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $
 
@@ -37,7 +36,7 @@
     \includegraphics[width=.9\textwidth]{7.5-nand-basis-not}
 \end{figure}
 
-\paragraph{Пример реализации функции ``ИЛИ'' в базисе ``И-НЕ''}
+\paragraph{Пример реализации функции ``ИЛИ'' в базисе ``И-НЕ''}\label{par:not-and-basis-or}
 
 Формула: $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $
 
@@ -46,7 +45,7 @@
     \includegraphics[width=.5\textwidth]{7.5-nand-basis-or}
 \end{figure}
 
-\paragraph{Пример реализации функции ``И'' в базисе ``И-НЕ''}
+\paragraph{Пример реализации функции ``И'' в базисе ``И-НЕ''}\label{par:not-and-basis-and}
 
 Формула: $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $
 
@@ -55,13 +54,12 @@
     \includegraphics[width=.5\textwidth]{7.5-nand-basis-and}
 \end{figure}
 
-\subsubsection{Формы записи математических выражений}
-\label{subsubsec:math-notations}
+\subsubsection{Формы записи математических выражений}\label{subsubsec:math-notations}
 
 Форма записи по-другому называется нотацией. ``Арность операции'' означает количество операндов, участвующих в операции. \\
 Например: $\sqrt{A}$ (унарная), $A\times B$ (бинарная).
 
-\paragraph{Виды нотаций}
+\paragraph{Виды нотаций}\label{par:math-notations-types}
 \begin{description}
     \item[1489 г.] --- инфиксная запись $A + B$
     \item[1920 г.] --- префиксная (польская) запись $+AB$
@@ -71,8 +69,7 @@
 \textbf{Стек} --- абстрактный тип данных, представляющий собой список элементов, организованных по принципу LIFO\footnote{LIFO --- (от англ. last in --- first out, ``последним пришел --- первым вышел'')}.
 Чаще всего принцип работы стека сравнивают со стопкой тарелок: чтобы взять вторую сверху, нужно снять верхнюю.
 
-\subsubsection{Префиксная нотация}
-\label{subsubec:prefix-notation}
+\subsubsection{Префиксная нотация}\label{subsubec:prefix-notation}
 
 \noindent
 \textbf{\emph{Пример:}} \\
@@ -110,7 +107,7 @@
 Существует популярная Lisp\footnote{Lisp --- семейство языков программирования}-разновидность префиксной нотации.
 И в ней запись будет выглядеть так: $(-(+ABC)(^{\wedge}E(\times DFG)))$
 
-\paragraph{Особенности префиксной нотации}
+\paragraph{Особенности префиксной нотации}\label{par:prefix-notation-features}
 \begin{itemize}[noitemsep]
     \item Не требуется скобок, если арность фиксирована.
     \item Запись выражения получается короче, чем инфиксная.
@@ -119,8 +116,7 @@
     \item Малоприменима на практике (кроме Lisp).
 \end{itemize}
 
-\subsubsection{Постфиксная нотация}
-\label{subsubsec:postfix-notation}
+\subsubsection{Постфиксная нотация}\label{subsubsec:postfix-notation}
 
 \noindent\textbf{\emph{Пример:}} \\
 Инфиксная нотация: $(A + B + C) - E^{D\times F\times G}$ \\
@@ -152,7 +148,7 @@
             Получили $CAB++EGDF\times\times ^{\wedge}-$.
 \end{enumerate}
 
-\paragraph{Особенности постфиксной нотации}
+\paragraph{Особенности постфиксной нотации}\label{par:postfix-notation-features}
 \begin{itemize}[noitemsep]
     \item Не требуется скобок, если арность фиксирована.
     \item Запись выражения получается короче, чем инфиксная.
@@ -161,7 +157,7 @@
     \item Успешно применяется в компиляторах, в небольшом количестве языков программирования и некоторых ЭВМ (калькуляторы ``Электроника'' и HP).
 \end{itemize}
 
-\paragraph{Алгоритм вычисления для постфиксной нотации}
+\paragraph{Алгоритм вычисления для постфиксной нотации}\label{par:postfix-notation-evaluation-algorithm}
 \begin{enumerate}[noitemsep]
     \item Обработка входного символа
           \begin{itemize}[noitemsep]

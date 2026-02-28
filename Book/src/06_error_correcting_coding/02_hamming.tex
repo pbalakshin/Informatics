@@ -1,8 +1,7 @@
 % !TeX root = ../../main.tex
 
 \clearpage
-\subsection{Код Хэмминга}
-\label{subsec:hamming}
+\subsection{Код Хэмминга}\label{subsec:hamming-code}
 
 
 \begin{wrapfigure}{l}{0.25\textwidth}
@@ -63,8 +62,7 @@
 Рассмотрим таблицу:
 \begin{table}[H]
     % TODO: Надо ли?
-    % \caption{Caption}
-    % \label{tab:my_label}
+    % \caption{Таблица для кодов Хэмминга}\label{tab:hamming-code}
     \centering
     \begin{tabularx}{\linewidth}{|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|}
         \hline
@@ -117,7 +115,7 @@
 \noindent
 Классические коды Хэмминга с маркировкой (n, i): (7, 4); (15, 11); (31, 26).
 
-\paragraph{Код Хэмминга для r = 3}
+\paragraph{Код Хэмминга для r = 3}\label{par:hamming-code-r3}
 
 Разбрем код Хэмминга для $r = 3$.
 В данном случае, у нас 7 бит, из них 4 информационных и 3 проверочных.
@@ -240,17 +238,15 @@
 
 \begin{figure}[H]
      \includegraphics[width=\linewidth]{6.2-hamming-encoder}
-     \caption{Схема создания кода Хэмминга (7,4)}
-     \label{fig:hamming-encoding}
+     \caption{Схема создания кода Хэмминга (7,4)}\label{fig:hamming-encoding}
 \end{figure}
 
 \begin{figure}[H]
      \includegraphics[width=\linewidth]{6.2-hamming-decoder}
-     \caption{Схема декодирования кода Хэмминга (7,4)}
-     \label{fig:hamming-decoding}
+     \caption{Схема декодирования кода Хэмминга (7,4)}\label{fig:hamming-decoding}
 \end{figure}
 
-\paragraph{Код Хэмминга для r = 4}
+\paragraph{Код Хэмминга для r = 4}\label{par:hamming-code-r4}
 
 Разбрем код Хэмминга для $r = 4$ аналогично тому, как мы сделали это выше.
 В данном случае, у нас 15 бит, из них 11 информационных и 4 проверочных. То есть, код имеет маркировку (15, 11). \\
@@ -304,8 +300,8 @@
 
 \noindent
 \begin{table}[H]
-    % \caption{Caption}
-    % \label{tab:my_label}
+    % TODO: Надо ли?
+    % \caption{Таблица для кодов Хэмминга (15,11)}\label{tab:hamming-code-15-11}
     \centering
     \begin{tabular}{|c|c|c|c|}
         \hline

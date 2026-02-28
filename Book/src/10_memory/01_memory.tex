@@ -13,8 +13,7 @@
 
 \begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{src/10_memory/10_1.png}
-    \caption{TODO: Добавить название}
-    \label{fig:todo-name}
+    \caption{TODO: Добавить название}\label{fig:todo-name}
 \end{figure}
 
 На рисунке~\ref{fig:todo-name} показан выходной сигнал элемента памяти (например, одного разряда регистра) при изменении его состояний (при переключениях) под воздействием некоторого входного сигнала.
@@ -45,32 +44,27 @@
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[height=5cm]{10-rs-trigger-async-nand}
-        \caption{На элементах 2И-НЕ}
-        \label{fig:rs-trigger-nand}
+        \caption{На элементах 2И-НЕ}\label{fig:rs-trigger-nand}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[height=5cm]{10-rs-trigger-async-nor}
-        \caption{На элементах 2ИЛИ-НЕ}
-        \label{fig:rs-trigger-nor}
+        \caption{На элементах 2ИЛИ-НЕ}\label{fig:rs-trigger-nor}
     \end{subfigure}
 
-    \caption{Асинхронный RS-триггер (IEC)}
-    \label{fig:rs-trigger}
+    \caption{Асинхронный RS-триггер (IEC)}\label{fig:rs-trigger}
 \end{figure}
 
 \begin{figure}[!htbp]
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[height=5cm]{10-rs-trigger-async-nand}
-        \caption{Асинхронный RS-триггер на элементах 2И-НЕ (IEC)}
-        \label{fig:rs-trigger-nand1}
+        \caption{Асинхронный RS-триггер на элементах 2И-НЕ (IEC)}\label{fig:rs-trigger-nand1}
     \end{minipage}\hfill
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[height=5cm]{10-rs-trigger-async-nor}
-        \caption{Асинхронный RS-триггер на элементах 2ИЛИ-НЕ (IEC)}
-        \label{fig:rs-trigger-nor1}
+        \caption{Асинхронный RS-триггер на элементах 2ИЛИ-НЕ (IEC)}\label{fig:rs-trigger-nor1}
     \end{minipage}
 \end{figure}
 
@@ -107,15 +101,13 @@
     \begin{minipage}[b]{0.49\textwidth}
         \centering
         \includegraphics[scale=1.2]{10-multiplexer}
-        \caption{Мультиплексор}
-        \label{fig:multiplexer}
+        \caption{Мультиплексор}\label{fig:multiplexer}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.49\textwidth}
         \centering
         \includegraphics[scale=1.2]{10-demultiplexer}
-        \caption{Демультиплексор}
-        \label{fig:demultiplexer}
+        \caption{Демультиплексор}\label{fig:demultiplexer}
     \end{minipage}
 \end{figure}
 
@@ -129,7 +121,7 @@
 Про такую шину говорят, что ее ширина равна 8.
 В действительности шина обычно содержит несколько дополнительных проводов, используемых для передачи сигналов синхронизации и управления, однако подобный анализ структуры шин нас пока не интересует.
 
-\subsection{Характеристики систем памяти}
+\subsection{Характеристики систем памяти}\label{subsec:memory-system-characteristics}
 \begin{enumerate}
     \item \textbf{Место расположения:}
           \begin{itemize}
@@ -162,15 +154,15 @@
     \item \textbf{Стоимость} --- стоимость хранения одного бита информации.
 \end{enumerate}
 
-\subsection{Иерархия памяти}
+\subsection{Иерархия памяти}\label{subsec:memory-hierarchy}
 \begin{wrapfigure}[5]{l}{4cm}
     \includegraphics[width=2.8cm]{src/10_memory/10_6.jpg}
 \end{wrapfigure}
 
 Чем меньше время доступа, тем выше стоимость хранения бита. Чем больше емкость, тем ниже стоимость хранения бита, но больше время доступа.
 
-\subsection{Физическое устройство памяти}
-\subsubsection{Кэш-память}
+\subsection{Физическое устройство памяти}\label{subsec:physical-memory-device}
+\subsubsection{Кэш-память}\label{subsubsec:cache-memory}
 \begin{wrapfigure}[11]{l}{9cm}
     \includegraphics[width=8cm]{src/10_memory/10_7.jpg}
 \end{wrapfigure}
@@ -239,8 +231,7 @@
     \centering
     % \vspace{-\intextsep}
     \includegraphics[width=0.25\textwidth]{10.3-rs-trigger}
-    \caption{RS-триггер (ANSI)}
-    \label{fig:rs-trigger-nor-ansi}
+    \caption{RS-триггер (ANSI)}\label{fig:rs-trigger-nor-ansi}
 \end{wrapfigure}
 
 Выход одного элемента ИЛИ-НЕ поступает на вход другого.
