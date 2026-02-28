@@ -64,6 +64,38 @@ jobs:
         run: |
           cat Book/build/informatics.log || true
 
+      - name: Check for undefined references
+        run: |
+          if grep -qi "Reference.*undefined" Book/build/informatics.log; then
+            echo "❌ Failed references!"
+            grep -i "Reference.*undefined" Book/build/informatics.log
+            exit 1
+          fi
+          if grep -qi "Citation.*undefined" Book/build/informatics.log; then
+            echo "❌ Failed citations!"
+            grep -i "Citation.*undefined" Book/build/informatics.log
+            exit 1
+          fi
+          echo "✅ All references are correct"
+
+      - name: Check for duplicate labels
+        run: |
+          DUPLICATES=$(grep -roh '\\label{[^}]*}' Book/ | sort | uniq -d)
+
+          if [ -n "$DUPLICATES" ]; then
+            echo "❌ Duplicate labels found:"
+            echo "$DUPLICATES"
+            exit 1
+          else
+            echo "✅ All labels are unique"
+          fi
+
+          if grep -q "multiply defined" Book/build/informatics.log; then
+            echo "❌ Latex reported multiply defined labels!"
+            grep "multiply defined" Book/build/informatics.log
+            exit 1
+          fi
+
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:

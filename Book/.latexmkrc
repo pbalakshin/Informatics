@@ -37,6 +37,9 @@ $dependents_list = 1;
 # Do not force remake unless files changed
 $force_mode = 0;
 
+# Book/latexmkrc
+$ENV{'INKSCAPE_EXECUTABLE'} = 'inkscape';
+
 # Needed if default python is 3.14 which is not supported yet (on macos)
 if (-d ".venv") {
     $ENV{'PATH'} = "$ENV{PWD}/.venv/bin:" . $ENV{'PATH'};

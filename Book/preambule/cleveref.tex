@@ -1,0 +1,42 @@
+% === НАСТРОЙКА CLEVEREF ПОД ГОСТ ===
+
+% --- Разделы документа ---
+\crefformat{section}{\S#2#1#3}             % §1
+\crefformat{subsection}{\S#2#1#3}          % §1.1
+\crefformat{subsubsection}{\S#2#1#3}       % §1.1.1
+\crefformat{paragraph}{\S#2#1#3}           % §1.1.1.1
+
+% --- Приложения ---
+\crefformat{appendix}{прил.~#2#1#3}        % прил.~A
+\crefformat{subappendix}{прил.~#2#1#3}     % прил.~A.1
+
+% --- Рисунки и Таблицы ---
+\crefformat{figure}{рис.~#2#1#3}           % рис.~1
+\crefformat{subfigure}{рис.~#2#1#3}        % рис.~1a
+\crefformat{table}{табл.~#2#1#3}           % табл.~1
+
+% --- Формулы и Листинги ---
+\crefformat{equation}{#2(#1)#3}            % (1) — ГОСТ требует в скобках
+\crefformat{listing}{лист.~#2#1#3}         % лист.~1
+\crefformat{algorithm}{алг.~#2#1#3}        % алг.~1
+
+% --- Диапазоны (множественное число) ---
+\crefrangeformat{section}{\S\S#3#1#4--#5#2#6}
+\crefrangeformat{figure}{рис.~#3#1#4--#5#2#6}
+\crefrangeformat{table}{табл.~#3#1#4--#5#2#6}
+\crefrangeformat{equation}{#3(#1)#4--#5(#2)#6}
+
+% \crefname{section}{раздел}{разделы}
+% \crefname{subsection}{подраздел}{подразделы}
+% \crefname{figure}{рис.}{рис.}
+% \crefname{table}{табл.}{табл.}
+% \crefname{equation}{формула}{формулы}
+
+% --- Заглавная буква (для начала предложения) ---
+\Crefname{section}{Раздел}{Разделы}
+\Crefname{subsection}{Подраздел}{Подразделы}
+\Crefname{figure}{Рисунок}{Рисунки}
+\Crefname{table}{Таблица}{Таблицы}
+\Crefname{equation}{Формула}{Формулы}
+\Crefname{listing}{Листинг}{Листинги}
+\Crefname{appendix}{Приложение}{Приложения}
