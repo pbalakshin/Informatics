@@ -94,11 +94,16 @@
 
 % === ССЫЛКИ ===
 \usepackage[breaklinks]{hyperref}
+\hypersetup{
+    colorlinks,
+    linktoc=page,
+    pdflang={ru}
+}
+
 \usepackage{xurl}
 \usepackage{xr} % cross-file references
 \usepackage[autostyle, style=russian, babel]{csquotes}
 \usepackage{lastpage}
-\usepackage[russian]{cleveref}
 \input{preambule/cleveref.tex}
 
 % \usepackage{import} % Должно помочь не писать постоянно src/02.../...tex
