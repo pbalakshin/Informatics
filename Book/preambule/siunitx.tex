@@ -1,0 +1,40 @@
+
+% Partially based on Russian-Phd-LaTeX-Dissertation-Template but using version 3+
+\usepackage[
+	locale 								= DE,               % Запятая для десятичных (3,14)
+	% Table 14: Output options for numbers.
+	exponent-product 			= {\cdot},          % Знак умножения (1,5·10³)
+	group-separator 			= {\,},             % Тонкий пробел для группировки
+	group-minimum-digits 	= 4,                % Группировать от 4 цифр
+	uncertainty-mode 			= separate,
+	% separate-uncertainty  = true,
+	% Table 15: Output options for lists, products and ranges of numbers and quantities.
+	list-separator	 			= {\text{, }},      % Запятая с пробелом
+	list-final-separator 	= {\text{ и }},     % «и» перед последним элементом
+	list-pair-separator 	= {\text{ и }},     % Для пар чисел
+	list-units 						= single,
+	range-units 					= single,
+	% range-phrase            = {\text{\ensuremath{-}}},
+	range-phrase 					= {\text{--}},
+	% Table 19: Unit output options
+	per-mode 							= symbol,
+	fraction-command 			= \sfrac            % красивые дроби могут не соответствовать ГОСТ
+]{siunitx}
+
+% === Пользовательские команды для информатики ===
+\newcommand{\bits}{\bit}
+\newcommand{\bytes}{\byte}
+\newcommand{\bps}{\bit\per\second}
+\newcommand{\Bps}{\byte\per\second}
+\newcommand{\Hz}{\hertz}
+
+\newcommand{\B}{\byte}
+\newcommand{\KB}{\kilo\byte}
+\newcommand{\MB}{\mega\byte}
+\newcommand{\GB}{\giga\byte}
+\newcommand{\TB}{\tera\byte}
+
+\newcommand{\kbps}{\kilo\bit\per\second}
+\newcommand{\mbps}{\mega\bit\per\second}
+\newcommand{\gbps}{\giga\bit\per\second}
+\newcommand{\tbps}{\tera\bit\per\second}

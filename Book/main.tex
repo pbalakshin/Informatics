@@ -58,6 +58,8 @@
 
 % === МАТЕМАТИКА ===
 \usepackage{amsmath}
+\usepackage{xfrac}  % Красивые дроби
+\input{preambule/siunitx.tex}
 
 % Использовать полужирное начертание для векторов
 \let\vec=\mathbf%
@@ -112,24 +114,6 @@
 % \setlist{nosep}
 % \setlist[itemize]{leftmargin=2cm,labelsep=0.5cm}
 % \setlist[enumerate]{leftmargin=1.5cm}
-
-% === Дополнительные пакеты ===
-\usepackage{siunitx} % for B/kB/MB etc.
-% \sisetup{
-%     % Разделители
-%     decimal-marker = {,},      % Запятая для десятичных
-%     group-separator = {\,},    % Тонкий пробел для тысяч
-%     group-minimum-digits = 4,  % Разделять группы от 4 цифр
-
-%     % Единицы измерения
-%     per-mode = symbol,         % м/с вместо м⋅с⁻¹
-%     range-phrase = {--},       % Тире для диапазонов
-%     range-units = repeat,      % Повторять единицы: 1 м -- 5 м
-
-%     % Шрифты
-%     number-math-rm = \rmfamily,
-%     unit-math-rm = \rmfamily,
-% }
 
 % === ТАБЛИЦЫ ===
 \usepackage{longtable}
