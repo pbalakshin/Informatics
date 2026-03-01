@@ -90,7 +90,7 @@
 \xpatchcmd{\mintinline}{\begingroup}{\begingroup\let\itshape\relax}{}{} % chktex 6
 \xpatchcmd{\minted}{\VerbatimEnvironment}{\VerbatimEnvironment\let\itshape\relax}{}{} % chktex 6
 
-\newcommand{\code}[2][text]{\mintinline{#1}{#2}}
+% \newcommand{\code}[2][text]{\mintinline{#1}{#2}} # use \verb instead
 
 % === ССЫЛКИ ===
 \usepackage[breaklinks]{hyperref}
@@ -156,7 +156,7 @@
 %% 6 - заголовки столбцов (первая строчка, которая будет везде повторяться)
 \newenvironment{nirtabxl}[6]{
     \begin{xltabular}{#1}{#2}
-        \caption{#4\label{#5}}
+        \caption{#4}\label{#5}
         \\ \hline #6 \\ \hline \endfirsthead%
         \multicolumn{#3}{r}{\normalsize{Продолжение таблицы~\thetable}} \\ \hline
         #6 \\ \hline \endhead%

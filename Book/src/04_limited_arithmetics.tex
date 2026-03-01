@@ -79,13 +79,13 @@
 
 % Как nirtable только с возможностью расширить на всю страницу (сделать environment как nirtable не вышло)
 \begin{xltabular}{\textwidth}{|c|c|C|C|}
-    \caption{Регистр флагов Intel x86}\label{tab:flags} \\\hline
-
-    \thead{№\\бита} & \thead{Обозна-\\чение} & \thead{Название} & \thead{Описание}\\\hline
+    \caption{Регистр флагов Intel x86}\label{tab:flags} \\
+    \hline
+    \thead{№\\бита} & \thead{Обозна-\\чение} & \thead{Название} & \thead{Описание} \\ \hline
     \endfirsthead%
-
-    \multicolumn{4}{r}{\small Продолжение таблицы~\thetable}\\\hline
-    \thead{№\\бита} & \thead{Обозна-\\чение} & \thead{Название} & \thead{Описание}\\\hline
+    %
+    \multicolumn{4}{r}{\small Продолжение таблицы~\thetable} \\ \hline
+    \thead{№\\бита} & \thead{Обозна-\\чение} & \thead{Название} & \thead{Описание}\\ \hline
     \endhead%
 
     \multicolumn{4}{|c|}{\textbf{FLAGS}} \\ \hline
@@ -122,7 +122,7 @@
     \multicolumn{4}{|c|}{\textbf{RFLAGS}} \\ \hline
     32 & \multirow{3}{*}{-} & \multirow{3}{*}{-} & \multirow{3}{*}{Зарезервированы} \\ \cline{1-1}
     $\cdots$ & & & \\ \cline{1-1}
-    63 & & & \\\hline
+    63 & & & \\ \hline
 \end{xltabular}
 
 После любой арифметической операции процессор автоматически без участия программиста заполняет регистр флагов состояния. Состояние процессора меняется после каждой арифметической операции.

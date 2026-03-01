@@ -30,32 +30,26 @@
     \begin{tabular}{|c|c|c|c|}
         \hline
         \thead{Тип данных} & \thead{Резервируемая \\ память, байт} & \thead{Минимальное \\ значение} & \thead{Максимальное \\ значение} \\ \hline
-        \code{Byte} & 1 & \code{0} & \code{255}\\
-        \code{Boolean} & 2 & \code{False} & \code{True} \\
-        \code{Integer} & 2 & \code{-32768} & \code{32767} \\
-        \code{Long} & 4 & \code{-2147483648} & \code{2147483647} \\
-        \code{Date} & 8 & 1 января 100 г. & 31 декабря 9999 г. \\
-        \code{String} & Длина строки & \code{1} & \code{65400} \\
-        \code{Variant} (число) & 16 &  & \\
-        \code{Variant}(символ) & \makecell{22 байта + \\ длина строки} &  & \makecell{2147483647 \\ символов}\\
+        \verb|Byte| & 1 & \num{0} & \num{255}\\
+        \verb|Boolean| & 2 & \verb|False| & \verb|True| \\
+        \verb|Integer| & 2 & \num{-32768} & \num{32767} \\
+        \verb|Long| & 4 & \num{-2147483648} & \num{2147483647} \\
+        \verb|Date| & 8 & 1 января 100 г. & 31 декабря 9999 г. \\
+        \verb|String| & Длина строки & \num{1} & \num{65400} \\
+        \verb|Variant| (число) & 16 &  & \\
+        \verb|Variant| (символ) & \makecell{22 байта + \\ длина строки} &  & \makecell{2147483647 \\ символов}\\
         \hline
     \end{tabular}
 \end{table}
 
 \paragraph{Объявление переменных}\label{par:vba-variable-declaration}
 
-\noindent
-\textbf{Неявно: }
-\begin{minted}{vb.net}
-    sum = 100
-\end{minted}
-В данном случае присваивается тип Variant. Это обобщенный тип, переменная нетипизирована.
+\subparagraph{Неявно: }
+\verb|sum = 100| \\
+В данном случае присваивается тип \verb|Variant|. Это обобщенный тип, переменная нетипизирована.
 
-\bigskip\noindent
-\textbf{Явно:}
-\begin{minted}{vb.net}
-    Dim sum As Integer
-\end{minted}
+\subparagraph{Явно:}
+\verb|Dim sum As Integer| \\
 \emph{Преимущества}:
 \begin{itemize}
     \item Программа быстрее работает.
