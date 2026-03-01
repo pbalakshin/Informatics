@@ -21,9 +21,6 @@
 \usepackage{microtype}
 \usepackage{ulem} %зачёркнутый текст
 
-%% Не используем буллеты.
-% \renewcommand\labelitemi{---}
-
 % === ПОДПИСИ ===
 % \usepackage[font=normalsize,labelfont=it,textfont=it,justification=centering]{caption}
 
@@ -111,9 +108,7 @@
 
 % === СПИСОК И ПЕРЕЧНИ ===
 \usepackage{enumitem}
-% \setlist{nosep}
-% \setlist[itemize]{leftmargin=2cm,labelsep=0.5cm}
-% \setlist[enumerate]{leftmargin=1.5cm}
+\input{preambule/enumitem.tex}
 
 % === ТАБЛИЦЫ ===
 \usepackage{longtable}

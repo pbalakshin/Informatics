@@ -108,7 +108,7 @@
 И в ней запись будет выглядеть так: $(-(+ABC)(^{\wedge}E(\times DFG)))$
 
 \paragraph{Особенности префиксной нотации}\label{par:prefix-notation-features}
-\begin{itemize}[noitemsep]
+\begin{itemize}
     \item Не требуется скобок, если арность фиксирована.
     \item Запись выражения получается короче, чем инфиксная.
     \item Не требуется знать приоритет операций.
@@ -149,7 +149,7 @@
 \end{enumerate}
 
 \paragraph{Особенности постфиксной нотации}\label{par:postfix-notation-features}
-\begin{itemize}[noitemsep]
+\begin{itemize}
     \item Не требуется скобок, если арность фиксирована.
     \item Запись выражения получается короче, чем инфиксная.
     \item Не требуется знать приоритет операций.
@@ -158,9 +158,9 @@
 \end{itemize}
 
 \paragraph{Алгоритм вычисления для постфиксной нотации}\label{par:postfix-notation-evaluation-algorithm}
-\begin{enumerate}[noitemsep]
+\begin{enumerate}
     \item Обработка входного символа
-          \begin{itemize}[noitemsep]
+          \begin{itemize}
               \item Если на вход подан операнд, он помещается на вершину стека.
               \item Если на вход подан знак операции, то соответствующая операция выполняется над требуемым количеством значений, извлеченных из стека, взятых в порядке добавления. Результат выполненной операции кладется на вершину стека.
           \end{itemize}
