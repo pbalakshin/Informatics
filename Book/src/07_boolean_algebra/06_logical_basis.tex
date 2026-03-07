@@ -13,45 +13,45 @@
     \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}
 \end{figure}
 
-\begin{table}[H]
-    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}\label{tab:not-and-basis-examples}
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{|c|c|c|}
+{
+    \newcommand{\cellimage}[1]{\parbox{\hsize}{\centering \includegraphics[scale=0.5]{#1}}}
+    \begin{table}[!htpb]
+        \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}\label{tab:not-and-basis-examples}
+        \begin{tabularx}{\linewidth}{|c|c|C|}
             \hline
             \thead{Функция} & \thead{Формула} & \thead{Пример} \\ \hline
-            \enquote{НЕ} & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ &  \makecell*{\includegraphics{7.5-nand-basis-not}} \\ \hline
-            \enquote{ИЛИ} & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  & \makecell*{\includegraphics{7.5-nand-basis-or}} \\ \hline
-            \enquote{И} & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \makecell*{\includegraphics{7.5-nand-basis-and}} \\ \hline
-        \end{tabular}
-    }
-\end{table}
+            \enquote{НЕ} & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ & \cellimage{7.5-nand-basis-not} \\ \hline
+            \enquote{ИЛИ} & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  &  \cellimage{7.5-nand-basis-or} \\ \hline
+            \enquote{И} & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \cellimage{7.5-nand-basis-and} \\ \hline
+        \end{tabularx}
+    \end{table}
+}
 
-\paragraph{Пример реализации функции \enquote{НЕ} в базисе \enquote{И-НЕ}}\label{par:not-and-basis-not}
+\paragraph{Пример реализации функции \enquote{НЕ} в базисе \enquote{И-НЕ}}\label{par:example-not-and-basis-not}
 
-Формула: $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $
+\emph{Формула:} $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.9\textwidth]{7.5-nand-basis-not}
+    \includegraphics[scale=0.6]{7.5-nand-basis-not}
 \end{figure}
 
-\paragraph{Пример реализации функции \enquote{ИЛИ} в базисе \enquote{И-НЕ}}\label{par:not-and-basis-or}
+\paragraph{Пример реализации функции \enquote{ИЛИ} в базисе \enquote{И-НЕ}}\label{par:example-not-and-basis-or}
 
-Формула: $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $
+\emph{Формула:} $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\textwidth]{7.5-nand-basis-or}
+    \includegraphics[scale=0.6]{7.5-nand-basis-or}
 \end{figure}
 
-\paragraph{Пример реализации функции \enquote{И} в базисе \enquote{И-НЕ}}\label{par:not-and-basis-and}
+\paragraph{Пример реализации функции \enquote{И} в базисе \enquote{И-НЕ}}\label{par:example-not-and-basis-and}
 
-Формула: $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $
+\emph{Формула:} $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\textwidth]{7.5-nand-basis-and}
+    \includegraphics[scale=0.6]{7.5-nand-basis-and}
 \end{figure}
 
 \subsubsection{Формы записи математических выражений}\label{subsubsec:math-notations}
