@@ -1,0 +1,10 @@
+CmdLine
+{
+  -q
+  -wall
+  -n19 # ASCII error (russian symbols)
+  -n22 # Comment displayed
+  -n30 # Multiple spaces detected in output.
+  -n44 # Disable all regex (because of \hline and |)
+  -n46 # Use \( ... \) instead of $ ... $
+}
