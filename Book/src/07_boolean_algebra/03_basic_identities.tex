@@ -2,73 +2,173 @@
 \subsection{Основные тождества}\label{subsec:basic-identities}
 
 
+
+\todo{Выбрать. 4 Варианта (4ый - исходный)}
+
 % Как nirtable только с возможностью расширить на всю страницу (сделать environment как nirtable не вышло)
-{%\small
-    \renewcommand{\arraystretch}{1.5}
-    \begin{xltabular}{\textwidth}{|c|X|}
-        \caption{Основные тождества}\label{tab:basic-indentities}\\\hline
+{
+\renewcommand{\arraystretch}{1.5}
+\begin{xltabular}{\textwidth}{r L}
+    \caption{Основные тождества\label{tab:basic-indentities}} \\
 
-        \textbf{Название} & \textbf{Тождества} \\\hline
-        \endfirsthead%
+    \toprule
+    \textbf{Название} & \textbf{Тождества} \\
+    \midrule
+    \endfirsthead%
 
-        \multicolumn{2}{r}{\small Продолжение таблицы~\thetable}\\\hline
-        \textbf{Название} & \textbf{Тождества} \\\hline
-        \endhead%
+    \multicolumn{2}{r@{}}{\small Продолжение таблицы~\thetable}\\
+    \midrule
+    \textbf{Название} & \textbf{Тождества} \\
+    \midrule
+    \endhead%
 
-        \makecell*[r]{Аксиома\\двойного отрицания} &
-        $\overline{\overline{x}} = x$ \\\hline
+    Аксиома двойного отрицания &
+    \makecell[tl]{
+        $\overline{\overline{x}} = x$
+    } \\ \midrule
 
-        \makecell*[r]{Аксиома\\существования 1 и 0} &
-        \makecell*[X]{
-            $0 = \overline{1}$; $x \vee \overline{x} = 1$ \\
-            $1 = \overline{0}$; $x \wedge \overline{x} = 0$
-        } \\\hline
+    Аксиома существования 1 и 0: &
+    \makecell[tl]{
+        $0 = \overline{1}$;
+        $x \vee \overline{x} = 1$;
+        $1 = \overline{0}$;
+        $x \wedge \overline{x} = 0$
+    } \\ \midrule
 
-        \makecell*[r]{Закон\\идемпотенции} &
-        \makecell*[X]{
-            $x \vee x = x$ \\
-            $x \wedge x = x$
-        } \\\hline
+    Закон идемпотенции &
+    \makecell[tl]{
+        $x \vee x = x$;
+        $x \wedge x = x$
+    } \\ \midrule
 
-        \makecell*[r]{Закон\\коммутативности} &
-        \makecell*[X]{
-            $x \vee y = y \vee x$ \\
-            $x \wedge y = y \wedge x$
-        } \\\hline
+    Закон коммутативности &
+    \makecell[tl]{
+        $x \vee y = y \vee x$;
+        $x \wedge y = y \wedge x$
+    } \\\midrule
 
-        \makecell*[r]{Закон\\поглощения} &
-        \makecell*[X]{
-            $x \vee (x \wedge y) = x$ \\
-            $x \wedge (x \vee y) = x$
-        } \\\hline
+    Закон поглощения &
+    \makecell[tl]{
+        $x \vee (x \wedge y) = x$;
+        $x \wedge (x \vee y) = x$
+    } \\ \midrule
 
-        \makecell*[r]{Закон\\ассоциативности} &
-        \makecell*[X]{
-            $x \vee (y \vee z) = (x \vee y) \vee z$ \\
-            $x \wedge (y \wedge z) = (x \wedge y) \wedge z$
-        } \\\hline
+    Закон ассоциативности &
+    \makecell[tl]{
+        $x \vee (y \vee z) = (x \vee y) \vee z$; \\
+        $x \wedge (y \wedge z) = (x \wedge y) \wedge z$
+    } \\ \midrule
 
-        \makecell*[r]{Закон\\дистрибутивности} &
-        \makecell*[X]{
-            $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$ \\
-            $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$
-        } \\\hline
+    Закон дистрибутивности &
+    \makecell[tl]{
+        $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$; \\
+        $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$
+    } \\ \midrule
 
-        \makecell*[r]{Законы\\де Моргана} &
-        \makecell*[X]{
-            $\overline{x \vee y} = \overline{x} \wedge \overline{y}$ \\
-            $\overline{x \wedge y} = \overline{x} \vee \overline{y}$
-        } \\\hline
+    Законы де Моргана &
+    \makecell[tl]{
+        $\overline{x \vee y} = \overline{x} \wedge \overline{y}$;
+        $\overline{x \wedge y} = \overline{x} \vee \overline{y}$
+    } \\ \midrule
 
-        \makecell*[r]{Закон\\нейтральности} &
-        \makecell*[X]{
-            $x \vee (y \wedge \overline{y}) = x$ \\
-            $x \wedge (y \vee \overline{y}) = x$
-        } \\\hline
-    \end{xltabular}
+    Закон нейтральности &
+    \makecell[tl]{
+        $x \vee (y \wedge \overline{y}) = x$;
+        $x \wedge (y \vee \overline{y}) = x$
+    } \\ \bottomrule
+\end{xltabular}
 }
 
-\todo{Выбрать}
+\bigskip\hrule\bigskip
+
+{
+\renewcommand{\arraystretch}{1.5}
+\begin{xltabular}{\textwidth}{|r|L|}
+    \caption{Основные тождества\label{tab:basic-indentities}} \\
+
+    \hline
+    \textbf{Название} & \textbf{Тождества} \\
+    \hline
+    \endfirsthead%
+
+    \multicolumn{2}{r@{}}{\small Продолжение таблицы~\thetable}\\
+    \hline
+    \textbf{Название} & \textbf{Тождества} \\
+    \hline
+    \endhead%
+
+    Аксиома двойного отрицания &
+    \makecell[tl]{
+        $\overline{\overline{x}} = x$
+    } \\ \hline
+
+    Аксиома существования 1 и 0: &
+    \makecell[tl]{
+        $0 = \overline{1}$;
+        $x \vee \overline{x} = 1$;
+        $1 = \overline{0}$;
+        $x \wedge \overline{x} = 0$
+    } \\ \hline
+
+    Закон идемпотенции &
+    \makecell[tl]{
+        $x \vee x = x$;
+        $x \wedge x = x$
+    } \\ \hline
+
+    Закон коммутативности &
+    \makecell[tl]{
+        $x \vee y = y \vee x$;
+        $x \wedge y = y \wedge x$
+    } \\\hline
+
+    Закон поглощения &
+    \makecell[tl]{
+        $x \vee (x \wedge y) = x$;
+        $x \wedge (x \vee y) = x$
+    } \\ \hline
+
+    Закон ассоциативности &
+    \makecell[tl]{
+        $x \vee (y \vee z) = (x \vee y) \vee z$; \\
+        $x \wedge (y \wedge z) = (x \wedge y) \wedge z$
+    } \\ \hline
+
+    Закон дистрибутивности &
+    \makecell[tl]{
+        $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$; \\
+        $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$
+    } \\ \hline
+
+    Законы де Моргана &
+    \makecell[tl]{
+        $\overline{x \vee y} = \overline{x} \wedge \overline{y}$;
+        $\overline{x \wedge y} = \overline{x} \vee \overline{y}$
+    } \\ \hline
+
+    Закон нейтральности &
+    \makecell[tl]{
+        $x \vee (y \wedge \overline{y}) = x$;
+        $x \wedge (y \vee \overline{y}) = x$
+    } \\ \hline
+\end{xltabular}
+}
+
+\bigskip\hrule\bigskip
+
+\begin{itemize}
+    \item Аксиома двойного отрицания: $\overline{\overline{x}} = x$
+    \item Аксиома существования 1 и 0: $0 = \overline{1}$; $x \vee \overline{x} = 1$; $1 = \overline{0}$; $x \wedge \overline{x} = 0$
+    \item Закон идемпотенции: $x \vee x = x$; $x \wedge x = x$
+    \item Закон коммутативности: $x \vee y = y \vee x$; $x \wedge y = y \wedge x$
+    \item Закон поглощения: $x \vee (x \wedge y) = x$; $x \wedge (x \vee y) = x$
+    \item Закон ассоциативности: $x \vee (y \vee z) = (x \vee y) \vee z$; $x \wedge (y \wedge z) = (x \wedge y) \wedge z$
+    \item Закон дистрибутивности: $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$; $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$
+    \item Законы де Моргана: $\overline{x \vee y} = \overline{x} \wedge \overline{y}$; $\overline{x \wedge y} = \overline{x} \vee \overline{y}$
+    \item Закон нейтральности: $x \vee (y \wedge \overline{y}) = x$; $x \wedge (y \vee \overline{y}) = x$
+\end{itemize}
+
+\bigskip\hrule\bigskip
 
 \begin{enumerate}
     \item Аксиома двойного отрицания
