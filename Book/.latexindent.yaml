@@ -1,0 +1,159 @@
+# Общие настройки
+defaultIndent: "    "  # 4 пробела для отступов
+backupFiles: 0
+
+indentRulesGlobal:
+  # Не добавлять отступы внутри конкретных окружений
+  # Это помогает избежать конфликтов с chktex и сохраняет структуру
+  verbatim: ""
+  verbatimtab: ""
+  listing: ""
+  lstlisting: ""
+  minted: ""
+  mintedinline: ""
+  pycode: ""
+  python: ""
+  sageblock: ""
+  spverbatim: ""
+  filecontents: ""
+
+# ============================================================
+# Настройки переноса строк (Line Breaks)
+# ============================================================
+modifyLineBreaks:
+  # Не переносить строки агрессивно, сохранять ручные разрывы
+  preserveBlankLines: 1       # Сохранять пустые строки между блоками
+  multipleSpacesToSingle: 1   # Возможно надо будет убрать
+  textWrapOptions:
+    columns: 100
+    wrap: 0
+  environments:
+    Break: 1           # Переносить содержимое окружений
+  oneSentencePerLine:
+    manipulateSentences: 0  # 0 = не разбивать текст на предложения (безопаснее для LaTeX)
+    removeSentenceLineBreaks: 0
+
+# ============================================================
+# Окружения, которые НЕЛЬЗЯ трогать (Код, Таблицы)
+# ============================================================
+# Предотвращает поломку верстки и ложные срабатывания chktex
+noIndentBlock:
+  verbatim: 1
+  lstlisting: 1
+  minted: 1
+  pycode: 1
+  tikzpicture: 1       # TikZ лучше не трогать
+  asy: 1               # Asymptote
+  sagesilent: 1
+
+# ============================================================
+# Специфические настройки для окружений
+# ============================================================
+environments:
+  # --- Списки (Itemize, Enumerate) ---
+  itemize:
+    indentItems: 1            # Делать отступ для содержимого \item
+    itemNames: ["\\item"]
+  enumerate:
+    indentItems: 1
+    itemNames: ["\\item"]
+  description:
+    indentItems: 1
+    itemNames: ["\\item"]
+  list:
+    indentItems: 1
+    itemNames: ["\\item"]
+
+  # --- Математика ---
+  equation:
+    indentRules:
+      # Выравнивание внутри уравнений (если используется &)
+      "&": "  "
+  align:
+    indentRules:
+      "&": "  "
+  align*:
+    indentRules:
+      "&": "  "
+  gather:
+    indentRules:
+      "&": "  "
+  multline:
+    indentRules:
+      "&": "  "
+
+  # --- Таблицы (Осторожно!) ---
+  # Лучше не форматировать сложные таблицы автоматически
+  tabular:
+    indentRules:
+      "&": "  "
+    modifyLineBreaks:
+      # Не переносить строки внутри таблицы без необходимости
+      textWrapOptions:
+        wrap: 0
+  tabularx:
+    indentRules:
+      "&": "  "
+  longtable:
+    indentRules:
+      "&": "  "
+
+  # --- Плавающие объекты ---
+  figure:
+    indentItems: 1
+  table:
+    indentItems: 1
+
+  # --- Важные блоки ---
+  document:
+    indentItems: 1
+
+# ============================================================
+# Специальные команды (OneLineBeginEnd)
+# ============================================================
+# Команды, которые должны оставаться в одну строку
+# Это помогает избежать Warning 12 от chktex (пробелы после команд)
+oneLineBeginEnd:
+  - "emph"
+  - "textbf"
+  - "textit"
+  - "texttt"
+  - "url"
+  - "href"
+  - "ref"
+  - "cite"
+  - "label"
+  - "index"
+  - "glossaryentry"
+  - "footnote"
+  - "marginpar"
+  - "todo"
+
+# ============================================================
+# Обработка пробелов (Важно для chktex Warning 12)
+# ============================================================
+# Добавлять % в конце строк внутри окружений, чтобы избежать
+# лишних пробелов при компиляции
+removeTrailingWhitespace:
+  all: 1
+  environments: 1
+  commands: 1
+
+# Настройки выравнивания (самая полезная функция)
+alignment:
+  alignEnvironmentRules:
+    # Выравнивать содержимое внутри tabular, align и т.д.
+    tabular: 1
+    align: 1
+    equation: 0        # Уравнения лучше не трогать автоматически
+  maxNumberOfColumns: 10
+
+# Настройки пробелов
+spacesBeforeAfter:
+  delimiters:
+    round:
+      spaceBefore: 0
+      spaceAfter: 0
+    square:
+      spaceBefore: 0
+      spaceAfter: 0
