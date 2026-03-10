@@ -9,6 +9,9 @@
 ]{geometry}
 % \usepackage[left=3cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
 
+\usepackage{xparse} % Для гибких аргументов окружений
+
+
 % === ШРИФТЫ И ЯЗЫК ===
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -28,6 +31,7 @@
 \onehalfspacing%
 \usepackage{microtype}
 \usepackage{ulem} %зачёркнутый текст
+\usepackage{xspace}
 
 % === ПОДПИСИ ===
 % \usepackage[font=normalsize,labelfont=it,textfont=it,justification=centering]{caption}
@@ -215,10 +219,23 @@
 \providecommand\phantomsection{}
 
 % === Команды для примеров и заданий ===
-\newcommand{\example}[1]{\par\bigskip\noindent\emph{\textbf{Пример #1:}} }
-\newcommand{\task}{\par\smallskip\noindent\emph{\textit{Задание:}}}
-\newcommand{\solution}{\par\smallskip\noindent\emph{\textit{Решение:}}}
-\newcommand{\answer}{\par\smallskip\noindent\emph{\textit{Ответ:}}}
+\NewDocumentCommand{\example}{s m}{
+    \par\IfBooleanT{#1}{\bigskip}\noindent
+    \textbf{\uline{Пример #2:}}\xspace
+    \nopagebreak[4]
+}
+\NewDocumentCommand{\task}{}{
+    \par\smallskip\noindent
+    \textit{\uline{Задание:}}\xspace
+}
+\NewDocumentCommand{\solution}{}{
+    \par\noindent
+    \textit{\uline{Решение:}}\xspace
+}
+\NewDocumentCommand{\answer}{}{
+    \par\noindent
+    \textit{\uline{Ответ:}}\xspace
+}
 
 % === Путь для картинок ===
 \graphicspath{ {./images/} }
