@@ -3,6 +3,39 @@
 
 \todo{Выбрать. 4 Варианта (4ый - исходный)}
 
+\begin{description}[style=nextline]
+    \item [Аксиома двойного отрицания]
+          $\overline{\overline{x}} = x$
+    \item [Аксиома существования 1 и 0]
+          $0 = \overline{1}$;
+          $x \vee \overline{x} = 1$;
+          $1 = \overline{0}$;
+          $x \wedge \overline{x} = 0$
+    \item [Закон идемпотенции]
+          $x \vee x = x$;
+          $x \wedge x = x$
+    \item [Закон коммутативности]
+          $x \vee y = y \vee x$;
+          $x \wedge y = y \wedge x$
+    \item [Закон поглощения]
+          $x \vee (x \wedge y) = x$;
+          $x \wedge (x \vee y) = x$
+    \item [Закон ассоциативности]
+          $x \vee (y \vee z) = (x \vee y) \vee z$;
+          $x \wedge (y \wedge z) = (x \wedge y) \wedge z$
+    \item [Закон дистрибутивности]
+          $x \vee (y \wedge z) = (x \vee y) \wedge (x \vee z)$;
+          $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$
+    \item [Законы де Моргана]
+          $\overline{x \vee y} = \overline{x} \wedge \overline{y}$;
+          $\overline{x \wedge y} = \overline{x} \vee \overline{y}$
+    \item [Закон нейтральности]
+          $x \vee (y \wedge \overline{y}) = x$;
+          $x \wedge (y \vee \overline{y}) = x$
+\end{description}
+
+\bigskip\hrule\bigskip
+
 % Как nirtable только с возможностью расширить на всю страницу (сделать environment как nirtable не вышло)
 {
 \renewcommand{\arraystretch}{1.5}
