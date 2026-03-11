@@ -60,21 +60,25 @@
 \textbf{Синдром последовательности S} --- набор контрольных сумм информационных и проверочных разрядов
 
 Рассмотрим таблицу:
-\begin{table}[H]
-    % TODO: Надо ли?
-    % \caption{Таблица для кодов Хэмминга}\label{tab:hamming-code}
-    \centering
-    \begin{tabularx}{\linewidth}{|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|}
-        \hline
-        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & \\ \hline
-        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $r_{4}$ & $i_{5}$ & $i_{6}$ & $i_{7}$ & $i_{8}$ & $i_{9}$ & $i_{10}$ & S \\ \hline
-        1 & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & {\cellcolor{iogreen}X} & & \cellcolor{iogreen}{X} & & $s_{1}$\\\hline
-        2 & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & $s_{2}$ \\ \hline
-        4 & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & $s_{3}$ \\  \hline
-        8 & & & & & & & & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & $s_{4}$ \\ \hline
-    \end{tabularx}
 
-\end{table}
+\begin{center}
+    \begin{tblr}{
+        hlines, vlines,
+        colspec = {*{16}{c}},
+        row{2} = {bg=gray!10},  % Светлый фон для заголовка
+        cell{3}{2,4,6,8,10,12,14} = {bg=iogreen},
+        cell{4}{3,4,7,8,11,12,15} = {bg=ioyellow},
+        cell{5}{5,6,7,8,13,14,15} = {bg=ioorange},
+        cell{6}{9,10,11,12,13,14,15} = {bg=iored},
+    }
+        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & \\
+        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $r_{4}$ & $i_{5}$ & $i_{6}$ & $i_{7}$ & $i_{8}$ & $i_{9}$ & $i_{10}$ & $S$ \\
+        1 & X & & X & & X & & X & & X & & X & & X & & $s_{1}$ \\
+        2 & & X & X & & & X & X & & & X & X & & & X & $s_{2}$ \\
+        4 & & & & X & X & X & X & & & & & X & X & X & $s_{3}$ \\
+        8 & & & & & & & & X & X & X & X & X & X & X & $s_{4}$ \\
+    \end{tblr}
+\end{center}
 
 Данная таблица представлена для кода из 14 бит, но ее можно расширить для нужного размера самостоятельно. \\
 Сверху (в первой строчке) указан номер бита, а справа --- синдром. \\
@@ -124,19 +128,22 @@
 \noindent
 Составим таблицу кода (7, 4):
 
-
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-    \hline
-    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\ \hline
-    $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & S \\ \hline
-    1 & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & $s_{1}$ \\ \hline
-    2 & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & $s_{2}$ \\ \hline
-    4 & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & $s_{3}$ \\ \hline
-    \end{tabular}
-\end{table}
+\begin{center}
+    \begin{tblr}{
+        hlines, vlines,
+        colspec = {*{9}{c}},
+        row{2} = {bg=gray!10},
+        cell{3}{2,4,6,8} = {bg=iogreen},
+        cell{4}{3,4,7,8} = {bg=ioyellow},
+        cell{5}{5,6,7,8} = {bg=ioorange},
+    }
+        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\
+        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $S$ \\
+        1 & X & & X & & X & & X & $s_{1}$ \\
+        2 & & X & X & & & X & X & $s_{2}$ \\
+        4 & & & & X & X & X & X & $s_{3}$ \\
+    \end{tblr}
+\end{center}
 
 \bigskip\noindent
 Рассмотрим конкретно контроль информационных бит проверочными на кругах Эйлера:
@@ -193,18 +200,24 @@
 Получена последовательность 1100100. Вычислить ошибочный бит, записать правильную последовательность.
 \solution%
 Составим таблицу кода (7,4) с конкретной последовательностью.
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-        \hline
-        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\ \hline
-        & 1 & 1 & 0 & 0 & 1 & 0 & 0 & \\ \hline
-        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & S \\ \hline
-        1 & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & $s_{1}$ \\ \hline
-        2 & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & $s_{2}$ \\ \hline
-        4 & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & $s_{3}$ \\ \hline
-\end{tabular}
-\end{table}
+
+\begin{center}
+    \begin{tblr}{
+        hlines, vlines,
+        colspec = {*{9}{c}},
+        row{3} = {bg=gray!10},
+        cell{4}{2,4,6,8} = {bg=iogreen},
+        cell{5}{3,4,7,8} = {bg=ioyellow},
+        cell{6}{5,6,7,8} = {bg=ioorange},
+    }
+        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\
+        & 1 & 1 & 0 & 0 & 1 & 0 & 0 & \\
+        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $S$ \\
+        1 & X & & X & & X & & X & $s_{1}$ \\
+        2 & & X & X & & & X & X & $s_{2}$ \\
+        4 & & & & X & X & X & X & $s_{3}$ \\
+    \end{tblr}
+\end{center}
 
 
 \noindent
@@ -253,19 +266,26 @@
 Разбрем код Хэмминга для $r = 4$ аналогично тому, как мы сделали это выше.
 В данном случае, у нас 15 бит, из них 11 информационных и 4 проверочных. То есть, код имеет маркировку (15, 11). \\
 Составим таблицу кода (15, 11):
+\begin{center}
+    \begin{tblr}{
+        hlines, vlines,
+        width = \linewidth,
+        colspec = {*{17}{c}},
+        row{2} = {bg=gray!10},  % Светлый фон для заголовка
+        cell{3}{2,4,6,8,10,12,14,16} = {bg=iogreen},
+        cell{4}{3,4,7,8,11,12,15,16} = {bg=ioyellow},
+        cell{5}{5,6,7,8,13,14,15,16} = {bg=ioorange},
+        cell{6}{9,10,11,12,13,14,15,16} = {bg=iored},
+    }
+        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & \\
+        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $r_{4}$ & $i_{5}$ & $i_{6}$ & $i_{7}$ & $i_{8}$ & $i_{9}$ & $i_{10}$ & $i_{11}$ & $S$ \\
+        1 & X & & X & & X & & X & & X & & X & & X & & X & $s_{1}$ \\
+        2 & & X & X & & & X & X & & & X & X & & & X & X & $s_{2}$ \\
+        4 & & & & X & X & X & X & & & & & X & X & X & X & $s_{3}$ \\
+        8 & & & & & & & & X & X & X & X & X & X & X & X & $s_{4}$ \\
+    \end{tblr}
+\end{center}
 
-\begin{table}[H]
-    \centering
-    \begin{tabularx}{\linewidth}{|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|}
-    \hline
-    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & \\ \hline
-    $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $r_{4}$ & $i_{5}$ & $i_{6}$ & $i_{7}$ & $i_{8}$ & $i_{9}$ & $i_{10}$& $i_{11}$ & S \\ \hline
-    1 & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & & \cellcolor{iogreen}{X} & $s_{1}$ \\ \hline
-    2 & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & & & \cellcolor{ioyellow}{X} & \cellcolor{ioyellow}{X} & $s_{2}$ \\ \hline
-    4 & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & & & & & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & \cellcolor{ioorange}{X} & $s_{3}$ \\ \hline
-    8 & & & & & & & & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & \cellcolor{iored}{X} & $s_{4}$\\ \hline
-    \end{tabularx}
-\end{table}
 
 \noindent
 Получим:
