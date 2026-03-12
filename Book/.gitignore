@@ -1,5 +1,7 @@
 build/*
 !images
+*drawio.bkp
+*drawio.dtmp
 
 ### TeX template
 ## Core latex/pdflatex auxiliary files:

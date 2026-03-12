@@ -93,11 +93,11 @@
 
     \multicolumn{4}{|c|}{\textbf{FLAGS}} \\ \hline
     0 & CF & Carry Flag & Флаг переноса \\ \hline
-    1 & --- & --- & Зарезервирован \\ \hline
+    1 & \multicolumn{3}{c|}{Зарезервированы} \\ \hline
     2 & PF & Parity Flag & Флаг четности \\ \hline
-    3 & --- & --- & Зарезервирован \\ \hline
+    3 & \multicolumn{3}{c|}{Зарезервированы} \\ \hline
     4 & AF & Auxiliary Carry Flag & Вспомогательный флаг переноса \\ \hline
-    5 & --- & --- & Зарезервирован \\ \hline
+    5 & \multicolumn{3}{c|}{Зарезервированы} \\ \hline
     6 & ZF & Zero Flag & Флаг нуля \\ \hline
     7 & SF & Sign Flag & Флаг знака \\ \hline
     8 & TF & Trap Flag & Флаг трассировки \\ \hline
@@ -107,8 +107,7 @@
     12 & \multirow{2}{*}{IOPL} & \multirow{2}{=}{\centering I/O Privilege Level} & \multirow{2}{=}{\centering Уровень приоритета ввода-вывода} \\ \cline{1-1}
     13 & & & \\ \hline
     14 & NT & Nested Task & Флаг вложенности задач \\ \hline
-    15 & --- & --- & Зарезервирован \\ \hline
-
+    15 & \multicolumn{3}{c|}{Зарезервированы} \\ \hline
     \multicolumn{4}{|c|}{\textbf{EFLAGS}} \\ \hline
     16 & RF & Resume Flag & Флаг возобновления \\ \hline
     17 & VM & Virtual-8086 Mode & Режим виртуального процессора 8086 \\ \hline
@@ -119,13 +118,6 @@
     22--31 & \multicolumn{3}{c|}{Зарезервированы} \\ \hline
     \multicolumn{4}{|c|}{\textbf{RFLAGS}} \\ \hline
     32--63 & \multicolumn{3}{c|}{Зарезервированы} \\ \hline
-    22 & \multirow{3}{*}{---} & \multirow{3}{*}{---} & \multirow{3}{*}{Зарезервированы}  \\ \cline{1-1}
-    $\cdots$ & & & \\ \cline{1-1}
-    31 & & & \\ \hline
-    \multicolumn{4}{|c|}{\textbf{RFLAGS}} \\ \hline
-    32 & \multirow{3}{*}{---} & \multirow{3}{*}{---} & \multirow{3}{*}{Зарезервированы} \\ \cline{1-1}
-    $\cdots$ & & & \\ \cline{1-1}
-    63 & & & \\ \hline
 \end{xltabular}
 
 После любой арифметической операции процессор автоматически без участия программиста заполняет регистр флагов состояния. Состояние процессора меняется после каждой арифметической операции.

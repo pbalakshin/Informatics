@@ -5,30 +5,7 @@
 \textbf{Логический базис} --- набор булевых функций, позволяющий реализовать любую другую булеву функцию. \\
 Три наиболее востребованных логических базиса: И, ИЛИ, НЕ; ИЛИ-НЕ; И-НЕ.
 
-\todo{Выбрать более подходящий способ}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{src/07_boolean_algebra/7_7.png}
-    \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}
-\end{figure}
-
-{
-    \renewcommand{\arraystretch}{1.5}
-    \newcommand{\cellimage}[1]{\parbox{\hsize}{\centering \includegraphics[scale=0.5]{#1}}}
-    \begin{table}[!htpb]
-        \caption{Пример реализации функций И, ИЛИ, НЕ в базисе \enquote{И-НЕ}}\label{tab:not-and-basis-examples}
-        \begin{tabularx}{\linewidth}{|c|c|C|}
-            \hline
-            \thead{Функция} & \thead{Формула} & \thead{Пример} \\ \hline
-            \enquote{НЕ} & $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $ & \cellimage{7.5-nand-basis-not} \\ \hline
-            \enquote{ИЛИ} & $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $  &  \cellimage{7.5-nand-basis-or} \\ \hline
-            \enquote{И} & $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $ & \cellimage{7.5-nand-basis-and} \\ \hline
-        \end{tabularx}
-    \end{table}
-}
-
-\paragraph{Пример реализации функции \enquote{НЕ} в базисе \enquote{И-НЕ}}\label{par:example-not-and-basis-not}
+\paragraph{Пример реализации функции \enquote{НЕ} в базисе \enquote{И-НЕ}}
 
 \emph{Формула:} $ \overline{x} = \overline{x \ast 1} = \overline{x \ast x} $
 
@@ -37,7 +14,7 @@
     \includegraphics[scale=0.6]{7.5-nand-basis-not}
 \end{figure}
 
-\paragraph{Пример реализации функции \enquote{ИЛИ} в базисе \enquote{И-НЕ}}\label{par:example-not-and-basis-or}
+\paragraph{Пример реализации функции \enquote{ИЛИ} в базисе \enquote{И-НЕ}}
 
 \emph{Формула:} $ x_0 + x_1 = \overline{\overline{x_0} \ast \overline{x_1}} $
 
@@ -46,7 +23,7 @@
     \includegraphics[scale=0.6]{7.5-nand-basis-or}
 \end{figure}
 
-\paragraph{Пример реализации функции \enquote{И} в базисе \enquote{И-НЕ}}\label{par:example-not-and-basis-and}
+\paragraph{Пример реализации функции \enquote{И} в базисе \enquote{И-НЕ}}
 
 \emph{Формула:} $ x_0 \ast x_1 = \overline{\overline{x_0 \ast x_1}} $
 
@@ -57,13 +34,12 @@
 
 \subsubsection{Формы записи математических выражений}\label{subsubsec:math-notations}
 
-\todo{А тут не ошибка?}
 Форма записи по-другому называется нотацией.
 \enquote{Арность операции} означает количество операндов, участвующих в операции.\\
 Например: $\sqrt{A}$ (унарная), $A\times B$ (бинарная).
 
 \paragraph{Виды нотаций}\label{par:math-notations-types}
-\begin{description}
+\begin{description}[style=standard]
     \item 1489~г. --- инфиксная запись $A + B$
     \item 1920~г. --- префиксная (польская) запись $+AB$
     \item 1957~г. --- постфиксная (обратная польская) запись $AB+$
