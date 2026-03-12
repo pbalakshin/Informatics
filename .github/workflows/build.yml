@@ -127,8 +127,37 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: informatics-pdf
+          path: ./public
+
+      - name: Create index.html with PDF viewer
+        run: |
+          cat > ./public/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="ru">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Informatics Book</title>
+              <style>
+                  body { margin: 0; padding: 0; }
+                  iframe { width: 100%; height: 100vh; border: none; }
+              </style>
+          </head>
+          <body>
+              <iframe src="informatics.pdf" title="Informatics Book PDF"></iframe>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: informatics-pdf
