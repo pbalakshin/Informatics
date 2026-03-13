@@ -34,14 +34,20 @@
 \setlist[enumerate]{nosep}
 \setlist[itemize]{nosep}
 
+
+% Цвет термина (темно-синий)
+\definecolor{termcolor}{RGB}{70, 130, 180}
+
 % --- 3. Настройка description (ГОСТ 2.105-95) ---
 % Избегает ошибки "Negative labelwidth"
 \setlist[description]{%
-	style=standard,%             % Стандартный стиль (метка в тексте)
+	style=nextline,%
+	labelindent=0pt,%             % Метка от самого левого края
+	leftmargin=\parindent,%       % Текст описания с абзацного отступа (единый блок)
 	% labelwidth=3cm,%             % Явная ширина метки (подберите под ваши термины)
 	% leftmargin=3.5cm,%           % Отступ слева (labelwidth + отступ после метки)
 	labelsep=0.5cm,%             % Расстояние между меткой и текстом
-	font=\normalfont\bfseries,%  % Метки жирным шрифтом (ГОСТ требует выделения терминов)
+	font=\normalfont\bfseries\color{termcolor},%  % Метки жирным шрифтом (ГОСТ требует выделения терминов)
 	noitemsep,%                  % Без дополнительных интервалов между пунктами
 	topsep=0pt%                  % Без отступа перед списком
 }%
