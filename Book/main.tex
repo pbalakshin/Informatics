@@ -239,6 +239,19 @@
     \textit{\uline{Ответ:}}\xspace
 }
 
+% === Команда для блока "где" в формулах
+\newenvironment{where}
+  {\par\nobreak\noindent\textit{где}\ %
+   \begin{list}{}
+     {\setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{2em}
+      \setlength{\itemsep}{0pt}    % Между пунктами
+      \setlength{\parsep}{0pt}     % Между абзацами
+      \setlength{\topsep}{2pt}     % Отступ сверху (было ~6pt по умолчанию)
+      \setlength{\partopsep}{0pt}  % Доп. отступ если новый параграф
+      \renewcommand{\makelabel}[1]{##1\hfill}}}
+  {\end{list}}
+
 % === Путь для картинок ===
 \graphicspath{ {./images/} }
 
