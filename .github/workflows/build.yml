@@ -80,7 +80,7 @@ jobs:
 
       - name: Check for duplicate labels
         run: |
-          DUPLICATES=$(grep -roh '\\label{[^}]*}' Book/ | sort | uniq -d)
+          DUPLICATES=$(grep -roh '\\label{[^}]*}' Book/ --include="*.tex" | sort | uniq -d)
 
           if [ -n "$DUPLICATES" ]; then
             echo "❌ Duplicate labels found:"
