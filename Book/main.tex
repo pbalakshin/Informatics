@@ -1,4 +1,8 @@
 \documentclass[14pt, fleqn]{extarticle}
+
+% =============================================================================
+% ГЕОМЕТРИЯ СТРАНИЦЫ
+% =============================================================================
 \usepackage[
     left=2.5cm,
     right=2.5cm,
@@ -7,12 +11,15 @@
     marginparwidth=2.5cm,
     marginparsep=5mm
 ]{geometry}
-% \usepackage[left=3cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
 
+% =============================================================================
+% БАЗОВЫЕ ПАКЕТЫ
+% =============================================================================
 \usepackage{xparse} % Для гибких аргументов окружений
 
-
-% === ШРИФТЫ И ЯЗЫК ===
+% =============================================================================
+% ШРИФТЫ И ЯЗЫК
+% =============================================================================
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp} % Спецсимволы ©, ®, ™
@@ -22,51 +29,52 @@
 \usepackage{tempora}
 % Шрифт Times в формулах как основной
 \usepackage[varg, cmbraces, cmintegrals]{newtxmath}
-
-% === ТИПОГРАФИКА ===
+% =============================================================================
+% ТИПОГРАФИКА
+% =============================================================================
+% fvextra должен быть загружен до csquotes (для подавления предупреждения)
+\usepackage{fvextra}
 \usepackage[autostyle, style=russian, babel]{csquotes}
 \usepackage{indentfirst}
 %% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
 % \setlength{\parindent}{1.25cm}
+
 \usepackage{setspace}
 \onehalfspacing%
+
 \usepackage{microtype}
-\usepackage{ulem} %зачёркнутый текст
+
+\usepackage{ulem} % Зачёркнутый текст
 \usepackage{xspace}
 
-% === ПОДПИСИ ===
-% \usepackage[font=normalsize,labelfont=it,textfont=it,justification=centering]{caption}
+% =============================================================================
+% ЦВЕТА (должен быть до tikz/pgfplots)
+% =============================================================================
+\usepackage[table]{xcolor}
+% draw.io cell colors
+\definecolor{iogreen}{RGB}{213 232 212}
+\definecolor{ioyellow}{RGB}{255, 242, 204}
+\definecolor{ioorange}{RGB}{255, 230, 204}
+\definecolor{iored}{RGB}{248, 206, 204}
 
-\usepackage[
-    font=normalsize,
-    labelfont=normalsize,
-    textfont=it,
-    singlelinecheck=false,
-    labelsep=endash,
-    position=top,
-    justification=justified
-]{caption}
-\captionsetup[figure]{position=bottom,justification=centering}
-\usepackage{subcaption}
-
-\usepackage{float}
-% \floatsetup[figure]{capposition=bottom}
-% \floatsetup[table]{capposition=top}
-
-% === ГРАФИКА ===
+% =============================================================================
+% ГРАФИКА
+% =============================================================================
 \usepackage{graphicx}
 \usepackage{wrapfig}
-\usepackage{svg}
+% \usepackage{svg}  % Не используется — графика конвертируется в PDF
 
-% === TikZ и PGFPlots ===
+% =============================================================================
+% TIKZ И PGFPLOTS (должны быть после xcolor)
+% =============================================================================
 \usepackage{tikz}
 \usetikzlibrary{graphs}
 \usepackage{pgfplots}
-% \pgfplotsset{compat=1.9} % old version ~2013
-% \pgfplotsset{compat=1.18} % new optimized (due to gpt)
-\pgfplotsset{compat=newest} % alternative
+\pgfplotsset{compat=newest}
 
-% === МАТЕМАТИКА ===
+% =============================================================================
+% МАТЕМАТИКА
+% =============================================================================
 \usepackage{amsmath}
 \usepackage{xfrac}  % Красивые дроби
 \input{preambule/siunitx.tex}
@@ -74,10 +82,9 @@
 % Использовать полужирное начертание для векторов
 \let\vec=\mathbf%
 
-
-% === ЛИСТИНГИ КОДА ===
-\usepackage{listings} % Deprecated. Use minted instead
-% Необходимо добавить "-shell-escape"
+% =============================================================================
+% ЛИСТИНГИ КОДА
+% =============================================================================
 \usepackage[cache=true]{minted}
 
 \setminted{
@@ -103,31 +110,9 @@
 \xpatchcmd{\mintinline}{\begingroup}{\begingroup\let\itshape\relax}{}{} % chktex 6
 \xpatchcmd{\minted}{\VerbatimEnvironment}{\VerbatimEnvironment\let\itshape\relax}{}{} % chktex 6
 
-% \newcommand{\code}[2][text]{\mintinline{#1}{#2}} # use \verb instead
-
-% === ССЫЛКИ ===
-\usepackage[breaklinks]{hyperref}
-\hypersetup{
-    colorlinks,
-    linktoc=page,
-    pdflang={ru}
-}
-
-\usepackage{xurl}
-\usepackage{xr} % cross-file references
-\usepackage{lastpage}
-\input{preambule/cleveref.tex}
-
-% \usepackage{import} % Должно помочь не писать постоянно src/02.../...tex
-
-%% Сноски начинаются с 1 на каждой странице
-\usepackage[perpage]{footmisc}
-
-% === СПИСОК И ПЕРЕЧНИ ===
-\usepackage{enumitem}
-\input{preambule/enumitem.tex}
-
-% === ТАБЛИЦЫ ===
+% =============================================================================
+% ТАБЛИЦЫ
+% =============================================================================
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{xltabular}
@@ -136,8 +121,6 @@
 \usepackage{array}
 \usepackage{makecell}
 \usepackage{multirow}
-\usepackage[table]{xcolor}
-
 \usepackage{tabularray}
 
 \renewcommand\theadfont{\normalsize\bfseries}
@@ -154,8 +137,6 @@
 %% 3 - строка форматирования столбцов (как в tabular)
 %% 4 - число столбцов (не осилил вычислить его из значения 3)
 %% 5 - заголовки столбцов (первая строчка, которая будет везде повторяться)
-
-
 \newenvironment{nirtable}[5]{
     \begin{longtable}{#3}
         \caption{#2}\label{#1}
@@ -179,23 +160,37 @@
         #6 \\ \hline \endhead%
 }{\end{xltabular}}
 
-% \newcommand{\innesr}[2][]{\renewcommand*{\arraystretch}{1}\begin{tabular}{>{#1}c}#2\end{tabular}}
+% =============================================================================
+% ПОДПИСИ К РИСУНКАМ И ТАБЛИЦАМ
+% =============================================================================
+\usepackage[
+    font=normalsize,
+    labelfont=normalsize,
+    textfont=it,
+    singlelinecheck=false,
+    labelsep=endash,
+    position=top,
+    justification=justified
+]{caption}
+\captionsetup[figure]{position=bottom,justification=centering}
+\usepackage{subcaption}
 
-% === ЦВЕТА ===
-% draw.io cell colors
-\definecolor{iogreen}{RGB}{213 232 212}
-\definecolor{ioyellow}{RGB}{255, 242, 204}
-\definecolor{ioorange}{RGB}{255, 230, 204}
-\definecolor{iored}{RGB}{248, 206, 204}
+\usepackage{float}
 
-% === TODO заметки ===
-\usepackage{todonotes}
-\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
-%% Закомментировать при дебаге и раскомменить при релизе
-%% наличие данной команды убирает все блоки todo с документа
-% \presetkeys{todonotes}{disable}{}
+% =============================================================================
+% СПИСКИ И ПЕРЕЧНИ
+% =============================================================================
+\usepackage{enumitem}
+\input{preambule/enumitem.tex}
 
-% === Форматирование секций ===
+% =============================================================================
+% СНОСКИ
+% =============================================================================
+\usepackage[perpage]{footmisc}
+
+% =============================================================================
+% ФОРМАТИРОВАНИЕ СЕКЦИЙ
+% =============================================================================
 \usepackage{titlesec}
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
@@ -207,20 +202,49 @@
 \titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titleformat*{\subparagraph}{\normalsize\bfseries}
 
-%% === <Тонкая> настройка теховских штрафов при формировании абзацев. ===
+% =============================================================================
+% TODO ЗАМЕТКИ
+% =============================================================================
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
+%% Закомментировать при дебаге и раскомментировать при релизе
+%% наличие данной команды убирает все блоки todo с документа
+% \presetkeys{todonotes}{disable}{}
+
+% =============================================================================
+% ССЫЛКИ (должны быть почти последними)
+% =============================================================================
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+    colorlinks,
+    linktoc=page,
+    pdflang={ru}
+}
+
+\usepackage{xurl}
+\usepackage{xr} % cross-file references
+\usepackage{lastpage}
+\input{preambule/cleveref.tex}
+
+% =============================================================================
+% НАСТРОЙКА ТЕХОВСКИХ ШТРАФОВ (для формирования абзацев)
+% =============================================================================
 \sloppy             % «Будь менее строгим к выравниванию строк»
-\binoppenalty=10000 % Запрещает разрыв строки после бинарного оператора (+ - = \times и т.п.).
+\binoppenalty=10000 % Запрещает разрыв строки после бинарного оператора
 \relpenalty=10000   % Запрещает разрыв строки после знаков отношений
 \clubpenalty=10000  % Запрещает висячие строки в начале абзаца
 \widowpenalty=10000 % Запрещает висячие строки в конце абзаца
 
-% === Библиография (biblatex + biber) ===
+% =============================================================================
+% БИБЛИОГРАФИЯ (biblatex + biber)
+% =============================================================================
 \input{preambule/bibliography}
 \addbibresource{bibliography.bib}
-
 \providecommand\phantomsection{}
 
-% === Команды для примеров и заданий ===
+% =============================================================================
+% КОМАНДЫ ДЛЯ ПРИМЕРОВ И ЗАДАНИЙ
+% =============================================================================
 \NewDocumentCommand{\example}{s m}{
     \par\IfBooleanT{#1}{\bigskip}\noindent
     \textbf{\uline{Пример #2:}}\xspace
@@ -239,7 +263,9 @@
     \textit{\uline{Ответ:}}\xspace
 }
 
-% === Команда для блока "где" в формулах
+% =============================================================================
+% ОКРУЖЕНИЕ "ГДЕ" ДЛЯ ФОРМУЛ
+% =============================================================================
 \newenvironment{where}
   {\par\nobreak\noindent\textit{где}\ %
    \begin{list}{}
@@ -252,13 +278,20 @@
       \renewcommand{\makelabel}[1]{##1\hfill}}}
   {\end{list}}
 
-% === Путь для картинок ===
+% =============================================================================
+% ПУТЬ ДЛЯ КАРТИНОК
+% =============================================================================
 \graphicspath{ {./images/} }
 
-% === Нумерация страниц ===
+% =============================================================================
+% НУМЕРАЦИЯ СТРАНИЦ
+% =============================================================================
 \pagestyle{plain}
 \setcounter{page}{2}
 
+% =============================================================================
+% ДОКУМЕНТ
+% =============================================================================
 \begin{document}
 \nocite{*}
 
