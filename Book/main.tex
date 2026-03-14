@@ -83,6 +83,23 @@
 \let\vec=\mathbf%
 
 % =============================================================================
+% ПОДПИСИ К РИСУНКАМ И ТАБЛИЦАМ
+% =============================================================================
+\usepackage[
+    font=normalsize,
+    labelfont=normalsize,
+    textfont=it,
+    singlelinecheck=false,
+    labelsep=endash,
+    position=top,
+    justification=justified
+]{caption}
+\captionsetup[figure]{position=bottom,justification=centering}
+\usepackage{subcaption}
+
+\usepackage{float}
+
+% =============================================================================
 % ЛИСТИНГИ КОДА
 % =============================================================================
 \usepackage[cache=true]{minted}
@@ -130,52 +147,6 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
 \renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
-
-%% Многостраничные таблицы в гостовском формате. Аргументы:
-%% 1 - имя, по которому ссылаемся
-%% 2 - подпись
-%% 3 - строка форматирования столбцов (как в tabular)
-%% 4 - число столбцов (не осилил вычислить его из значения 3)
-%% 5 - заголовки столбцов (первая строчка, которая будет везде повторяться)
-\newenvironment{nirtable}[5]{
-    \begin{longtable}{#3}
-        \caption{#2}\label{#1}
-        \\\hline #5 \\\hline \endfirsthead%
-        \multicolumn{#4}{r}{\normalsize{Продолжение таблицы~\thetable}} \\\hline
-        #5 \\\hline \endhead%
-}{\end{longtable}}
-
-%% Многостраничные таблицы в гостовском формате (v2). Аргументы:
-%% 1 - Ширина таблицы
-%% 2 - строка форматирования столбцов (как в tabularx/xltabular)
-%% 3 - число столбцов (не осилил вычислить его из значения 2)
-%% 4 - подпись
-%% 5 - имя, по которому ссылаемся
-%% 6 - заголовки столбцов (первая строчка, которая будет везде повторяться)
-\newenvironment{nirtabxl}[6]{
-    \begin{xltabular}{#1}{#2}
-        \caption{#4}\label{#5}
-        \\ \hline #6 \\ \hline \endfirsthead%
-        \multicolumn{#3}{r}{\normalsize{Продолжение таблицы~\thetable}} \\ \hline
-        #6 \\ \hline \endhead%
-}{\end{xltabular}}
-
-% =============================================================================
-% ПОДПИСИ К РИСУНКАМ И ТАБЛИЦАМ
-% =============================================================================
-\usepackage[
-    font=normalsize,
-    labelfont=normalsize,
-    textfont=it,
-    singlelinecheck=false,
-    labelsep=endash,
-    position=top,
-    justification=justified
-]{caption}
-\captionsetup[figure]{position=bottom,justification=centering}
-\usepackage{subcaption}
-
-\usepackage{float}
 
 % =============================================================================
 % СПИСКИ И ПЕРЕЧНИ
