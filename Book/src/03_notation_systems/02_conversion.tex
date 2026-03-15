@@ -138,10 +138,13 @@
 \begin{table}[H]
     \caption{Основания вида $2^{k}$}\label{tab:2k-bases}
     \centering
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        Десятичная & Двоичная & Восмеричная & Шестнадцатиричная
-        \\\hline
+    \begin{tblr}{
+        colspec = {c c c c},
+        hline{1,2,Z} = {solid},
+        vlines = {solid},
+        row{1} = {font=\bfseries},
+    }
+        Десятичная & Двоичная & Восмеричная & Шестнадцатиричная \\
         0 & 0000 & 00 & 0 \\
         1 & 0001 & 01 & 1 \\
         2 & 0010 & 02 & 2 \\
@@ -158,8 +161,7 @@
         13 & 1101 & 15 & D \\
         14 & 1110 & 16 & E \\
         15 & 1111 & 17 & F \\
-        \hline
-    \end{tabular}
+    \end{tblr}
 \end{table}
 
 \example*{1}
