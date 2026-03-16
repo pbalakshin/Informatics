@@ -1,0 +1,90 @@
+---
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+
+# Languages
+language: ru,en
+languageSettings:
+  - languageId: latex
+    locale: ru
+
+# Dictionaries
+dictionaries:
+  - book
+  - latex
+  - ru-ru
+  - en-us
+
+dictionaryDefinitions:
+  - name: book
+    path: ./.cspell/book.txt
+    addWords: true
+  - name: latex
+    path: ./.cspell/latex.txt
+    addWords: true
+
+# Files to check
+files:
+  - "**/*.tex"
+  - "**/*.bib"
+  - "**/*.md"
+
+# Files to ignore
+ignorePaths:
+  - "**/*.aux"
+  - "**/*.bbl"
+  - "**/*.bcf"
+  - "**/*.blg"
+  - "**/*.fdb_latexmk"
+  - "**/*.fls"
+  - "**/*.log"
+  - "**/*.out"
+  - "**/*.run.xml"
+  - "**/*.synctex.gz"
+  - "**/*.toc"
+  - "**/*.lof"
+  - "**/*.lot"
+  - "**/*.nav"
+  - "**/*.snm"
+  - "**/*.vrb"
+  - "**/*.idx"
+  - "**/*.ind"
+  - "**/*.glo"
+  - "**/*.ist"
+  - "**/*.ilg"
+  - "**/*.tdo"
+  - "**/*.cut"
+  - "**/*.map"
+  - "**/*.xyc"
+  - "**/*.log.gz"
+  - "**/build/"
+  - "**/dist/"
+  - ".git/"
+  - ".qwen/"
+
+useGitignore: true
+
+# Enable filetypes
+enableFiletypes:
+  - latex
+  - bibtex
+
+# Patterns to ignore
+patterns:
+  - name: latex-commands
+    pattern: /\\[a-zA-Z]+/g
+  - name: latex-labels
+    pattern: /\\(label|ref|cref|Cref|eqref|autoref)\{[^}]*\}/g
+  - name: latex-citations
+    pattern: /\\(cite|parencite|textcite|footcite|footfullcite)\{[^}]*\}/g
+  - name: latex-urls
+    pattern: /\\url\{[^}]*\}/g
+  - name: latex-filenames
+    pattern: /\\(input|include|includegraphics|addbibresource)\{[^}]*\}/g
+
+ignoreRegExpList:
+  - latex-commands
+  - latex-labels
+  - latex-citations
+  - latex-urls
+  - latex-filenames
