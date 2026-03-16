@@ -64,6 +64,11 @@ environments:
     indentItems: 1
     itemNames: ["\\item"]
 
+  # --- Окружение example (на базе list) ---
+  example:
+    indentItems: 1
+    itemNames: ["\\task", "\\solution", "\\answer"]
+
   # --- Математика ---
   equation:
     indentRules:
@@ -128,6 +133,7 @@ oneLineBeginEnd:
   - "footnote"
   - "marginpar"
   - "todo"
+  - "ex"
 
 # ============================================================
 # Обработка пробелов (Важно для chktex Warning 12)

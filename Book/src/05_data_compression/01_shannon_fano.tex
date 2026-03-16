@@ -30,72 +30,72 @@
     \item Символ входного (первичного) алфавита кодируется последовательностью нулей и единиц в соответствии с распределением их от корня к листьям (узлам).
 \end{enumerate}
 
-\example*{1}
-\task%
-Составить код Шеннона-Фано для последовательности $AAABCCCCCDEEEF$. Найти среднюю длину кодового слова.
-\solution
-В последовательности $AAABCCCCCDEEEF$ алфавит состоит из 6 символов: A, B, C, D, E, F. Выпишем символы первичного алфавита по убыванию вероятностей:
-\begin{table}[H]
-\centering
-\begin{tabular}{|r|c|c|c|c|c|c|}
-\hline
-\textbf{Символ} & C & A & E & B & D & F \\ \hline
-\textbf{Вероятность} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\ \hline
-\end{tabular}
-\end{table}
+\begin{example}
+    \task%
+    Составить код Шеннона-Фано для последовательности $AAABCCCCCDEEEF$. Найти среднюю длину кодового слова.
 
-\noindent Полученная последовательность $CAEDBF$ является корнем будущего дерева.
+    \solution%
+    В последовательности $AAABCCCCCDEEEF$ алфавит состоит из 6 символов: A, B, C, D, E, F. Выпишем символы первичного алфавита по убыванию вероятностей:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|r|c|c|c|c|c|c|}
+            \hline
+            \textbf{Символ} & C & A & E & B & D & F \\ \hline
+            \textbf{Вероятность} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\ \hline
+        \end{tabular}
+    \end{table}
 
-\noindent Построим дерево от корня к листьям:
+    Полученная последовательность $CAEDBF$ является корнем будущего дерева.
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{cccccc}
-        \multicolumn{6}{c}{CAEBDF ($\sfrac{5}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-        % \multicolumn{6}{c}{CAEBDF ($\frac{5}{14} + \frac{3}{14} + \frac{3}{14} + \frac{1}{14} + \frac{1}{14} + \frac{1}{14}$)} \\
-        \multicolumn{2}{c}{$\swarrow$} & \multicolumn{4}{c}{$\searrow$} \\
-        \multicolumn{2}{c}{CA ($\sfrac{5}{14} + \sfrac{3}{14}$)} & \multicolumn{4}{c}{EBDF ($\sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-        % \multicolumn{2}{c}{CA ($\frac{5}{14} + \frac{3}{14}$)} & \multicolumn{4}{c}{EBDF ($\frac{3}{14} + \frac{1}{14} + \frac{1}{14} + \frac{1}{14}$)} \\
-        $\swarrow$ & $\searrow$ & \multicolumn{2}{c}{$\swarrow$} & \multicolumn{2}{c}{$\searrow$} \\
-        C ($\sfrac{5}{14}$) & A ($\sfrac{3}{14}$) & \multicolumn{2}{c}{EB ($\sfrac{3}{14} + \sfrac{1}{14}$)} & \multicolumn{2}{c}{DF ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
-         & & $\swarrow$ & $\searrow$ & $\swarrow$ & $\searrow$ \\
-         & & E ($\sfrac{3}{14}$) & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) & F ($\sfrac{1}{14}$) \\
-    \end{tabular}
-\end{table}
+    Построим дерево от корня к листьям:
 
-\noindent
-Присвоим левому символу (с большей вероятностью) значение $1$, а правому --- $0$:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{cccccc}
+            \multicolumn{6}{c}{CAEBDF ($\sfrac{5}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            % \multicolumn{6}{c}{CAEBDF ($\frac{5}{14} + \frac{3}{14} + \frac{3}{14} + \frac{1}{14} + \frac{1}{14} + \frac{1}{14}$)} \\
+            \multicolumn{2}{c}{$\swarrow$} & \multicolumn{4}{c}{$\searrow$} \\
+            \multicolumn{2}{c}{CA ($\sfrac{5}{14} + \sfrac{3}{14}$)} & \multicolumn{4}{c}{EBDF ($\sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            % \multicolumn{2}{c}{CA ($\frac{5}{14} + \frac{3}{14}$)} & \multicolumn{4}{c}{EBDF ($\frac{3}{14} + \frac{1}{14} + \frac{1}{14} + \frac{1}{14}$)} \\
+            $\swarrow$ & $\searrow$ & \multicolumn{2}{c}{$\swarrow$} & \multicolumn{2}{c}{$\searrow$} \\
+            C ($\sfrac{5}{14}$) & A ($\sfrac{3}{14}$) & \multicolumn{2}{c}{EB ($\sfrac{3}{14} + \sfrac{1}{14}$)} & \multicolumn{2}{c}{DF ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            & & $\swarrow$ & $\searrow$ & $\swarrow$ & $\searrow$ \\
+            & & E ($\sfrac{3}{14}$) & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) & F ($\sfrac{1}{14}$) \\
+        \end{tabular}
+    \end{table}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{cccccc}
-        \multicolumn{6}{c}{CAEBDF ($\sfrac{5}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-        \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & \multicolumn{4}{c}{$\searrow$ \textbf{[0]}} \\
-        \multicolumn{2}{c}{CA ($\sfrac{5}{14} + \sfrac{3}{14}$)} & \multicolumn{4}{c}{EBDF ($\sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-        \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & \multicolumn{2}{c}{$\searrow$ \textbf{[0]}} \\
-        C ($\sfrac{5}{14}$) & A ($\sfrac{3}{14}$) & \multicolumn{2}{c}{EB ($\sfrac{3}{14} + \sfrac{1}{14}$)} & \multicolumn{2}{c}{DF ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
-         & & \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} \\
-         & & E ($\sfrac{3}{14}$) & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) & F ($\sfrac{1}{14}$) \\
-    \end{tabular}
-\end{table}
+    Присвоим левому символу (с большей вероятностью) значение $1$, а правому --- $0$:
 
-\noindent
-Получим следующую таблицу для кодировки:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{cccccc}
+            \multicolumn{6}{c}{CAEBDF ($\sfrac{5}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & \multicolumn{4}{c}{$\searrow$ \textbf{[0]}} \\
+            \multicolumn{2}{c}{CA ($\sfrac{5}{14} + \sfrac{3}{14}$)} & \multicolumn{4}{c}{EBDF ($\sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & \multicolumn{2}{c}{$\searrow$ \textbf{[0]}} \\
+            C ($\sfrac{5}{14}$) & A ($\sfrac{3}{14}$) & \multicolumn{2}{c}{EB ($\sfrac{3}{14} + \sfrac{1}{14}$)} & \multicolumn{2}{c}{DF ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            & & \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} \\
+            & & E ($\sfrac{3}{14}$) & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) & F ($\sfrac{1}{14}$) \\
+        \end{tabular}
+    \end{table}
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|r|c|c|c|c|c|c|}
-\hline
-\textbf{Символ} & C & A & E & B & D & F \\ \hline
-% \textbf{Вероятность} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\ \hline
-\textbf{Код} & 11 & 10 & 011 & 010 & 001 & 000 \\ \hline
-\end{tabular}
-\end{table}
+    Получим следующую таблицу для кодировки:
+    \nopagebreak[4]
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|r|c|c|c|c|c|c|}
+            \hline
+            \textbf{Символ} & C & A & E & B & D & F \\ \hline
+            % \textbf{Вероятность} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\ \hline
+            \textbf{Код} & 11 & 10 & 011 & 010 & 001 & 000 \\ \hline
+        \end{tabular}
+    \end{table}
 
-\noindent
-Исходная последовательность AAABCCCCCDEEEF кодируется следующей: $10.10.10.010.11.11.11.11.11.001.011.011.011.000$ --- 34 бита.
+    \answer%
+    Исходная последовательность AAABCCCCCDEEEF кодируется следующей: $10.10.10.010.11.11.11.11.11.001.011.011.011.000$ --- 34 бита.
 
-Средняя длина кодового слова:
-\[
-    2 \times \frac{5}{14} + 2 \times \frac{3}{14} + 3 \times \frac{3}{14} + 3 \times \frac{1}{14} + 3 \times \frac{1}{14} + 3 \times \frac{1}{14}  = \frac{34}{14} \approx 2,4
-\]
+    Средняя длина кодового слова:
+    \[
+        2 \times \frac{5}{14} + 2 \times \frac{3}{14} + 3 \times \frac{3}{14} + 3 \times \frac{1}{14} + 3 \times \frac{1}{14} + 3 \times \frac{1}{14}  = \frac{34}{14} \approx 2,4
+    \]
+\end{example}

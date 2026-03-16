@@ -29,88 +29,78 @@
     \item Символ входного (первичного) алфавита кодируется последовательностью нулей и единиц в соответствии с распределением их от корня дерева к узлам (листьям).
 \end{enumerate}
 
-\example*{1}
-\task%
-Составить код Хаффмана для неоптимальных префиксных кодов для последовательности AAABCCCCCDEEEF. Найти среднюю длину кодового слова.
-\solution%
-Составим список свободных узлов для исходной последовательности:
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|r|c|c|c|c|c|c|}
-    \hline
-    \textbf{Символ} & A & B & C & D & E & F \\ \hline
-    \textbf{Вероятность} & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{5}{14}$ & $\sfrac{1}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ \\ \hline
-    \end{tabular}
-\end{table}
-% \begin{itemize}
-%     \item Символ $A$ с вероятностью $\sfrac{3}{14}$;
-%     \item Символ $B$ с вероятностью $\sfrac{1}{14}$;
-%     \item Символ $C$ с вероятностью $\sfrac{5}{14}$;
-%     \item Символ $D$ с вероятностью $\sfrac{1}{14}$;
-%     \item Символ $E$ с вероятностью $\sfrac{3}{14}$;
-%     \item Символ $F$ с вероятностью $\sfrac{1}{14}$;
-% \end{itemize}
+\begin{example}
+    \task%
+    Составить код Хаффмана для неоптимальных префиксных кодов для последовательности AAABCCCCCDEEEF. Найти среднюю длину кодового слова.
 
-\noindent
-Построим кодовое дерево:
+    \solution%
+    Составим список свободных узлов для исходной последовательности:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|r|c|c|c|c|c|c|}
+        \hline
+        \textbf{Символ} & A & B & C & D & E & F \\ \hline
+        \textbf{Вероятность} & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{5}{14}$ & $\sfrac{1}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ \\ \hline
+        \end{tabular}
+    \end{table}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c c c c c c}
+    Построим кодовое дерево:
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c c c c c}
+            \multicolumn{6}{l}{DBFAEC ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{5}{14}$)} \\
+            $\swarrow$ & \multicolumn{4}{c}{$\searrow$} & \\
+            C ($\sfrac{5}{14}$) & \multicolumn{5}{l}{DBFAE ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14} + \sfrac{3}{14}$)} \\
+            & $\swarrow$ & \multicolumn{3}{c}{$\searrow$} & \\
+            & E ($\sfrac{3}{14}$) & \multicolumn{4}{l}{DBFA ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14}$)} \\
+            & & $\swarrow$ & \multicolumn{2}{c}{$\searrow$} & \\
+            & & A ($\sfrac{3}{14}$) & \multicolumn{3}{l}{DBF ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            & & & $\swarrow$ & $\searrow$ & \\
+            & & & F ($\sfrac{1}{14}$) & \multicolumn{2}{c}{DB ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
+            & & & & $\swarrow$ & $\searrow$ \\
+            & & & & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) \\
+        \end{tabular}
+    \end{table}
+
+    Одной дуге, выходящей из родителя (узлу с большим весом), присвоим значение $1$, а другой (узлу с меньшим весом) --- значение $0$.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c c c c c}
         \multicolumn{6}{l}{DBFAEC ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{5}{14}$)} \\
-        $\swarrow$ & \multicolumn{4}{c}{$\searrow$} & \\
+        \textbf{[0]} $\swarrow$ & \multicolumn{4}{c}{$\searrow$ \textbf{[1]}} & \\
         C ($\sfrac{5}{14}$) & \multicolumn{5}{l}{DBFAE ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14} + \sfrac{3}{14}$)} \\
-        & $\swarrow$ & \multicolumn{3}{c}{$\searrow$} & \\
+        & \textbf{[0]} $\swarrow$ & \multicolumn{3}{c}{$\searrow$ \textbf{[1]}} & \\
         & E ($\sfrac{3}{14}$) & \multicolumn{4}{l}{DBFA ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14}$)} \\
-        & & $\swarrow$ & \multicolumn{2}{c}{$\searrow$} & \\
+        & & \textbf{[0]} $\swarrow$ & \multicolumn{2}{c}{$\searrow$ \textbf{[1]}} & \\
         & & A ($\sfrac{3}{14}$) & \multicolumn{3}{l}{DBF ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-        & & & $\swarrow$ & $\searrow$ & \\
+        & & & \textbf{[0]} $\swarrow$ & $\searrow$ \textbf{[1]} & \\
         & & & F ($\sfrac{1}{14}$) & \multicolumn{2}{c}{DB ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
-        & & & & $\swarrow$ & $\searrow$ \\
+        & & & & \textbf{[0]} $\swarrow$ & $\searrow$  \textbf{[1]} \\
         & & & & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) \\
-    \end{tabular}
-\end{table}
+        \end{tabular}
+    \end{table}
 
-\noindent
-Одной дуге, выходящей из родителя (узлу с большим весом), присвоим значение $1$, а другой (узлу с меньшим весом) --- значение $0$.
+    Получим следующую таблицу для кодировки:
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c c c c c c}
-    \multicolumn{6}{l}{DBFAEC ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{5}{14}$)} \\
-    \textbf{[0]} $\swarrow$ & \multicolumn{4}{c}{$\searrow$ \textbf{[1]}} & \\
-    C ($\sfrac{5}{14}$) & \multicolumn{5}{l}{DBFAE ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14} + \sfrac{3}{14}$)} \\
-    & \textbf{[0]} $\swarrow$ & \multicolumn{3}{c}{$\searrow$ \textbf{[1]}} & \\
-    & E ($\sfrac{3}{14}$) & \multicolumn{4}{l}{DBFA ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{3}{14}$)} \\
-    & & \textbf{[0]} $\swarrow$ & \multicolumn{2}{c}{$\searrow$ \textbf{[1]}} & \\
-    & & A ($\sfrac{3}{14}$) & \multicolumn{3}{l}{DBF ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-    & & & \textbf{[0]} $\swarrow$ & $\searrow$ \textbf{[1]} & \\
-    & & & F ($\sfrac{1}{14}$) & \multicolumn{2}{c}{DB ($\sfrac{1}{14} + \sfrac{1}{14}$)} \\
-    & & & & \textbf{[0]} $\swarrow$ & $\searrow$  \textbf{[1]} \\
-    & & & & B ($\sfrac{1}{14}$) & D ($\sfrac{1}{14}$) \\
-    \end{tabular}
-\end{table}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|r|c|c|c|c|c|c|}
+        \hline
+        \textbf{Символ} & A & B & C & D & E & F \\ \hline
+        \textbf{Код} & 110 & 11110 & 0 & 11111 & 10 & 1110 \\ \hline
+        \end{tabular}
+    \end{table}
 
-\noindent
-Получим следующую таблицу для кодировки:
+    \answer%
+    Исходная последовательность AAABCCCCCDEEEF кодируется следующей: $110.110.110.11110.0.0.0.0.0.11111.10.10.10.1110$ --- 34 бита.
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|r|c|c|c|c|c|c|}
-    \hline
-    \textbf{Символ} & A & B & C & D & E & F \\ \hline
-    \textbf{Код} & 110 & 11110 & 0 & 11111 & 10 & 1110 \\ \hline
-    \end{tabular}
-\end{table}
-
-\noindent
-Исходная последовательность AAABCCCCCDEEEF кодируется следующей: $110.110.110.11110.0.0.0.0.0.11111.10.10.10.1110$ --- 34 бита.
-
-\noindent
-Средняя длина кодового слова:
-\[
-    1 \times \frac{5}{14} + 2 \times \frac{3}{14} + 3 \times \frac{3}{14} + 4 \times \frac{1}{14} + 5 \times \frac{1}{14} + 5 \times \frac{1}{14} = \frac{34}{14} \approx 2,4
-\]
+    Средняя длина кодового слова:
+    \[
+        1 \times \frac{5}{14} + 2 \times \frac{3}{14} + 3 \times \frac{3}{14} + 4 \times \frac{1}{14} + 5 \times \frac{1}{14} + 5 \times \frac{1}{14} = \frac{34}{14} \approx 2,4
+    \]
+\end{example}
 
 \paragraph{Алгоритм Хаффмана для оптимальных префиксных кодов}\label{par:huffman-algo-optimal}
 
@@ -124,109 +114,87 @@
     \item Символ входного (первичного) алфавита кодируется последовательностью нулей и единиц в соответствии с распределением их от корня к узлам.
 \end{enumerate}
 
-\example*{2}
-\task%
-Составить код Хаффмана для неоптимальных префиксных кодов для последовательности AAABCCCCCDEEEF. Найти среднюю длину кодового слова.
-\solution%
-Составим список свободных узлов для исходной последовательности:
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|r|c|c|c|c|c|c|}
-        \hline
-        \textbf{Символ} & C & A & E & B & D & F \\\hline
-        \textbf{Вероятность, $p$} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\\hline
-    \end{tabular}
-\end{table}
+\begin{example}
+    \task%
+    Составить код Хаффмана для неоптимальных префиксных кодов для последовательности AAABCCCCCDEEEF. Найти среднюю длину кодового слова.
 
-\noindent
-Построим таблицу
+    \solution%
+    Составим список свободных узлов для исходной последовательности:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|r|c|c|c|c|c|c|}
+            \hline
+            \textbf{Символ} & C & A & E & B & D & F \\\hline
+            \textbf{Вероятность, $p$} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\\hline
+        \end{tabular}
+    \end{table}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|l|c||l|c||l|c||l|c||l|c|}
-        \hhline{--||--||--||--||--}
-        C & $\sfrac{5}{14}$ & C & $\sfrac{5}{14}$ & C & $\sfrac{5}{14}$ & EDFB & $\sfrac{6}{14}$ & CA & $\sfrac{8}{14}$ \\
-        A & $\sfrac{3}{14}$ & A & $\sfrac{3}{14}$ & A & $\sfrac{3}{14}$ & C & $\sfrac{5}{14}$ & EDFB & $\sfrac{6}{14}$ \\
-        E & $\sfrac{3}{14}$ & E & $\sfrac{3}{14}$ & E & $\sfrac{3}{14}$ & A & $\sfrac{3}{14}$ & & \\
-        B & $\sfrac{1}{14}$ & DF & $\sfrac{2}{14}$ & DFB & $\sfrac{3}{14}$ & & & &\\
-        D & $\sfrac{1}{14}$ & B & $\sfrac{1}{14}$ & & & & & &\\
-        F & $\sfrac{1}{14}$ & & & & & & & &\\
-        \hhline{--||--||--||--||--}
-    \end{tabular}
-\end{table}
+    Построим таблицу
 
-\par\noindent
-Верхнему узлу (с большим весом) присвоим значение $1$, а нижнему (с меньшим весом) --- $0$:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|c||l|c||l|c||l|c||l|c|}
+            \hhline{--||--||--||--||--}
+            C & $\sfrac{5}{14}$ & C & $\sfrac{5}{14}$ & C & $\sfrac{5}{14}$ & EDFB & $\sfrac{6}{14}$ & CA & $\sfrac{8}{14}$ \\
+            A & $\sfrac{3}{14}$ & A & $\sfrac{3}{14}$ & A & $\sfrac{3}{14}$ & C & $\sfrac{5}{14}$ & EDFB & $\sfrac{6}{14}$ \\
+            E & $\sfrac{3}{14}$ & E & $\sfrac{3}{14}$ & E & $\sfrac{3}{14}$ & A & $\sfrac{3}{14}$ & & \\
+            B & $\sfrac{1}{14}$ & DF & $\sfrac{2}{14}$ & DFB & $\sfrac{3}{14}$ & & & &\\
+            D & $\sfrac{1}{14}$ & B & $\sfrac{1}{14}$ & & & & & &\\
+            F & $\sfrac{1}{14}$ & & & & & & & &\\
+            \hhline{--||--||--||--||--}
+        \end{tabular}
+    \end{table}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        C & C & C & EDFB & CA \textbf{[1]} \\
-        A & A & A & C \textbf{[1]} & EDFB \textbf{[0]} \\
-        E & E & E \textbf{[1]}   & A \textbf{[0]} & \\
-        B & DF \textbf{[1]} & DFB \textbf{[0]} & & \\
-        D \textbf{[1]} & B \textbf{[0]} & & & \\
-        F \textbf{[0]} & & & & \\
-        \hline
-    \end{tabular}
-\end{table}
+    Верхнему узлу (с большим весом) присвоим значение $1$, а нижнему (с меньшим весом) --- $0$:
 
-% \begin{table}[H]
-% \begin{tabular}{|r|c|c|c|c|c|c|}
-% \hline
-% \textbf{Символ} & C & A & E & B & D \textbf{[1]} & F \textbf{[0]} \\ \hline
-% \textbf{Вероятность, $p$} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ & $\sfrac{1}{14}$ \\ \hline\hline
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            C & C & C & EDFB & CA \textbf{[1]} \\
+            A & A & A & C \textbf{[1]} & EDFB \textbf{[0]} \\
+            E & E & E \textbf{[1]}   & A \textbf{[0]} & \\
+            B & DF \textbf{[1]} & DFB \textbf{[0]} & & \\
+            D \textbf{[1]} & B \textbf{[0]} & & & \\
+            F \textbf{[0]} & & & & \\
+            \hline
+        \end{tabular}
+    \end{table}
 
-% \textbf{Символ} & C & A & E & \multicolumn{2}{c|}{DF \textbf{[1]}} & B \textbf{[0]} \\ \hline
-% \textbf{Вероятность, $p$} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$  & \multicolumn{2}{c|}{$\sfrac{2}{14}$} & $\sfrac{1}{14}$ \\ \hline\hline
+    Построим кодовое дерево:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{cccccc}
+        \multicolumn{6}{c}{CAEDFB ($\sfrac{5}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+        \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & \multicolumn{4}{c}{$\searrow$ \textbf{[0]}} \\
+        \multicolumn{2}{c}{CA ($\sfrac{5}{14} + \sfrac{3}{14}$)} & \multicolumn{4}{c}{EDFB ($\sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+        \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \textbf{[1]} $\swarrow$ & \multicolumn{3}{c}{$\searrow$ \textbf{[0]}} \\
+        C ($\sfrac{5}{14}$) & A ($\sfrac{3}{14}$) & E $(\sfrac{3}{14})$ & \multicolumn{3}{c}{DFB ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
+        & & & \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & $\searrow$ \textbf{[0]} \\
+        & & & \multicolumn{2}{c}{DF ($\sfrac{1}{14} + \sfrac{1}{14}$)} & B ($\sfrac{1}{14}$) \\
+        & & & \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \\
+        & & & D $(\sfrac{1}{14})$ & F $(\sfrac{1}{14})$ & \\
+        \end{tabular}
+    \end{table}
 
-% \textbf{Символ} & C & A & E \textbf{[1]} & \multicolumn{3}{c|}{DFB \textbf{[0]}} \\ \hline
-% \textbf{Вероятность, $p$} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$ & $\sfrac{3}{14}$  & \multicolumn{3}{c|}{$\sfrac{3}{14}$} \\ \hline\hline
+    Получим следующую таблицу для кодировки:
 
-% \textbf{Символ} & \multicolumn{4}{c|}{EDFB} & C \textbf{[1]} & A \textbf{[0]} \\ \hline
-% \textbf{Вероятность, $p$} & \multicolumn{4}{c|}{$\sfrac{6}{14}$} & $\sfrac{5}{14}$ & $\sfrac{3}{14}$  \\ \hline\hline
+    \begin{table}[H]
+        \centering
+        \begin{tabularx}{0.7\linewidth}{|r|C|C|C|C|C|C|}
+            \hline
+            \textbf{Символ} & A  & B & C & D & E & F \\ \hline
+            \textbf{Код}    & 10 & 000 & 11 & 0011 & 01 & 0010 \\ \hline
+        \end{tabularx}
+    \end{table}
 
-% \textbf{Символ} & \multicolumn{2}{c|}{CA \textbf{[1]}} & \multicolumn{4}{c|}{EDFB \textbf{[0]}} \\ \hline
-% \textbf{Вероятность, $p$} & \multicolumn{2}{c|}{$\sfrac{8}{14}$} & \multicolumn{4}{c|}{$\sfrac{6}{14}$} \\ \hline
-% \end{tabular}
-% \end{table}
+    \answer%
+    Исходная последовательность AAABCCCCCDEEEF кодируется следующей: $10.10.10.000.11.11.11.11.11.0011.01.01.01.0010$ --- 33 бита.
 
-\par\noindent
-Построим кодовое дерево:
-\begin{table}[H]
-    \centering
-    \begin{tabular}{cccccc}
-    \multicolumn{6}{c}{CAEDFB ($\sfrac{5}{14} + \sfrac{3}{14} + \sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-    \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & \multicolumn{4}{c}{$\searrow$ \textbf{[0]}} \\
-    \multicolumn{2}{c}{CA ($\sfrac{5}{14} + \sfrac{3}{14}$)} & \multicolumn{4}{c}{EDFB ($\sfrac{3}{14} + \sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-    \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \textbf{[1]} $\swarrow$ & \multicolumn{3}{c}{$\searrow$ \textbf{[0]}} \\
-    C ($\sfrac{5}{14}$) & A ($\sfrac{3}{14}$) & E $(\sfrac{3}{14})$ & \multicolumn{3}{c}{DFB ($\sfrac{1}{14} + \sfrac{1}{14} + \sfrac{1}{14}$)} \\
-    & & & \multicolumn{2}{c}{\textbf{[1]} $\swarrow$} & $\searrow$ \textbf{[0]} \\
-    & & & \multicolumn{2}{c}{DF ($\sfrac{1}{14} + \sfrac{1}{14}$)} & B ($\sfrac{1}{14}$) \\
-    & & & \textbf{[1]} $\swarrow$ & $\searrow$ \textbf{[0]} & \\
-    & & & D $(\sfrac{1}{14})$ & F $(\sfrac{1}{14})$ & \\
-    \end{tabular}
-\end{table}
-
-\par\noindent
-Получим следующую таблицу для кодировки:
-
-\begin{table}[H]
-    \centering
-    \begin{tabularx}{0.7\linewidth}{|r|C|C|C|C|C|C|}
-        \hline
-        \textbf{Символ} & A  & B & C & D & E & F \\ \hline
-        \textbf{Код}    & 10 & 000 & 11 & 0011 & 01 & 0010 \\ \hline
-    \end{tabularx}
-\end{table}
-
-\par\noindent
-Исходная последовательность AAABCCCCCDEEEF кодируется следующей: $10.10.10.000.11.11.11.11.11.0011.01.01.01.0010$ --- 33 бита.
-
-Средняя длина кодового слова:
-\[
-    2 \times \frac{5}{14} + 2 \times \frac{3}{14} + 2 \times \frac{3}{14} + 3 \times \frac{1}{14} + 4 \times \frac{1}{14} + 4 \times \frac{1}{14} = \frac{33}{14} \approx 2,35
-\]
+    Средняя длина кодового слова:
+    \[
+        2 \times \frac{5}{14} + 2 \times \frac{3}{14} + 2 \times \frac{3}{14} + 3 \times \frac{1}{14} + 4 \times \frac{1}{14} + 4 \times \frac{1}{14} = \frac{33}{14} \approx 2,35
+    \]
+\end{example}
 
 Классический алгоритм Хаффмана имеет один существенный недостаток. Для восстановления содержимого сжатого текста при декодировании необходимо знать таблицу частот, которую использовали при кодировании. Следовательно, длина сжатого текста увеличивается на длину таблицы частот, которая должна посылаться впереди данных, что может свести на нет все усилия по сжатию данных. Кроме того, необходимость наличия полной частотной статистики перед началом собственно кодирования требует двух проходов по тексту: одного для построения модели текста (таблицы частот и дерева Хаффмана), другого для собственно кодирования.

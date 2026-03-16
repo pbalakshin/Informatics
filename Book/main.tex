@@ -138,7 +138,6 @@
 \usepackage{array}
 \usepackage{makecell}
 \usepackage{multirow}
-\usepackage{tabularray}
 
 \renewcommand\theadfont{\normalsize\bfseries}
 
@@ -148,6 +147,9 @@
 
 \renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 
+\usepackage{tabularray}
+\AddToHook{env/tblr/before}{\vspace{2ex}}
+\AddToHook{env/tblr/after}{\vspace{2ex}}
 % =============================================================================
 % СПИСКИ И ПЕРЕЧНИ
 % =============================================================================
@@ -214,24 +216,36 @@
 \providecommand\phantomsection{}
 
 % =============================================================================
-% КОМАНДЫ ДЛЯ ПРИМЕРОВ И ЗАДАНИЙ
+% ОКРУЖЕНИЕ EXAMPLE С АВТОМАТИЧЕСКОЙ НУМЕРАЦИЕЙ
 % =============================================================================
-\NewDocumentCommand{\example}{s m}{
-    \par\IfBooleanT{#1}{\bigskip}\noindent
-    \textbf{\uline{Пример #2:}}\xspace
-    \nopagebreak[4]
+\newcounter{examplenum}[subsubsection]
+
+% Окружение example (с отступом сверху)
+\newenvironment{example}
+{%
+    \refstepcounter{examplenum}%
+    \begin{list}{}{%
+        \setlength{\labelwidth}{2cm}%
+        \setlength{\leftmargin}{2.5cm}%
+        \setlength{\labelsep}{0.5cm}%
+        \setlength{\itemsep}{2pt}%
+        \setlength{\parsep}{0pt}%
+        \renewcommand{\makelabel}[1]{\hfill\textit{##1}}%
+    }%
+    \item[\fontseries{bx}\fontshape{n}\selectfont\uline{Пример~\theexamplenum:}]
+}{%
+    \end{list}%
 }
-\NewDocumentCommand{\task}{}{
-    \par\smallskip\noindent
-    \textit{\uline{Задание:}}\xspace
-}
-\NewDocumentCommand{\solution}{}{
-    \par\noindent
-    \textit{\uline{Решение:}}\xspace
-}
-\NewDocumentCommand{\answer}{}{
-    \par\noindent
-    \textit{\uline{Ответ:}}\xspace
+
+% Команды для использования внутри окружения example
+\NewDocumentCommand{\task}{}{\item[\uline{Задание:}]}
+\NewDocumentCommand{\solution}{}{\item[\uline{Решение:}]}
+\NewDocumentCommand{\answer}{}{\item[\uline{Ответ:}]}
+
+% Inline-команда для примеров внутри текста
+\newcommand{\ex}{%
+    \refstepcounter{examplenum}%
+    \textbf{Пример~\theexamplenum:}\xspace
 }
 
 % =============================================================================

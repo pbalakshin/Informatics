@@ -184,61 +184,59 @@
 
 Чтобы получить правильную последовательность, необходимо инвертировать ошибочный бит.
 
-\example*{1}
-\task%
-Получена последовательность 1100100. Вычислить ошибочный бит, записать правильную последовательность.
-\solution%
-Составим таблицу кода (7,4) с конкретной последовательностью.
+\begin{example}
+    \task%
+    Получена последовательность 1100100. Вычислить ошибочный бит, записать правильную последовательность.
 
-\begin{center}
-    \begin{tblr}{
-        hlines, vlines,
-        colspec = {*{9}{c}},
-        row{3} = {bg=gray!10},
-        cell{4}{2,4,6,8} = {bg=iogreen},
-        cell{5}{3,4,7,8} = {bg=ioyellow},
-        cell{6}{5,6,7,8} = {bg=ioorange},
-    }
-        & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\
-        & 1 & 1 & 0 & 0 & 1 & 0 & 0 & \\
-        $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $S$ \\
-        1 & X & & X & & X & & X & $s_{1}$ \\
-        2 & & X & X & & & X & X & $s_{2}$ \\
-        4 & & & & X & X & X & X & $s_{3}$ \\
-    \end{tblr}
-\end{center}
+    \solution%
+    Составим таблицу кода (7,4) с конкретной последовательностью.
 
+    \begin{center}
+        \begin{tblr}{
+            hlines, vlines,
+            colspec = {*{9}{c}},
+            row{3} = {bg=gray!10},
+            cell{4}{2,4,6,8} = {bg=iogreen},
+            cell{5}{3,4,7,8} = {bg=ioyellow},
+            cell{6}{5,6,7,8} = {bg=ioorange},
+        }
+            & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \\
+            & 1 & 1 & 0 & 0 & 1 & 0 & 0 & \\
+            $2^k$ & $r_{1}$ & $r_{2}$ & $i_{1}$ & $r_{3}$ & $i_{2}$ & $i_{3}$ & $i_{4}$ & $S$ \\
+            1 & X & & X & & X & & X & $s_{1}$ \\
+            2 & & X & X & & & X & X & $s_{2}$ \\
+            4 & & & & X & X & X & X & $s_{3}$ \\
+        \end{tblr}
+    \end{center}
 
-\noindent
-Рассчитаем значение контрольных бит результата:
+    Рассчитаем значение контрольных бит результата:
 
-\noindent
-\begin{equation*}
-    \begin{aligned}
-        r_{1\text{ рез}} &= i_1 \oplus i_2 \oplus i_4 &= 0 \oplus 1 \oplus 0 &= 1; \\
-        r_{2\text{ рез}} &= i_1 \oplus i_3 \oplus i_4 &= 0 \oplus 0 \oplus 0 &= 0; \\
-        r_{3\text{ рез}} &= i_2 \oplus i_3 \oplus i_4 &= 1 \oplus 0 \oplus 0 &= 1; \\
-    \end{aligned}
-\end{equation*}
+    \noindent
+    \begin{equation*}
+        \begin{aligned}
+            r_{1\text{ рез}} &= i_1 \oplus i_2 \oplus i_4 &= 0 \oplus 1 \oplus 0 &= 1; \\
+            r_{2\text{ рез}} &= i_1 \oplus i_3 \oplus i_4 &= 0 \oplus 0 \oplus 0 &= 0; \\
+            r_{3\text{ рез}} &= i_2 \oplus i_3 \oplus i_4 &= 1 \oplus 0 \oplus 0 &= 1; \\
+        \end{aligned}
+    \end{equation*}
 
-\noindent
-Рассчитаем синдромы:
+    Рассчитаем синдромы:
 
-\noindent
-\begin{equation*}
-    \begin{aligned}
-        s_1 &= r_1 \oplus i_1 \oplus i_2 \oplus i_4 &= r_{1\text{ рез}} \oplus r_{1\text{ исх}} &= 1 \oplus 1 &= 0; \\
-        s_2 &= r_2 \oplus i_1 \oplus i_3 \oplus i_4 &= r_{2\text{ рез}} \oplus r_{2\text{ исх}} &= 0 \oplus 1 &= 1; \\
-        s_3 &= r_3 \oplus i_2 \oplus i_3 \oplus i_4 &= r_{3\text{ рез}} \oplus r_{3\text{ исх}} &= 1 \oplus 0 &= 1; \\
-    \end{aligned}
-\end{equation*}
+    \begin{equation*}
+        \begin{aligned}
+            s_1 &= r_1 \oplus i_1 \oplus i_2 \oplus i_4 &= r_{1\text{ рез}} \oplus r_{1\text{ исх}} &= 1 \oplus 1 &= 0; \\
+            s_2 &= r_2 \oplus i_1 \oplus i_3 \oplus i_4 &= r_{2\text{ рез}} \oplus r_{2\text{ исх}} &= 0 \oplus 1 &= 1; \\
+            s_3 &= r_3 \oplus i_2 \oplus i_3 \oplus i_4 &= r_{3\text{ рез}} \oplus r_{3\text{ исх}} &= 1 \oplus 0 &= 1; \\
+        \end{aligned}
+    \end{equation*}
 
-\noindent
-Полученный синдром: $S(0,1,1)$. \\
-Смотрим по таблице, какой бит содержится в $s_2$ и $s_3$ одновременно. 6, то есть $i_3$.
-Инвертируем ошибочный бит и получаем правильную последовательность.
+    Полученный синдром: $S(0,1,1)$. \\
+    Смотрим по таблице, какой бит содержится в $s_2$ и $s_3$ одновременно. 6, то есть $i_3$.
+    Инвертируем ошибочный бит и получаем правильную последовательность.
 
-\answer{} 6 бит ($i_3$), правильная последовательность: 1100110.
+    \answer%
+    6 бит ($i_3$), правильная последовательность: 1100110.
+\end{example}
 
 \begin{figure}[H]
      \includegraphics[width=\linewidth]{6.2-hamming-encoder}
