@@ -148,8 +148,7 @@
 \renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 
 \usepackage{tabularray}
-\AddToHook{env/tblr/before}{\vspace{2ex}}
-\AddToHook{env/tblr/after}{\vspace{2ex}}
+
 % =============================================================================
 % СПИСКИ И ПЕРЕЧНИ
 % =============================================================================
@@ -263,6 +262,33 @@
       \renewcommand{\makelabel}[1]{##1\hfill}}}
   {\end{list}}
 
+\newcommand{\hiddensection}[1]{
+    \phantomsection%
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\hiddensubsection}[1]{
+    \phantomsection%
+    \subsection*{#1}
+    \addcontentsline{toc}{subsection}{#1}
+}
+
+\newcommand{\hiddensubsubsection}[1]{
+    \phantomsection%
+    \subsubsection*{#1}
+    \addcontentsline{toc}{subsubsection}{#1}
+}
+
+% =============================================================================
+% Различные хуки
+% =============================================================================
+\AddToHook{env/tblr/before}{\vspace{2ex}}
+\AddToHook{env/tblr/after}{\vspace{2ex}}
+
+\AddToHook{cmd/section/before}{\clearpage}
+\AddToHook{cmd/section*/before}{\clearpage}
+
 % =============================================================================
 % ПУТЬ ДЛЯ КАРТИНОК
 % =============================================================================
@@ -281,9 +307,9 @@
 \nocite{*}
 
 % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
-\include{0_title_page} % обложка, не идёт в счёт страниц
-\include{1_first_page}
-\include{2_description}
+\input{0_title_page} % обложка, не идёт в счёт страниц
+\input{1_first_page}
+\input{2_description}
 
 % Вставка оглавления, начиная с 3 страницы
 \setcounter{page}{3}
@@ -295,34 +321,24 @@
 \clearpage
 \listoftodos%
 
+\input{3_introduction}
 \input{src/00_about_the_course}
-\clearpage
 \input{src/01_theory}
-\clearpage
 \input{src/02_data_measurement_units}
-\clearpage
 \input{src/03_notation_systems}
-\clearpage
 \input{src/04_limited_arithmetics}
-\clearpage
 \input{src/05_data_compression}
-\clearpage
 \input{src/06_error_correcting_coding}
-\clearpage
 \input{src/07_boolean_algebra}
-\clearpage
 \input{src/08_software}
-\clearpage
 \input{src/09_machine}
-\clearpage
 \input{src/10_memory}
-\clearpage
 \input{src/11_osi}
 
-\include{4_conclusion}
+\input{4_conclusion}
 
 \addbibliography{Список использованных и рекомендованных источников}
 
-\include{5_last_page}
-\include{6_back_page} %задняя страница обложки, не идёт в счёт страниц
+\input{5_last_page}
+\input{6_back_page} %задняя страница обложки, не идёт в счёт страниц
 \end{document} % chktex 17
