@@ -178,7 +178,7 @@
 % =============================================================================
 % TODO ЗАМЕТКИ
 % =============================================================================
-\usepackage{todonotes}
+\usepackage[colorinlistoftodos]{todonotes}
 \presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
 %% Закомментировать при дебаге и раскомментировать при релизе
 %% наличие данной команды убирает все блоки todo с документа
@@ -290,7 +290,11 @@
 \addtocontents{toc}{\protect\sloppy}
 \tableofcontents
 
+% TODO: remove
+\todototoc%
 \clearpage
+\listoftodos%
+
 \input{src/00_about_the_course}
 \clearpage
 \input{src/01_theory}
