@@ -104,6 +104,63 @@ jobs:
           retention-days: 30
           if-no-files-found: error
 
+      - name: Comment PR with PDF download link
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const artifactName = 'informatics-pdf';
+            const prNumber = context.issue.number;
+
+            // Get artifact info
+            const artifacts = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: artifactName,
+              per_page: 1
+            });
+
+            if (artifacts.data.artifacts.length === 0) {
+              console.error('No artifacts found');
+              return;
+            }
+
+            const artifact = artifacts.data.artifacts[0];
+            const artifactId = artifact.id;
+            const downloadUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/${context.runId}/artifacts/${artifactId}`;
+
+            const commentBody = `## 📄 PDF собран\n\n[📥 Скачать informatics.pdf](${downloadUrl})\n\n> Артефакт доступен в течение 30 дней.`;
+
+            // Check if we already commented
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+
+            const existingComment = comments.data.find(c =>
+              c.user.type === 'Bot' && c.body.includes('📄 PDF собран')
+            );
+
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existingComment.id,
+                body: commentBody
+              });
+              console.log('Updated existing comment');
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+              console.log('Created new comment');
+            }
+
       # - name: Commit and push PDF
       #   uses: stefanzweifel/git-auto-commit-action@v5
       #   with:
