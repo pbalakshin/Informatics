@@ -138,27 +138,24 @@
 Рассмотрим конкретно контроль информационных бит проверочными на кругах Эйлера:
 
 \begin{figure}[H]
+    \begin{minipage}[c]{0.3\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{6.2-euler_r3}
+    \end{minipage}%
+    \begin{minipage}[c]{0.7\textwidth}
+        Видно, что $r_1$ контролирует $i_1$, $i_2$ и $i_4$; $r_2$ контролирует $i_1$, $i_3$ и $i_4$; а $r_3$ контролирует $i_2$, $i_3$ и $i_4$.
 
-\begin{wrapfigure}{l}{.3\textwidth}
-    \centering
-    \vspace{-\intextsep}
-    \includegraphics[width=.25\textwidth]{6.2-euler_r3}
-\end{wrapfigure}
-
-\noindent
-Видно, что $r_1$ контролирует $i_1$, $i_2$ и $i_4$; $r_2$ контролирует $i_1$, $i_3$ и $i_4$; а $r_3$ контролирует $i_2$, $i_3$ и $i_4$.
-
-\noindent
-\begin{equation*}
-    \begin{aligned}
-        r_1 &= i_1 \oplus i_2 \oplus i_4; \\
-        r_2 &= i_1 \oplus i_3 \oplus i_4; \\
-        r_3 &= i_2 \oplus i_3 \oplus i_4; \\
-        s_1 &= r_1 \oplus i_1 \oplus i_2 \oplus i_4; \\
-        s_2 &= r_2 \oplus i_1 \oplus i_3 \oplus i_4; \\
-        s_3 &= r_3 \oplus i_2 \oplus i_3 \oplus i_4;
-    \end{aligned}
-\end{equation*}
+        \begin{equation*}
+            \begin{aligned}
+                r_1 &= i_1 \oplus i_2 \oplus i_4; \\
+                r_2 &= i_1 \oplus i_3 \oplus i_4; \\
+                r_3 &= i_2 \oplus i_3 \oplus i_4; \\
+                s_1 &= r_1 \oplus i_1 \oplus i_2 \oplus i_4; \\
+                s_2 &= r_2 \oplus i_1 \oplus i_3 \oplus i_4; \\
+                s_3 &= r_3 \oplus i_2 \oplus i_3 \oplus i_4;
+            \end{aligned}
+        \end{equation*}
+    \end{minipage}
 \end{figure}
 
 Рассмотрим таблицу значений синдрома ($s_1;s_2;s_3$) и позицию ошибочного бита в сообщении:
