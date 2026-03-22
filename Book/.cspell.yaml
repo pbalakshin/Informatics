@@ -2,6 +2,10 @@
 $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
 version: "0.2"
 
+# Import dictionaries from npm packages
+import:
+  - "@cspell/dict-ru_ru/cspell-ext.json"
+
 # Languages
 language: ru,en
 languageSettings:
@@ -10,17 +14,66 @@ languageSettings:
 
 # Dictionaries
 dictionaries:
-  - book
-  - latex
+  # Языковые словари
   - ru-ru
-  - en-us
+  - en-gb
+  # Встроенные словари
+  - coding-compound-terms
+  - companies
+  - computing-acronyms
+  - data-science
+  - data-science-models
+  - data-science-tools
+  - dotnet
+  - en-common-misspellings
+  - en-gb-common-misspellings
+  - filetypes
+  - google
+  - latex
+  - networking-terms
+  - public-licenses
+  - shellscript
+  - software-term-suggestions
+  - software-terms-alternative
+  - software-tools
+  - softwareTerms
+  # LaTeX словари
+  - latex-custom
+  # IT и программные термины
+  - software-terms
+  - companies
+  - filetypes
+  - it-terms
+  # Специализированные словари проекта
+  - names
+  - companies-products
+  - data-units
+  - misc
 
 dictionaryDefinitions:
-  - name: book
-    path: ./.cspell/book.txt
+  # Словарь IT-терминов (информатика, теория информации, булева алгебра)
+  - name: it-terms
+    path: ./.cspell/it-terms.txt
     addWords: true
-  - name: latex
+  # LaTeX-команды и переменные проекта
+  - name: latex-custom
     path: ./.cspell/latex.txt
+    addWords: true
+  # Имена собственные (фамилии учёных, имена)
+  - name: names
+    path: ./.cspell/names.txt
+    addWords: true
+  # Названия компаний и продуктов
+  - name: companies-products
+    path: ./.cspell/companies-products.txt
+    addWords: true
+  # Единицы измерения данных
+  - name: data-units
+    path: ./.cspell/data-units.txt
+    addWords: true
+  # Разные термины (Копилефт, трит, исторические названия)
+  - name: misc
+    path: ./.cspell/misc.txt
     addWords: true
 
 # Files to check
@@ -60,7 +113,6 @@ ignorePaths:
   - "**/build/"
   - "**/dist/"
   - ".git/"
-  - ".qwen/"
 
 useGitignore: true
 
