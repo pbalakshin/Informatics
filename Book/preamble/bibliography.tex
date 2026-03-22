@@ -5,11 +5,13 @@
     backend=biber,
     bibencoding=utf8,
     language=auto,
+    style=gost-numeric,% стиль цитирования и библиографии (по ГОСТ)
     autolang=other,
     movenames=false,
     sorting=ntvy,
-    isbn=false,
-    style=gost-numeric,
+    sortcites=true,% сортировать номера затекстовых ссылок при цитировании (если в квадратных скобках несколько ссылок, то отображаться будут отсортированно, а не абы как)
+    doi=false,% Показывать или нет ссылки на DOI
+    isbn=false,% Показывать или нет ISBN, ISSN, ISRN
 ]{biblatex}
 
 \renewcommand*{\mkgostheading}[1]{#1}
@@ -18,6 +20,10 @@
 \providecommand{\mkyearzeros}{}
 \providecommand{\dateeraprint}[1]{}
 \providecommand{\dateuncertainprint}{}
+
+\DeclareFieldFormat{urldate}{%
+    \mkbibparens{Дата обращения\addcolon\space#1}%
+}
 
 \renewbibmacro*{//}{\nopunct\printtext{\addspace\mbox{//}\addnbspace}}
 \renewcommand*{\newblockpunct}{\textemdash\addnbspace\bibsentence}
