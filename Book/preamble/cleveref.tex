@@ -1,4 +1,6 @@
 % === НАСТРОЙКА CLEVEREF ПОД ГОСТ ===
+% ГОСТ 7.0.5-2008: ссылки на объекты документа должны содержать тип объекта
+% (рис., табл., §, ф-ла и т.д.)
 
 % 1. Загружаем hyperref (обязательно перед cleveref)
 
@@ -7,24 +9,24 @@
 \newcommand{\crefrangeconjunction}{--}
 
 % --- Разделы документа ---
-\crefformat{section}{\S#2#1#3}             % §1
-\crefformat{subsection}{\S#2#1#3}          % §1.1
-\crefformat{subsubsection}{\S#2#1#3}       % §1.1.1
-\crefformat{paragraph}{\S#2#1#3}           % §1.1.1.1
+\crefformat{section}{\S#2#1#3}              % §1
+\crefformat{subsection}{\S#2#1#3}           % §1.1
+\crefformat{subsubsection}{\S#2#1#3}        % §1.1.1
+\crefformat{paragraph}{\S#2#1#3}            % §1.1.1.1
 
 % --- Приложения ---
-\crefformat{appendix}{прил.~#2#1#3}        % прил.~A
-\crefformat{subappendix}{прил.~#2#1#3}     % прил.~A.1
+\crefformat{appendix}{прил.~#2#1#3}         % прил.~A
+\crefformat{subappendix}{прил.~#2#1#3}      % прил.~A.1
 
 % --- Рисунки и Таблицы ---
-\crefformat{figure}{рис.~#2#1#3}           % рис.~1
-\crefformat{subfigure}{рис.~#2#1#3}        % рис.~1a
-\crefformat{table}{табл.~#2#1#3}           % табл.~1
+\crefformat{figure}{рис.~#2#1#3}            % рис.~1
+\crefformat{subfigure}{рис.~#2#1#3}         % рис.~1a
+\crefformat{table}{табл.~#2#1#3}            % табл.~1
 
 % --- Формулы и Листинги ---
-\crefformat{equation}{#2(#1)#3}            % (1) - ГОСТ требует в скобках
-\crefformat{listing}{лист.~#2#1#3}         % лист.~1
-\crefformat{algorithm}{алг.~#2#1#3}        % алг.~1
+\crefformat{equation}{#2(#1)#3}             % (1) - ГОСТ требует в скобках
+\crefformat{listing}{лист.~#2#1#3}          % лист.~1
+\crefformat{algorithm}{алг.~#2#1#3}         % алг.~1
 
 % --- Диапазоны (множественное число) ---
 \crefrangeformat{section}{\S\S#3#1#4--#5#2#6}
