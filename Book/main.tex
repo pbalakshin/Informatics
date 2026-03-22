@@ -1,5 +1,20 @@
 \documentclass[14pt, fleqn]{extarticle}
 
+\newcommand{\docTitle}{Информатика}
+\newcommand{\docType}{Учебно-методическое пособие}
+\newcommand{\docCity}{Санкт-Петербург}
+\newcommand{\docYear}{\the\year}
+\newcommand{\docUniveristy}{Университет ИТМО}
+
+\newcommand{\docAuthors}{П.В.~Балакшин, В.В.~Соснин, Е.А.~Машина, А.В.~Мишенёв}
+
+\newcommand{\docAuthorsFull}{
+    Балакшин Павел Валерьевич \\
+    Соснин Владимир Валерьевич \\
+    Машина Екатерина Алексеевна \\
+    Мишенёв Алексей Вадимович
+}
+
 % =============================================================================
 % ГЕОМЕТРИЯ СТРАНИЦЫ
 % =============================================================================
@@ -190,7 +205,10 @@
 \hypersetup{
     colorlinks,
     linktoc=page,
-    pdflang={ru}
+    pdflang={ru},
+    pdftitle={\docTitle},
+    pdfauthor={\docAuthors},
+    pdfsubject={\docType}
 }
 
 \usepackage{xurl}
@@ -298,7 +316,7 @@
 % НУМЕРАЦИЯ СТРАНИЦ
 % =============================================================================
 \pagestyle{plain}
-\setcounter{page}{2}
+% \setcounter{page}{2}
 
 % =============================================================================
 % ДОКУМЕНТ
@@ -308,18 +326,19 @@
 
 % \todo{Если видно это сообщение - раскомментировать строку в main.tex}
 \input{0_title_page} % обложка, не идёт в счёт страниц
+\clearpage
 \input{1_first_page}
+\clearpage
 \input{2_description}
+
+% TODO: remove
+\clearpage
+\listoftodos%
 
 % Вставка оглавления, начиная с 3 страницы
 \setcounter{page}{3}
 \addtocontents{toc}{\protect\sloppy}
 \tableofcontents
-
-% TODO: remove
-\todototoc%
-\clearpage
-\listoftodos%
 
 \input{3_introduction}
 \input{src/00_about_the_course}
@@ -339,6 +358,8 @@
 
 \addbibliography{Список использованных и рекомендованных источников}
 
+\clearpage
 \input{5_last_page}
+\clearpage
 \input{6_back_page} %задняя страница обложки, не идёт в счёт страниц
 \end{document} % chktex 17
