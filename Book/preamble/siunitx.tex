@@ -6,6 +6,7 @@
 	exponent-product 			= {\cdot},          % Знак умножения (1,5·10³)
 	group-separator 			= {\,},             % Тонкий пробел для группировки
 	group-minimum-digits 	= 4,                % Группировать от 4 цифр
+	group-digits = integer, % Группировать только целую часть
 	uncertainty-mode 			= separate,
 	% separate-uncertainty  = true,
 	% Table 15: Output options for lists, products and ranges of numbers and quantities.
@@ -21,7 +22,6 @@
 	fraction-command 			= \sfrac%           % красивые дроби могут не соответствовать ГОСТ
 ]{siunitx}
 
-\DeclareSIUnit{\rub}{\text{руб.}}
 
 % === Пользовательские команды для информатики ===
 \newcommand{\bits}{\bit}
@@ -40,3 +40,11 @@
 \newcommand{\mbps}{\mega\bit\per\second}
 \newcommand{\gbps}{\giga\bit\per\second}
 \newcommand{\tbps}{\tera\bit\per\second}
+
+
+% ===== Русские обозначение
+
+\DeclareSIUnit{\rub}{\text{руб.}}
+\DeclareSIUnit{\ruBit}{\text{бит}}
+\DeclareSIUnit{\ruErg}{\text{эрг}}
+\DeclareSIUnit{\ruKelvin}{\text{К}}
