@@ -1,25 +1,27 @@
-
 % Partially based on Russian-Phd-LaTeX-Dissertation-Template but using version 3+
+% ГОСТ 2.105: числа и единицы измерения должны оформляться по стандартам
+% ГОСТ 8.417: единицы СИ, правила записи и обозначения
+
 \usepackage[
-	locale 								= DE,               % Запятая для десятичных (3,14)
-	% Table 14: Output options for numbers.
-	exponent-product 			= {\cdot},          % Знак умножения (1,5·10³)
-	group-separator 			= {\,},             % Тонкий пробел для группировки
-	group-minimum-digits 	= 4,                % Группировать от 4 цифр
+    locale=DE,                % Запятая для десятичных (3,14) — ГОСТ требует запятую
+    % Table 14: Output options for numbers.
+    exponent-product={\cdot}, % Знак умножения (1,5·10³) — точка по ГОСТ
+    group-separator={\,},     % Тонкий пробел для группировки — ГОСТ
+    group-minimum-digits=4,   % Группировать от 4 цифр
 	group-digits = integer, % Группировать только целую часть
-	uncertainty-mode 			= separate,
-	% separate-uncertainty  = true,
-	% Table 15: Output options for lists, products and ranges of numbers and quantities.
-	list-separator	 			= {\text{, }},      % Запятая с пробелом
-	list-final-separator 	= {\text{ и }},     % «и» перед последним элементом
-	list-pair-separator 	= {\text{ и }},     % Для пар чисел
-	list-units 						= single,
-	range-units 					= single,
-	% range-phrase            = {\text{\ensuremath{-}}},
-	range-phrase 					= {\text{--}},
-	% Table 19: Unit output options
-	per-mode 							= symbol,
-	fraction-command 			= \sfrac%           % красивые дроби могут не соответствовать ГОСТ
+    uncertainty-mode=separate,
+    % separate-uncertainty=true,
+    % Table 15: Output options for lists, products and ranges of numbers and quantities.
+    list-separator={\text{, }},   % Запятая с пробелом
+    list-final-separator={\text{ и }},  % «и» перед последним элементом
+    list-pair-separator={\text{ и }},   % Для пар чисел
+    list-units=single,
+    range-units=single,
+    % range-phrase={\text{\ensuremath{-}}},
+    range-phrase={\text{--}},   % Тире для диапазонов
+    % Table 19: Unit output options
+    per-mode=symbol,            % Символьное обозначение единиц (м/с, а не м на с)
+    fraction-command=\sfrac%    % красивые дроби могут не соответствовать ГОСТ
 ]{siunitx}
 
 
